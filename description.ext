@@ -1,3 +1,9 @@
 class CfgFunctions {
     #include "modules\grad-persistence\cfgFunctions.hpp"
+    class dvl{
+    	class spawns{
+    		file = "fncs";
+    		class spawnMilLoot {};
+    	};
+    };
 };
