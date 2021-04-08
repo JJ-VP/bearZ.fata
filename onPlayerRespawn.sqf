@@ -14,8 +14,7 @@ _pistols = [
 	["CUP_hgun_glock17_flashlight","CUP_17Rnd_9x19_glock17"]
 	];
 _length = count _pistols;
-_index = random _length;
-systemChat (_pistols select _index select 0);
+_index = random _length - 1;
 player addMagazine (_pistols select _index select 1);
 player addWeapon (_pistols select _index select 0);
 //get list respawn_west markers
