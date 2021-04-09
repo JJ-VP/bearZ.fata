@@ -1,3 +1,17 @@
+/*
+ * initPlayerLocal.sqf
+ * Author: JJ
+ *
+ * Args:
+ * 0: The player unit <OBJECT>
+ * 1: did the unit JIP? <BOOL>
+ *
+ * Return Value:
+ * nil (No return)
+ *
+ * This file is executed by the client when the player first connects to the server.
+ */
+
 waituntil {!(IsNull (findDisplay 46))};
 player allowDamage false;
 titleText ["Loading player data!", "BLACK", 0.01];
