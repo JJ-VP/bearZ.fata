@@ -1,3 +1,16 @@
+/*
+ * spawnMilLoot.sqf
+ * Author: Devils
+ *
+ * Args:
+ * nil (No arguments)
+ *
+ * Return Value:
+ * nil (No return)
+ *
+ * This file is used to spawn military loot in ant box that has "milcrate" anywhere in its variable name.
+ */
+
 //variable init
 _milGear = [
 	"CFP_HV2_Ciras_Olive",

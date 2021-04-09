@@ -1,13 +1,33 @@
+/*
+ * OnPlayerRespawn.sqf
+ * Author: JJ
+ *
+ * Args:
+ * 0: The unit the player is controlling after the respawn <OBJECT>
+ * 1: The unit the player was controlling before the respawn <OBJECT>
+ * 2: The type of respawn <NUMBER>
+ * 3: The respawn delay <NUMBER>
+ *
+ * Return Value:
+ * nil (No return)
+ *
+ * This file is executed by the client when the player unit dies and on load if respawnOnStart is set to 0 or 1 (if set to -1 this file will not be executed at any time)
+ */
+
 waituntil {!(IsNull (findDisplay 46))};
+//Wait for the player to have their interface.
+
 _playerExists = true;
 
 if (isNil backpack player && isNil vest player && isNil primaryWeapon player && isNil secondaryWeapon player && isNil handgunWeapon player) then {
+	//Check if they player has any loot that isnt part of the base loadout
 	_playerExists = false;
 };
 
+
 if (!_playerExists) then {
-	//give player random pistol
-	//gun, mag
+	//If the player has no loadout, give them one.
+	//format is [Weapon, Ammo]
 	_pistols = [
 		["CUP_srifle_CZ550_rail", "CUP_5x_22_LR_17_HMR_M"],
 		["CUP_hgun_Phantom","CUP_18Rnd_9x19_Phantom"],
@@ -22,7 +42,7 @@ if (!_playerExists) then {
 		["CUP_hgun_glock17_flashlight","CUP_17Rnd_9x19_glock17"]
 		];
 	_length = count _pistols;
-	_index = ceil random _length - 1;
+	_index = ceil random _length - 1; //Pick a random gun with ammo
 	player addMagazine (_pistols select _index select 1);
 	player addWeapon (_pistols select _index select 0);
 	//get list respawn_west markers
@@ -38,5 +58,5 @@ if (!_playerExists) then {
 	_temp =  _respawns select _index;
 	_pos = getMarkerPos (_temp);
 	//move player to marker
-	player setPosASL _pos;
+	player setPosASL _pos;//Spawn the player at a random respawn_west marker
 };

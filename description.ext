@@ -1,3 +1,16 @@
+/*
+ * description.ext
+ * Author: Devils
+ *
+ * Args:
+ * nil (No arguments)
+ *
+ * Return Value:
+ * nil (No return)
+ *
+ * This file is the missionConfigFile and is used to define many internal variables used by the arma server
+ */
+
 class CfgFunctions {
     #include "modules\grad-persistence\cfgFunctions.hpp"
     class dvl{
