@@ -38,7 +38,8 @@ if ((backpack player == "") && (vest player == "") && (primaryWeapon player == "
 		];
 	_length = count _pistols;
 	_index = ceil random _length - 1; //Pick a random gun with ammo
-	player addMagazine (_pistols select _index select 1);
+	player addMagazines [(_pistols select _index select 1), ceil ((random 2) + 1)];
+	player addMagazines ["rvg_money", ceil ((random 3) + 1)];
 	player addWeapon (_pistols select _index select 0);
 	//get list respawn_west markers
 	_respawns = [];
