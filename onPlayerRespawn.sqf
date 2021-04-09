@@ -13,21 +13,16 @@
  *
  * This file is executed by the client when the player unit dies and on load if respawnOnStart is set to 0 or 1 (if set to -1 this file will not be executed at any time)
  */
-
-waituntil {!(IsNull (findDisplay 46))};
-//Wait for the player to have their interface.
-
-_playerExists = true;
-
-if (isNil backpack player && isNil vest player && isNil primaryWeapon player && isNil secondaryWeapon player && isNil handgunWeapon player) then {
-	//Check if they player has any loot that isnt part of the base loadout
-	_playerExists = false;
+if (isNil "initDone") then {
+	initDone = false;
 };
 
+waituntil {!(IsNull (findDisplay 46))};
+waituntil {initDone == true};
 
-if (!_playerExists) then {
-	//If the player has no loadout, give them one.
-	//format is [Weapon, Ammo]
+
+if ((backpack player == "") && (vest player == "") && (primaryWeapon player == "") && (secondaryWeapon player == "") && (handgunWeapon player == "")) then {
+	//Check if they player has any loot that isnt part of the base loadout
 	_pistols = [
 		["CUP_srifle_CZ550_rail", "CUP_5x_22_LR_17_HMR_M"],
 		["CUP_hgun_Phantom","CUP_18Rnd_9x19_Phantom"],
