@@ -1,6 +1,6 @@
 /*
  * description.ext
- * Author: Devils
+ * Author: Devils & JJ
  *
  * Args:
  * nil (No arguments)
@@ -11,6 +11,77 @@
  * This file is the missionConfigFile and is used to define many internal variables used by the arma server
  */
 
+author = "Devils & JJ";
+onLoadName = "BearZ";
+loadScreen = "";//Path to load screen image
+
+class Header {
+	gameType = Survive;
+	minPlayers = 0;
+	maxPlayers = 64;
+};
+
+respawnOnStart = 0;
+
+showHUD[] = {
+	1,	// Scripted HUD (same as showHUD command)
+	0,	// Vehicle and unit info
+	0,	// Vehicle radar [HIDDEN]
+	0,	// Vehicle compass [HIDDEN]
+	0,	// Tank direction indicator
+	0,	// Commanding menu
+	0,	// Group info bar
+	1,	// HUD weapon cursors
+	0,	// Vehicle display panels
+	0,	// "x killed by y" systemChat messages
+	1	// force show drawIcon3D icons
+};
+
+showGroupIndicator = 0;
+allowProfileGlasses = 0;
+corpseLimit = 60;
+corpseRemovalMaxTime = 10800; // 3 Hours
+wreckLimit = 15;
+wreckRemovalMaxTime = 18000; //5 Hours
+minPlayerDistance = 300; //Don't delete anything within 300m of a player (Might cause zombie pileups at player bases!!!)
+
+class params {
+	class commonLoot_respawn {
+		title = "Common box loot respawn time";
+		values[] = {0,5,10,15,20,25,30,45,60,120};
+		texts[] = {"Never", "5 minutes", "10 Minutes", "15 Minutes", "20 Minutes", "25 Minutes", "30 Minutes", "45 Minutes", "1 Hour", "2 Hours"};
+		default = 30;
+		code = "var_commonLoot = %1";
+	};
+	class MilitaryLoot_respawn {
+		title = "Military box loot respawn time";
+		values[] = {0,5,10,15,20,25,30,45,60,120};
+		texts[] = {"Never", "5 minutes", "10 Minutes", "15 Minutes", "20 Minutes", "25 Minutes", "30 Minutes", "45 Minutes", "1 Hour", "2 Hours"};
+		default = 30;
+		code = "var_MilitaryLoot = %1";
+	};
+};
+
+briefing = 0;
+debriefing = 0;
+disableChannels[] = {
+	{ 
+		0, //Channel ID
+		true, //Disable text chat
+		true //Disable voice chat
+	}, //Global
+	{ 1, false, true}, //Side
+	{ 2, true, true}, //Command
+	{ 3, false, true}, //Group
+	{ 4, true, true}, //Vehicle
+	{ 5, false, true} //Direct
+};
+
+enableDebugConsole[] = {"76561198119540788","76561198156022880"};
+enableTeamSwitch = 0;
+joinUnassigned = 0;
+//skipLobby = 1; //Un-Comment this for release!!!
+
 class CfgFunctions {
     #include "modules\grad-persistence\cfgFunctions.hpp"
     class dvl{
@@ -18,5 +89,47 @@ class CfgFunctions {
     		file = "fncs";
     		class spawnMilLoot {};
     	};
+    };
+};
+
+class CfgGradPersistence {
+    missionTag = "BearZ";
+    loadOnMissionStart = 1;
+    missionWaitCondition = "true";
+    playerWaitCondition = "true";
+
+    saveUnits = 2;
+    saveVehicles = 2;
+    saveContainers = 2;
+    saveStatics = 2;
+    saveMarkers = 0;
+    saveTasks = 0;
+    saveTriggers = 0;
+
+    savePlayerInventory = 1;
+    savePlayerDamage = 1;
+    savePlayerPosition = 1;
+    savePlayerMoney = 1;
+
+    saveTeamAccounts = 0;
+
+    blacklist[] = {
+        "B_Truck_01_mover_F",
+        "MapBoard_seismic_F"
+    };
+
+    class customVariables {
+        /*/ Variable example for GRAD to save.
+        class var1 {
+            varName = "mcd_myVariable_test";
+            varNamespace = "mission";
+            public = 0;
+        };
+        class var2 {
+            varName = "mcd_myPublicVariableOnAUnit_test";
+            varNamespace = "unit";
+            public = 1;
+        };
+        /*/
     };
 };
