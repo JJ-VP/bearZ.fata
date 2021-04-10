@@ -84,11 +84,18 @@ joinUnassigned = 0;
 
 class CfgFunctions {
     #include "modules\grad-persistence\cfgFunctions.hpp"
-    class dvl{
-    	class spawns{
+    class dvl {
+    	class spawns {
     		file = "fncs";
     		class spawnMilLoot {};
             class spawnLootCache {};
+    	};
+    };
+    class jjx {
+    	class functions {
+    		file = "jjx";
+    		class keys {};
+    		class EH {};
     	};
     };
 };

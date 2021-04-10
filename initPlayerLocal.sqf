@@ -21,3 +21,6 @@ uiSleep 2;
 titleText ["", "BLACK IN", 2];
 uiSleep 2;
 player allowDamage true;
+
+call jjx_fnc_keys;
+call jjx_fnc_EH;

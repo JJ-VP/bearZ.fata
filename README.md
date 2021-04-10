@@ -6,6 +6,4 @@ Items to add:
 - blacklist DLC items from VD dyanmic spawn
 - bigger loot tables
 - more water + food sources
-- keydown event handler
 - add trades to trader
-- disable people from opening trader backpack
