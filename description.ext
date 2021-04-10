@@ -127,17 +127,20 @@ class CfgGradPersistence {
     };
 
     class customVariables {
-        /*/ Variable example for GRAD to save.
-        class var1 {
-            varName = "mcd_myVariable_test";
-            varNamespace = "mission";
+        class thirst {
+            varName = "thirst";
+            varNamespace = "player";
             public = 0;
         };
-        class var2 {
-            varName = "mcd_myPublicVariableOnAUnit_test";
-            varNamespace = "unit";
-            public = 1;
+        class radiation {
+            varName = "radiation";
+            varNamespace = "player";
+            public = 0;
         };
-        /*/
+        class hunger {
+            varName = "hunger";
+            varNamespace = "player";
+            public = 0;
+        };
     };
 };
