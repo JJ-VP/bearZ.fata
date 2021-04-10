@@ -6,10 +6,6 @@ class EditorData
 	scaleGridStep=1;
 	autoGroupingDist=10;
 	toggles=514;
-	mods[]=
-	{
-		"3denEnhanced"
-	};
 	class ItemIDProvider
 	{
 		nextID=763;
