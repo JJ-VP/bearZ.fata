@@ -25,7 +25,7 @@ keyPress = {
 		};
 		case 57: //Jump when player presses space (if running)
 		{
-			if (speed player > 10.6 and speed player < 23.3) then {
+			if (speed player > 12 and speed player < 23.3) then {
 				if  (player == vehicle player and isTouchingGround player) then  {
 
 				_max_height = 4.3;// SET MAX JUMP HEIGHT
