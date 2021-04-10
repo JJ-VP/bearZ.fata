@@ -14,3 +14,4 @@ A DayZ style Arma 3 mission designed for Bear PMC
 	- Building privilige / area
 - Custom traders
 	- Trading GUI
+Duel arms (2 Primarys)
