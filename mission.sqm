@@ -12,11 +12,11 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=698;
+		nextID=763;
 	};
 	class MarkerIDProvider
 	{
-		nextID=11;
+		nextID=12;
 	};
 	class LayerIndexProvider
 	{
@@ -24,10 +24,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={6893.3062,140.99661,6937.6396};
-		dir[]={-0.48633596,-0.31779769,0.81392998};
-		up[]={-0.16300698,0.94815856,0.27280781};
-		aside[]={0.85843235,1.4901161e-008,0.51292688};
+		pos[]={5576.6621,232.53694,5784.0259};
+		dir[]={-0.17369442,-0.78595048,0.59339136};
+		up[]={-0.2207949,0.61828834,0.75430065};
+		aside[]={0.95972961,1.4493708e-008,0.2809273};
 	};
 };
 binarizationWanted=0;
@@ -81,7 +81,8 @@ addons[]=
 	"A3_Structures_F_Orange_Industrial_Cargo",
 	"CUP_Editor_Plants_Config",
 	"A3_Structures_F_Ind_Cargo",
-	"CUP_CAMisc_E_WF"
+	"CUP_CAMisc_E_WF",
+	"A3_Structures_F_Items_Vessels"
 };
 class AddonsMetaData
 {
@@ -526,7 +527,7 @@ class CustomAttributes
 								singleType="ARRAY";
 								class value
 								{
-									items=122;
+									items=124;
 									class Item0
 									{
 										class data
@@ -1503,6 +1504,22 @@ class CustomAttributes
 											value="vale_milgrenades";
 										};
 									};
+									class Item122
+									{
+										class data
+										{
+											singleType="STRING";
+											value="va_excldlcgr";
+										};
+									};
+									class Item123
+									{
+										class data
+										{
+											singleType="STRING";
+											value="va_excldlcwp";
+										};
+									};
 								};
 							};
 						};
@@ -1513,7 +1530,7 @@ class CustomAttributes
 								singleType="ARRAY";
 								class value
 								{
-									items=122;
+									items=124;
 									class Item0
 									{
 										class data
@@ -2553,7 +2570,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=15.04353;
+														value=10.009513;
 													};
 												};
 												class Item1
@@ -2580,7 +2597,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=89.714714;
+														value=80.485748;
 													};
 												};
 												class Item1
@@ -4808,6 +4825,60 @@ class CustomAttributes
 											};
 										};
 									};
+									class Item122
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
+														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item123
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
+														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
 								};
 							};
 						};
@@ -4824,6 +4895,62 @@ class CustomAttributes
 			};
 		};
 		class Attribute2
+		{
+			property="ENH_introText";
+			expression="        if (!is3DEN && (_value # 0) > 0 && hasInterface) then        {          _value spawn          {            scriptName 'ENH_Attribute_IntroText';            params ['_delay', '_l1', '_l2', '_l3', '_type'];            _l1 = _l1 call BIS_fnc_localize;            _l2 = _l2 call BIS_fnc_localize;            _l3 = _l3 call BIS_fnc_localize;            uiSleep _delay;            switch (_type) do            {              case 0:              {                private _text = parseText format                [                  ""<t align='right' size='1.6'><t font='PuristaBold' size='1.8'>%1<br/></t>%2<br/>%3</t>"",                  _l1,                  _l2,                  _l3                ];                [_text, true] spawn BIS_fnc_textTiles;              };              case 1:              {                [_l1, _l2, _l3] spawn BIS_fnc_infoText;              };              case 2:              {                [_l1, _l2, _l3] spawn BIS_fnc_EXP_camp_SITREP;              };            };          };        }";
+			class Value
+			{
+				class data
+				{
+					singleType="ARRAY";
+					class value
+					{
+						items=5;
+						class Item0
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=0;
+							};
+						};
+						class Item1
+						{
+							class data
+							{
+								singleType="STRING";
+								value="bearZ";
+							};
+						};
+						class Item2
+						{
+							class data
+							{
+								singleType="STRING";
+								value="by TheDevilsMooCow + JJ";
+							};
+						};
+						class Item3
+						{
+							class data
+							{
+								singleType="STRING";
+								value="12:00";
+							};
+						};
+						class Item4
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=0;
+							};
+						};
+					};
+				};
+			};
+		};
+		class Attribute3
 		{
 			property="ENH_mapIndicators";
 			expression="if (!is3DEN && !(_value isEqualTo [false, false, false, false]) && hasInterface) then {disableMapIndicators _value}";
@@ -4871,7 +4998,55 @@ class CustomAttributes
 				};
 			};
 		};
-		nAttributes=3;
+		class Attribute4
+		{
+			property="ENH_SPR";
+			expression="if (!is3DEN && _value # 0 > 0 && !isMultiplayer) then      {        ENH_SPR_Ruleset = _value param [0, 0];        ENH_SPR_Delay = _value param [1, 20];        ENH_SPR_CanDie = _value param [2, false];        ENH_SPR_RestoreLoadout = _value param [3, false];        ENH_SPR_Positions_West = allMapMarkers select {'respawn_west' in _x} apply {getMarkerPos _x};        ENH_SPR_Positions_East = allMapMarkers select {'respawn_east' in _x} apply {getMarkerPos _x};        ENH_SPR_Positions_Guerilla = allMapMarkers select {'respawn_guerilla' in _x} apply {getMarkerPos _x};        ENH_SPR_Positions_Civilian = allMapMarkers select {'respawn_civilian' in _x} apply {getMarkerPos _x};                {          _x setVariable ['ENH_SPR_OriginalSide', side _x];          _x setVariable ['ENH_SPR_OriginalLoadout', getUnitLoadout _x];          _x addEventHandler ['handleDamage',          {            params ['_unit', '_selection', '_damage', '', '', '_hitIndex'];            if (_handleDamage < 0.1 || {!alive _unit || {lifeState _unit isEqualTo 'INCAPACITATED'}}) exitWith {0};            if (ENH_SPR_CanDie && {_selection == 'head' && {_damage >= 1.2}}) exitWith            {              _unit setDamage 1;              _unit removeEventHandler ['handleDamage', _thisEventHandler];            };            if (_unit getVariable ['ENH_SPR_Tickets', 0] == 0) then            {              _unit removeEventHandler ['handleDamage', _thisEventHandler];            }            else            {              if(_selection == '' && {_damage >= 0.95}) then              {                setAccTime 1;                _unit allowDamage false;                _unit setCaptive true;                _unit setUnconscious true;                _unit setVariable ['ENH_SPR_Tickets', (_unit getVariable ['ENH_SPR_Tickets', 0]) - 1];                if (isPlayer _unit) then {enableTeamSwitch false} else {removeSwitchableUnit _unit};                moveOut _unit;                _unit spawn ENH_fnc_SPR_respawnTimer;                _damage = 0;              }              else              {                _damage = _damage min 0.95;              };            };            _damage;          }];        } forEach (allUnits select {_x getVariable ['ENH_SPR_Tickets', 0] > 0});                ENH_fnc_SPR_respawn =        {          scriptName 'ENH_Attribute_SPR_Respawn';          params ['_unit'];          if (isPlayer _unit) then {enableTeamSwitch true} else {addSwitchableUnit _unit};          if (ENH_SPR_RestoreLoadout) then {_unit setUnitLoadout (_unit getVariable 'ENH_SPR_OriginalLoadout')};          if (ENH_SPR_Ruleset >= 2) then          {            private _sideID = (_unit getVariable 'ENH_SPR_OriginalSide') call BIS_fnc_sideID;            private _positions = [ENH_SPR_Positions_East, ENH_SPR_Positions_West, ENH_SPR_Positions_Guerilla, ENH_SPR_Positions_Civilian] select _sideID;            if !(_positions isEqualTo []) then            {              private _respawnPos = if (ENH_SPR_Ruleset == 2) then              {                selectRandom _positions;              }              else              {                ([_positions, [],{_unit distance _x}, 'ASCEND'] call BIS_fnc_sortBy) select 0;              };              _unit setPos _respawnPos;            };          };          _unit setUnconscious false;          _unit allowDamage true;          _unit setDamage 0;          _unit switchMove '';          _unit spawn          {            sleep 8;            _this setCaptive false;          };        };                ENH_fnc_SPR_respawnTimer =        {          scriptName 'ENH_Attribute_SPR_RespawnTimer';          params ['_unit'];          private _respawnTime = time + ENH_SPR_Delay;          if (isPlayer _unit) then          {            private _ctrlRespawnTimer = (call BIS_fnc_displayMission) ctrlCreate ['RscStructuredText',-1];            _ctrlRespawnTimer ctrlSetPosition [0.25, 0, 0.5, 0.06];            _ctrlRespawnTimer ctrlSetBackgroundColor [0, 0, 0, 0.1];            _ctrlRespawnTimer ctrlCommit 0;            0 cutText ['', 'BLACK OUT', 0.3];            0.3 fadeMusic 0;            0.3 fadeRadio 0;            0.3 fadeSpeech 0;            showChat false;            while {time < _respawnTime} do            {              _ctrlRespawnTimer ctrlSetStructuredText parseText format ['<t size=''1.25'' color=''#218a36'' align=''center''>%1</t>', [(_respawnTime - time), 'HH:MM'] call BIS_fnc_timeToString];              sleep 0.1;            };            ctrlDelete _ctrlRespawnTimer;            0 cutText ['', 'BLACK IN', 8];            8 fadeMusic 1;            8 fadeRadio 1;            8 fadeSpeech 1;            showChat true;            [              ['Respawned'],              [format ['GRID: %1', mapGridPosition _unit]],              [format ['Tickets left: %1', _unit getVariable 'ENH_SPR_Tickets']]            ] spawn BIS_fnc_EXP_camp_SITREP;          }          else          {            if ((side player getFriend (_unit getVariable 'ENH_SPR_OriginalSide')) >= 0.6) then            {              [                str _unit, 'onEachFrame',                {                  drawIcon3D ['\a3\Modules_f\data\portraitRespawn_ca.paa', [0.13, 0.54, 0.21, 0.8], ASLToAGL ((_this # 0) modelToWorldVisualWorld [0, 0, 1]), 1, 1, 0, str round ((_this # 1) - time), 2];                },                [_unit, _respawnTime]              ] call BIS_fnc_addStackedEventHandler;            };            sleep ENH_SPR_Delay;          };          [str _unit, 'onEachFrame'] call BIS_fnc_removeStackedEventHandler;          _unit call ENH_fnc_SPR_respawn;        };      }";
+			class Value
+			{
+				class data
+				{
+					singleType="ARRAY";
+					class value
+					{
+						items=4;
+						class Item0
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=2;
+							};
+						};
+						class Item1
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=10;
+							};
+						};
+						class Item2
+						{
+							class data
+							{
+								singleType="BOOL";
+								value=0;
+							};
+						};
+						class Item3
+						{
+							class data
+							{
+								singleType="BOOL";
+								value=0;
+							};
+						};
+					};
+				};
+			};
+		};
+		nAttributes=5;
 	};
 };
 class Mission
@@ -4897,7 +5072,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=257;
+		items=308;
 		class Item0
 		{
 			dataType="Marker";
@@ -7607,14 +7782,14 @@ class Mission
 						};
 						class Attribute1
 						{
-							property="ENH_disableAI_weaponAim";
-							expression="if (_value) then {_this disableAI 'WEAPONAIM'}";
+							property="ENH_allowSprint";
+							expression="_this allowSprint _value";
 							class Value
 							{
 								class data
 								{
 									singleType="BOOL";
-									value=1;
+									value=0;
 								};
 							};
 						};
@@ -7830,14 +8005,14 @@ class Mission
 						};
 						class Attribute14
 						{
-							property="ENH_allowSprint";
-							expression="_this allowSprint _value";
+							property="ENH_disableAI_weaponAim";
+							expression="if (_value) then {_this disableAI 'WEAPONAIM'}";
 							class Value
 							{
 								class data
 								{
 									singleType="BOOL";
-									value=0;
+									value=1;
 								};
 							};
 						};
@@ -10279,7 +10454,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="displace";
+							value="delete";
 						};
 					};
 				};
@@ -11808,6 +11983,7 @@ class Mission
 			{
 				name="milCrate";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=476;
 			type="Box_Syndicate_Wps_F";
@@ -11856,6 +12032,7 @@ class Mission
 			{
 				name="milCrate_1";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=477;
 			type="Box_Syndicate_Wps_F";
@@ -11904,6 +12081,7 @@ class Mission
 			{
 				name="milCrate_3";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=479;
 			type="Box_Syndicate_Wps_F";
@@ -11943,13 +12121,14 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={6888.2168,126.27403,6940.0513};
-				angles[]={6.1402431,0,6.2592044};
+				position[]={6887.3232,126.37593,6940.6748};
+				angles[]={6.1402426,0,6.2592044};
 			};
 			areaSize[]={5,-1,5};
 			flags=1;
 			id=480;
 			type="ModuleHideTerrainObjects_F";
+			atlOffset=-7.6293945e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -14950,13 +15129,14 @@ class Mission
 			class PositionInfo
 			{
 				position[]={6893.0259,134.8705,6992.7354};
-				angles[]={-0,5.8221955,0};
+				angles[]={0,5.8221955,0};
 			};
 			side="Empty";
 			class Attributes
 			{
 				name="milCrate_4";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=607;
 			type="Box_Syndicate_Wps_F";
@@ -15032,7 +15212,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={6849.4482,130.97336,6976.5615};
-				angles[]={-0,4.8415194,0};
+				angles[]={0,4.8415194,0};
 			};
 			side="Empty";
 			flags=4;
@@ -15249,6 +15429,7 @@ class Mission
 			{
 				name="milCrate_5";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=616;
 			type="Box_Syndicate_Wps_F";
@@ -15333,7 +15514,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={5961.2046,288.43219,3997.4299};
-				angles[]={-0,1.3464333,0};
+				angles[]={0,1.3464333,0};
 			};
 			side="Empty";
 			flags=4;
@@ -15401,7 +15582,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={5969.9341,285.90503,4004.1287};
-				angles[]={-0,6.1023831,0};
+				angles[]={0,6.1023831,0};
 			};
 			side="Empty";
 			flags=4;
@@ -15470,13 +15651,14 @@ class Mission
 			class PositionInfo
 			{
 				position[]={5962.1406,283.57803,3984.3132};
-				angles[]={-0,4.454268,-0};
+				angles[]={0,4.454268,0};
 			};
 			side="Empty";
 			class Attributes
 			{
 				name="milCrate_6";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=622;
 			type="Box_Syndicate_Wps_F";
@@ -15526,6 +15708,7 @@ class Mission
 			{
 				name="milCrate_7";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=623;
 			type="Box_Syndicate_Wps_F";
@@ -15600,7 +15783,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={5963.7979,306.12857,4027.3591};
-				angles[]={-0,1.0704232,0};
+				angles[]={0,1.0704232,0};
 			};
 			side="Empty";
 			flags=4;
@@ -15642,6 +15825,7 @@ class Mission
 			{
 				name="milCrate2";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=626;
 			type="AmmoCrates_NoInteractive_Medium";
@@ -15708,6 +15892,7 @@ class Mission
 			{
 				name="milCrate_8";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=630;
 			type="Box_Syndicate_Wps_F";
@@ -15748,8 +15933,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={6836.292,78.815643,5140.29};
-				angles[]={0,0.37561232,0};
+				position[]={6834.8115,79.444977,5141.458};
+				angles[]={0,5.3062549,0};
 			};
 			side="Empty";
 			flags=4;
@@ -15757,26 +15942,14 @@ class Mission
 			{
 				name="lootCrate";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=638;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.60099792;
+			atlOffset=0.029998779;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -15789,7 +15962,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item214
@@ -15797,7 +15996,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={6284.6968,58.617638,5595.0869};
+				position[]={6284.3599,59.159466,5595.2124};
 				angles[]={0,0.37561232,0};
 			};
 			side="Empty";
@@ -15806,26 +16005,13 @@ class Mission
 			{
 				name="lootCrate_1";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=645;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.54182816;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -15838,7 +16024,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item215
@@ -15862,7 +16074,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5011.7969,120.47092,5488.3418};
+				position[]={5010.8501,121.02522,5489.4199};
 				angles[]={0,0.093205303,0};
 			};
 			side="Empty";
@@ -15871,26 +16083,13 @@ class Mission
 			{
 				name="lootCrate_2";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=647;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.68157959;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -15903,7 +16102,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item217
@@ -15911,7 +16136,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4582.4443,128.73976,5285.4009};
+				position[]={4580.4512,129.34595,5283.7236};
 				angles[]={0,0.37561232,0};
 			};
 			side="Empty";
@@ -15920,26 +16145,13 @@ class Mission
 			{
 				name="lootCrate_3";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=648;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.60618591;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -15952,7 +16164,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item218
@@ -15960,8 +16198,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4319.0332,150.52261,7055.0308};
-				angles[]={0,1.5813926,0};
+				position[]={4319.0337,150.52255,7055.0308};
+				angles[]={0,1.5813905,0};
 			};
 			side="Empty";
 			flags=4;
@@ -15969,25 +16207,13 @@ class Mission
 			{
 				name="lootCrate_4";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=649;
 			type="Box_EAF_Uniforms_F";
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -16000,7 +16226,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item219
@@ -16008,7 +16260,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4736.9639,130.21277,3558.8955};
+				position[]={4737.7866,130.75717,3559.1792};
 				angles[]={0,0.37561232,0};
 			};
 			side="Empty";
@@ -16017,26 +16269,13 @@ class Mission
 			{
 				name="lootCrate_5";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=650;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.54508972;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -16049,7 +16288,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item220
@@ -16057,7 +16322,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4563.2192,126.73512,4657.1836};
+				position[]={4563.8662,127.37301,4657.5859};
 				angles[]={0,0.37561232,0};
 			};
 			side="Empty";
@@ -16066,26 +16331,13 @@ class Mission
 			{
 				name="lootCrate_6";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=651;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.63788605;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -16098,7 +16350,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item221
@@ -16106,7 +16384,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3598.488,271.61835,3753.1731};
+				position[]={3599.2842,272.30508,3754.4126};
 				angles[]={0,5.4677334,0};
 			};
 			side="Empty";
@@ -16115,26 +16393,14 @@ class Mission
 			{
 				name="lootCrate_7";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=652;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.68215942;
+			atlOffset=-0.31900024;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -16147,7 +16413,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item222
@@ -16165,6 +16457,7 @@ class Mission
 			};
 			id=653;
 			type="CUP_ker_trs_travy3";
+			atlOffset=0.10409546;
 		};
 		class Item223
 		{
@@ -16181,14 +16474,15 @@ class Mission
 			};
 			id=654;
 			type="CUP_c_GrassDry_EP1";
+			atlOffset=0.10183716;
 		};
 		class Item224
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4302.1543,164.34267,3600.4365};
-				angles[]={0,5.3172231,0};
+				position[]={4300.6689,164.70114,3601.2271};
+				angles[]={0,5.317215,0};
 			};
 			side="Empty";
 			flags=4;
@@ -16196,25 +16490,13 @@ class Mission
 			{
 				name="lootCrate_8";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=656;
 			type="Box_EAF_Uniforms_F";
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -16227,7 +16509,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item225
@@ -16235,7 +16543,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4281.4507,165.06239,3495.2505};
+				position[]={4280.9341,165.73451,3496.4866};
 				angles[]={0,4.6404996,0};
 			};
 			side="Empty";
@@ -16244,26 +16552,13 @@ class Mission
 			{
 				name="lootCrate_9";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=657;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.67211914;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -16276,7 +16571,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item226
@@ -16284,7 +16605,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4224.0625,163.60506,3455.7986};
+				position[]={4224.0625,164.19379,3455.7986};
 				angles[]={0,0.71343392,0};
 			};
 			side="Empty";
@@ -16293,26 +16614,13 @@ class Mission
 			{
 				name="lootCrate_10";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=658;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.58872986;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -16325,7 +16633,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item227
@@ -16333,7 +16667,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4224.7827,163.63255,3455.5757};
+				position[]={4224.7178,164.18134,3455.4419};
 				angles[]={0,3.8341045,0};
 			};
 			side="Empty";
@@ -16342,26 +16676,13 @@ class Mission
 			{
 				name="lootCrate_11";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=659;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.54878235;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -16374,7 +16695,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item228
@@ -16382,7 +16729,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4927.0552,141.08679,4259.2095};
+				position[]={4925.2305,141.72934,4259.8926};
 				angles[]={0,5.0399876,0};
 			};
 			side="Empty";
@@ -16391,26 +16738,13 @@ class Mission
 			{
 				name="lootCrate_12";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=661;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.64254761;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -16423,7 +16757,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item229
@@ -16461,7 +16821,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3577.2725,230.38335,4463.3071};
+				position[]={3577.2725,230.84721,4463.3071};
 				angles[]={0,0.37561232,0};
 			};
 			side="Empty";
@@ -16470,26 +16830,13 @@ class Mission
 			{
 				name="lootCrate_13";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=667;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.46386719;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -16502,7 +16849,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item232
@@ -16510,7 +16883,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4299.21,162.13515,4320.6133};
+				position[]={4298.7642,162.37592,4322.5513};
 				angles[]={0,3.7783165,0};
 			};
 			side="Empty";
@@ -16519,26 +16892,14 @@ class Mission
 			{
 				name="lootCrate_14";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=668;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.71508789;
+			atlOffset=0.00024414063;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -16551,7 +16912,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item233
@@ -16559,7 +16946,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3411.6367,157.24019,5319.1235};
+				position[]={3409.6384,157.79239,5320.1016};
 				angles[]={0,2.9593091,0};
 			};
 			side="Empty";
@@ -16568,26 +16955,14 @@ class Mission
 			{
 				name="lootCrate_15";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=669;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.6096344;
+			atlOffset=-0.0016021729;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -16600,7 +16975,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item234
@@ -16630,9 +17031,28 @@ class Mission
 			flags=4;
 			class Attributes
 			{
+				disableSimulation=1;
 			};
 			id=671;
 			type="US_WarfareBContructionSite1_Base_EP1";
+			atlOffset=-7.6293945e-006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item236
 		{
@@ -16645,17 +17065,36 @@ class Mission
 			flags=4;
 			class Attributes
 			{
+				disableSimulation=1;
 			};
 			id=672;
 			type="TK_GUE_WarfareBContructionSite_Base_EP1";
+			atlOffset=-7.6293945e-006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item237
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5417.5137,109.85037,5803.519};
-				angles[]={0,1.5996081,0};
+				position[]={5417.604,109.85037,5801.3159};
+				angles[]={0,1.5996118,0};
 			};
 			side="Empty";
 			flags=4;
@@ -16663,6 +17102,7 @@ class Mission
 			{
 				name="lootCrate_16";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=673;
 			type="Box_EAF_Uniforms_F";
@@ -16670,19 +17110,6 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
-				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
 					class Value
@@ -16694,7 +17121,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item238
@@ -16702,8 +17155,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5684.9731,127.86235,5848.7847};
-				angles[]={0,4.7964735,0};
+				position[]={5684.9731,127.86237,5848.7852};
+				angles[]={0,4.7964787,0};
 			};
 			side="Empty";
 			flags=4;
@@ -16711,25 +17164,14 @@ class Mission
 			{
 				name="lootCrate_17";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=674;
 			type="Box_EAF_Uniforms_F";
+			atlOffset=1.5258789e-005;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -16742,7 +17184,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item239
@@ -16750,34 +17218,22 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5606.2939,99.98587,6591.5103};
-				angles[]={0,0.37561232,0};
+				position[]={5605.958,99.984833,6591.7485};
+				angles[]={0,3.6624336,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				name="lootCrate_18";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=675;
 			type="Box_EAF_Uniforms_F";
+			atlOffset=0.27500153;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -16790,7 +17246,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item240
@@ -16798,35 +17280,22 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5995.3682,237.04723,4356.8862};
+				position[]={5995.7896,237.64937,4357.8521};
 				angles[]={0,1.889285,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				name="lootCrate_19";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=676;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.69665527;
+			atlOffset=0.74932861;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -16839,7 +17308,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item241
@@ -16847,7 +17342,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5995.2803,237.86757,4356.6489};
+				position[]={5995.147,237.99521,4356.5015};
 				angles[]={6.2365766,0,0.069610834};
 			};
 			side="Empty";
@@ -16863,7 +17358,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5996.0439,237.72247,4356.5698};
+				position[]={5995.8428,237.71594,4356.7305};
 				angles[]={6.1676788,0,6.1376286};
 			};
 			side="Empty";
@@ -16879,35 +17374,22 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={6068.5405,179.07599,4629.6494};
-				angles[]={0,0.37561232,0};
+				position[]={6059.5156,134.10995,4704.9966};
+				angles[]={0,4.3737001,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				name="lootCrate_20";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=681;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.50222778;
+			atlOffset=0.26429749;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -16920,7 +17402,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item244
@@ -16928,8 +17436,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5568.3354,91.222214,5425.8936};
-				angles[]={0,6.1448274,0};
+				position[]={5566.5352,91.536163,5426.501};
+				angles[]={0,6.1448331,0};
 			};
 			side="Empty";
 			flags=4;
@@ -16937,26 +17445,13 @@ class Mission
 			{
 				name="lootCrate_21";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=682;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.31394958;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -16969,7 +17464,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item245
@@ -16977,34 +17498,22 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={6391.1299,100.37468,5031.4595};
-				angles[]={0,5.2890968,0};
+				position[]={6391.2539,100.37465,5031.4531};
+				angles[]={0,5.2890983,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				name="lootCrate_22";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=684;
 			type="Box_EAF_Uniforms_F";
+			atlOffset=0.38899994;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -17017,7 +17526,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item246
@@ -17025,35 +17560,22 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3449.1384,253.4984,7025.1318};
+				position[]={3445.3884,254.11325,7025.5093};
 				angles[]={0,2.7443016,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				name="lootCrate_23";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=685;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.66409302;
+			atlOffset=0.74551392;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -17066,7 +17588,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item247
@@ -17074,7 +17622,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3448.5632,253.41374,7024.3413};
+				position[]={3444.46,253.19518,7024.5557};
 				angles[]={0,2.6073136,0};
 			};
 			side="Empty";
@@ -17083,26 +17631,14 @@ class Mission
 			{
 				name="lootCrate_24";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=686;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.66944885;
+			atlOffset=-7.6293945e-005;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -17115,7 +17651,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item248
@@ -17139,7 +17701,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2972.9795,206.69807,6436.8569};
+				position[]={2971.6804,207.18436,6434.7397};
 				angles[]={0,2.6268775,0};
 			};
 			side="Empty";
@@ -17148,26 +17710,13 @@ class Mission
 			{
 				name="lootCrate_25";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=688;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.48858643;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -17180,7 +17729,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item250
@@ -17188,7 +17763,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4837.6128,182.64333,6858.1147};
+				position[]={4837.3838,183.05743,6859.6997};
 				angles[]={0,2.6544988,0};
 			};
 			side="Empty";
@@ -17197,26 +17772,14 @@ class Mission
 			{
 				name="lootCrate_26";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=689;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.57676697;
+			atlOffset=-0.0091705322;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -17229,7 +17792,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item251
@@ -17237,7 +17826,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4652.9937,119.18637,6574.292};
+				position[]={4652.2515,119.40678,6573.4277};
 				angles[]={0,5.8924503,0};
 			};
 			side="Empty";
@@ -17246,26 +17835,14 @@ class Mission
 			{
 				name="lootCrate_27";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=690;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.58056641;
+			atlOffset=-0.0082015991;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -17278,7 +17855,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item252
@@ -17286,8 +17889,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={7173.3745,43.08342,6099.668};
-				angles[]={0,3.4185016,0};
+				position[]={7174.458,43.206203,6097.1626};
+				angles[]={0,3.4185066,0};
 			};
 			side="Empty";
 			flags=4;
@@ -17295,26 +17898,14 @@ class Mission
 			{
 				name="lootCrate_28";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=691;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.44371414;
+			atlOffset=-0.0009727478;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -17327,7 +17918,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item253
@@ -17335,35 +17952,22 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={7269.6577,133.16025,4362.0337};
+				position[]={7270.5698,133.5704,4363.7896};
 				angles[]={0,5.8792105,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				name="lootCrate_29";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=692;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.62263489;
+			atlOffset=0.34938049;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -17376,7 +17980,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item254
@@ -17384,7 +18014,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={6689.748,133.83209,4121.4609};
+				position[]={6687.9609,134.46722,4119.0713};
 				angles[]={0,5.47895,0};
 			};
 			side="Empty";
@@ -17393,26 +18023,13 @@ class Mission
 			{
 				name="lootCrate_30";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=693;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.63513184;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -17425,7 +18042,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item255
@@ -17433,7 +18076,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5446.1406,279.98358,3345.6643};
+				position[]={5444.5317,280.41245,3346.1169};
 				angles[]={0,4.6909857,0};
 			};
 			side="Empty";
@@ -17442,26 +18085,14 @@ class Mission
 			{
 				name="lootCrate_31";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=694;
 			type="Box_EAF_Uniforms_F";
-			atlOffset=-0.64297485;
+			atlOffset=-0.00057983398;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -17474,7 +18105,33 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item256
@@ -17492,6 +18149,1531 @@ class Mission
 			id=697;
 			type="Land_Budova5";
 			atlOffset=0.92131042;
+		};
+		class Item257
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6942.1514,74.964981,6651.5093};
+				angles[]={0,5.6663861,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="lootCrate_32";
+				disableSimulation=1;
+				dynamicSimulation=1;
+			};
+			id=698;
+			type="Box_EAF_Uniforms_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
+			};
+		};
+		class Item258
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5056.2598,121.25628,5192.7651};
+				angles[]={0,6.1448331,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="lootCrate_33";
+				disableSimulation=1;
+				dynamicSimulation=1;
+			};
+			id=699;
+			type="Box_EAF_Uniforms_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
+			};
+		};
+		class Item259
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5584.542,110.20037,5909.624};
+				angles[]={0,1.4860605,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="lootCrate_34";
+				disableSimulation=1;
+				dynamicSimulation=1;
+			};
+			id=700;
+			type="Box_EAF_Uniforms_F";
+			atlOffset=7.6293945e-006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=3;
+			};
+		};
+		class Item260
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5584.5889,110.20037,5908.5132};
+				angles[]={0,1.4264052,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="lootCrate_35";
+				disableSimulation=1;
+				dynamicSimulation=1;
+			};
+			id=701;
+			type="Box_EAF_Uniforms_F";
+			atlOffset=7.6293945e-006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=3;
+			};
+		};
+		class Item261
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5583.5122,109.82383,5907.8945};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=703;
+			type="BloodSpray_01_New_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item262
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5582.5327,109.82383,5909.5942};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=704;
+			type="BloodPool_01_Large_New_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item263
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5584.564,109.82384,5906.8481};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=705;
+			type="BloodPool_01_Large_New_F";
+			atlOffset=7.6293945e-006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item264
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5581.6992,109.82383,5907.6011};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=706;
+			type="BloodPool_01_Large_New_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item265
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5680.6938,75.729248,5153.3721};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=707;
+			type="BloodPool_01_Large_New_F";
+			atlOffset=6.1035156e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item266
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5680.7988,76.105637,5153.354};
+				angles[]={0,0.69184852,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="lootCrate_36";
+				disableSimulation=1;
+				dynamicSimulation=1;
+			};
+			id=708;
+			type="Box_EAF_Uniforms_F";
+			atlOffset=1.1940002;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=3;
+			};
+		};
+		class Item267
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5780.1582,153.46632,4584.2983};
+				angles[]={0,3.721915,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="lootCrate_37";
+				disableSimulation=1;
+				dynamicSimulation=1;
+			};
+			id=709;
+			type="Box_EAF_Uniforms_F";
+			atlOffset=0.22346497;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
+			};
+		};
+		class Item268
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5565.5586,141.88499,4283.6729};
+				angles[]={0,3.0777295,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="milCrate_9";
+				disableSimulation=1;
+				dynamicSimulation=1;
+			};
+			id=710;
+			type="Box_Syndicate_Wps_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item269
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5396.1309,123.05692,3907.6418};
+				angles[]={0,4.6909909,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="lootCrate_38";
+				disableSimulation=1;
+				dynamicSimulation=1;
+			};
+			id=711;
+			type="Box_EAF_Uniforms_F";
+			atlOffset=-0.04699707;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=3;
+			};
+		};
+		class Item270
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5259.9292,136.51813,3961.5078};
+				angles[]={0,3.6045902,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="lootCrate_39";
+				disableSimulation=1;
+				dynamicSimulation=1;
+			};
+			id=712;
+			type="Box_EAF_Uniforms_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
+			};
+		};
+		class Item271
+		{
+			dataType="Marker";
+			position[]={7681.3188,291.17801,3122.5391};
+			name="marker_11";
+			text="raider camp here";
+			type="Empty";
+			id=713;
+			atlOffset=0.00018310547;
+		};
+		class Item272
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3004.2898,132.86989,5507.2188};
+				angles[]={0,4.6909857,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="lootCrate_40";
+				disableSimulation=1;
+				dynamicSimulation=1;
+			};
+			id=714;
+			type="Box_EAF_Uniforms_F";
+			atlOffset=-9.1552734e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
+			};
+		};
+		class Item273
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3565.2991,156.2056,6005.2388};
+				angles[]={0,4.7589073,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="lootCrate_41";
+				disableSimulation=1;
+				dynamicSimulation=1;
+			};
+			id=715;
+			type="Box_EAF_Uniforms_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
+			};
+		};
+		class Item274
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3426.2175,162.92909,5954.6982};
+				angles[]={0,5.3696008,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="milCrate_10";
+				disableSimulation=1;
+				dynamicSimulation=1;
+			};
+			id=716;
+			type="Box_Syndicate_Wps_F";
+			atlOffset=-0.00012207031;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item275
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6836.1841,78.786789,5140.3262};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=730;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.67099762;
+		};
+		class Item276
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6284.9702,58.594551,5594.9399};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_1 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_1]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=731;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.60606003;
+		};
+		class Item277
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4224.6558,163.65247,3456.509};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_10 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_10]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=732;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.57000732;
+		};
+		class Item278
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4225.2803,163.68353,3455.9551};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_11 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_11]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=733;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.68600464;
+		};
+		class Item279
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4927.0879,141.04547,4259.2598};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_12 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_12]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=734;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.7250061;
+		};
+		class Item280
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3576.7241,230.28226,4463.6582};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_13 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_13]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=735;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.56599426;
+		};
+		class Item281
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4299.146,162.06403,4320.9502};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_14 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_14]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=736;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.75498962;
+		};
+		class Item282
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3411.8206,157.25751,5319.5601};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_15 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_15]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=737;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.64099121;
+		};
+		class Item283
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5995.3438,237.07054,4356.8608};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_19 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_19]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=738;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.74499512;
+		};
+		class Item284
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5011.9043,120.44682,5488.3491};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_2 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_2]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=739;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.73204803;
+		};
+		class Item285
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6057.0728,133.92628,4702.0269};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_20 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_20]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=740;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.54873657;
+		};
+		class Item286
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5568.293,91.196312,5426.0449};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_21 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_21]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=741;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.3809967;
+		};
+		class Item287
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3448.2173,253.33392,7024.5142};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_23 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_23]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=742;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.72299194;
+		};
+		class Item288
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3448.9546,253.39519,7025.3628};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_24 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_24]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=743;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.77267456;
+		};
+		class Item289
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2973.3521,206.57159,6436.5449};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_25 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_25]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=744;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.65800476;
+		};
+		class Item290
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4837.6309,182.505,6858.0454};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_26 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_26]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=745;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.76199341;
+		};
+		class Item291
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4653.2593,118.9649,6573.6011};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_27 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_27]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=746;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.74900055;
+		};
+		class Item292
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7173.2861,42.921001,6099.3491};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_28 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_28]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=747;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.6660347;
+		};
+		class Item293
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7269.3696,133.03859,4362.5181};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_29 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_29]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=748;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.7539978;
+		};
+		class Item294
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4581.8579,128.74608,5285.606};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_3 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_3]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=749;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.64100647;
+		};
+		class Item295
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6689.7617,133.78986,4121.498};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_30 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_30]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=750;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.71850586;
+		};
+		class Item296
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5446.2734,279.91739,3345.7444};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_31 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_31]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=751;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.74899292;
+		};
+		class Item297
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6941.3081,74.277817,6650.8247};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_32 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_32]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=752;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.57817078;
+		};
+		class Item298
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5055.5073,121.29742,5194.564};
+				angles[]={0,1.8325957,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_33 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_33]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=753;
+			type="Land_MetalBarrel_F";
+		};
+		class Item299
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5780.207,153.27072,4582.9741};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_37 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_37]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=754;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.71699524;
+		};
+		class Item300
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5259.2271,136.55927,3960.123};
+				angles[]={0,5.5789447,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_39 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_39]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=755;
+			type="Land_MetalBarrel_F";
+		};
+		class Item301
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3002.395,132.35208,5507.5234};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_40 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_40]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=756;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.59803772;
+		};
+		class Item302
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3563.7966,155.48055,6006.2915};
+				angles[]={0,3.2751513,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_41 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_41]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=757;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.76618958;
+		};
+		class Item303
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4736.835,130.19772,3558.593};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_5 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_5]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=758;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.60198975;
+		};
+		class Item304
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4562.8032,126.78215,4657.3091};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_6 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_6]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=759;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.63200378;
+		};
+		class Item305
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3598.6672,271.62991,3752.8672};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_7 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_7]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=760;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.65100098;
+		};
+		class Item306
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4301.1123,164.75739,3598.4202};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_8 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_8]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=761;
+			type="Land_MetalBarrel_F";
+			atlOffset=0.32099915;
+		};
+		class Item307
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4281.873,165.06165,3495.23};
+				angles[]={0,0.94928455,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this addaction [""Inventory"",  " \n "{lootCrate_9 setpos position (_this select 1);  " \n "(_this select 1) action [""Gear"", lootCrate_9]},[], 6, true, true, """", ""(_this distance _target)<1.5""];}";
+				disableSimulation=1;
+			};
+			id=762;
+			type="Land_MetalBarrel_F";
+			atlOffset=-0.71400452;
 		};
 	};
 };

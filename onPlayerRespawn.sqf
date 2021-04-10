@@ -50,7 +50,7 @@ if ((backpack player == "") && (vest player == "") && (primaryWeapon player == "
 	} forEach allMapMarkers;
 	//get random marker
 	_length = count _respawns;
-	_index = random _length;
+	_index = ceil random _length - 1;
 	_temp =  _respawns select _index;
 	_pos = getMarkerPos (_temp);
 	//move player to marker
