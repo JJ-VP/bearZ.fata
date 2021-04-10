@@ -3,9 +3,9 @@ A DayZ style Arma 3 mission designed for Bear PMC
 
 Items to add: 
 - flesh out towns to make them look nicer
-- better building loot spawns (replace/fix ravage )
+- blacklist DLC items from VD dyanmic spawn
 - bigger loot tables
-- water + food sources
+- more water + food sources
 - keydown event handler
 - add trades to trader
 - disable people from opening trader backpack
