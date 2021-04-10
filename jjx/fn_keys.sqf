@@ -17,6 +17,12 @@ keyPress = {
 			player action ["SwitchWeapon",player,player,100];
 			_handled = true;
 		};
+		case 25: //Remove the shift+P DLC window
+		{
+			if (_this select 2) then {
+				_handled = true;
+			};
+		};
 		case 57: //Jump when player presses space (if running)
 		{
 			if (speed player > 10.6 and speed player < 23.3) then {
@@ -31,14 +37,25 @@ keyPress = {
 				player setVelocity [(_vel select 0)+(sin _dir*_speed),(_vel select 1)+(cos _dir*_speed),(_vel select 2)+_height];
 				
 				[[player,"AovrPercMrunSrasWrflDf"],"doAnimation",nil,false] spawn BIS_fnc_MP; //BROADCAST ANIMATION
+				_handled = true;
 				};
 			};
-			_handled = true;
 		};
-		case 207: //toggle earplugs with END key
+		case 207: //loop through earplugs with END key
 		{
-    	    if (soundVolume <= 0.2) then { 0 fadeSound 1; }
-			else { 0 fadeSound 0.2; };
+    	    if (soundVolume == 1) then {
+    	    	0 fadeSound 0.75;
+    		} else {
+    			if (soundVolume == 0.75) then {
+    				0 fadeSound 0.5;
+    			} else {
+    				if (soundVolume == 0.5) then {
+    					0 fadeSound 0.25;
+    				} else {
+    					0 fadeSound 1;
+    				};
+    			};
+    		};
 			_handled = true;
 		};
 	};
