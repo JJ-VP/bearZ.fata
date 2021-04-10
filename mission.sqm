@@ -50,7 +50,6 @@ addons[]=
 	"A3_Characters_F",
 	"A3_Weapons_F",
 	"A3_Characters_F_Heads",
-	"cfp_headgear",
 	"A3_Weapons_F_Items",
 	"CUP_Creatures_Military_ACR",
 	"CUP_Creatures_Military_BAF",
@@ -175,12 +174,6 @@ class AddonsMetaData
 			name="Arma 3 Alpha - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
-		};
-		class Item14
-		{
-			className="cfp_headgear";
-			name="cfp_headgear";
-			author="CFP Team";
 		};
 		class Item15
 		{
@@ -1294,14 +1287,6 @@ class CustomAttributes
 										{
 											singleType="STRING";
 											value="tfar_aicanhearspeaker";
-										};
-									};
-									class Item96
-									{
-										class data
-										{
-											singleType="STRING";
-											value="cfp_autoequipnvg";
 										};
 									};
 									class Item97
@@ -7330,7 +7315,6 @@ class Mission
 							watch="ItemWatch";
 							radio="ItemRadio";
 							goggles="G_Tactical_Clear";
-							headgear="CFP_PASGTHelmet_DBDU5";
 						};
 					};
 					id=222;
