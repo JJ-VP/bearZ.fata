@@ -82,6 +82,9 @@ enableTeamSwitch = 0;
 joinUnassigned = 0;
 //skipLobby = 1; //Un-Comment this for release!!!
 
+#include <gui\defines.hpp>
+#include <gui\gui.hpp>
+
 class CfgFunctions {
     #include "modules\grad-persistence\cfgFunctions.hpp"
     class dvl {
@@ -90,6 +93,7 @@ class CfgFunctions {
     		class spawnMilLoot {};
             class spawnLootCache {};
             class populateShop{};
+            class buyItem{};
     	};
     };
     class jjx {
