@@ -60,3 +60,86 @@ class TraderMenu{
 		};
 	};
 };
+
+class adminMenu 
+{
+	idd = -1;
+	enablemoving = false;
+
+	class controls
+	{
+		class guiBackground: IGUIBack
+		{
+			idc = 2200;
+			x = 0.355589 * safezoneW + safezoneX;
+			y = 0.313 * safezoneH + safezoneY;
+			w = 0.288822 * safezoneW;
+			h = 0.374 * safezoneH;
+		};
+		class txtMenu: RscText
+		{
+			idc = 1000;
+			text = "BearZ Admin Menu";
+			x = 0.355589 * safezoneW + safezoneX;
+			y = 0.313 * safezoneH + safezoneY;
+			w = 0.278507 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class btnClose: RscButton
+		{
+			idc = 1600;
+			text = "X";
+			onMouseButtonClick = "closeDialog 2;";
+			x = 0.634096 * safezoneW + safezoneX;
+			y = 0.313 * safezoneH + safezoneY;
+			w = 0.0103151 * safezoneW;
+			h = 0.022 * safezoneH;
+			colorBackground[] = {1,0,0,0};
+			tooltip = "Close the menu";
+		};
+		class lstPlayers: RscListbox
+		{
+			idc = 1500;
+			x = 0.365904 * safezoneW + safezoneX;
+			y = 0.379 * safezoneH + safezoneY;
+			w = 0.0722056 * safezoneW;
+			h = 0.22 * safezoneH;
+		};
+		class txtPlayers: RscText
+		{
+			idc = 1001;
+			text = "Players";
+			x = 0.365904 * safezoneW + safezoneX;
+			y = 0.346 * safezoneH + safezoneY;
+			w = 0.0722056 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class lstFeatures: RscListbox
+		{
+			idc = 1501;
+			x = 0.448424 * safezoneW + safezoneX;
+			y = 0.379 * safezoneH + safezoneY;
+			w = 0.185671 * safezoneW;
+			h = 0.286 * safezoneH;
+		};
+		class txtFeatures: RscText
+		{
+			idc = 1002;
+			text = "Features";
+			x = 0.448425 * safezoneW + safezoneX;
+			y = 0.346 * safezoneH + safezoneY;
+			w = 0.185671 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class btnSelect: RscButton
+		{
+			idc = 1601;
+			text = "Select";
+			onMouseButtonClick = "[(lbCurSel 1500), (lbCurSel 1501)] call jjx_menu_exec;";
+			x = 0.365904 * safezoneW + safezoneX;
+			y = 0.621 * safezoneH + safezoneY;
+			w = 0.0722056 * safezoneW;
+			h = 0.044 * safezoneH;
+		};
+	};
+};

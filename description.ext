@@ -101,6 +101,8 @@ class CfgFunctions {
     		file = "jjx";
     		class keys {};
     		class EH {};
+            class openMenu {};
+            class isAdmin {};
     	};
     };
 };
