@@ -89,6 +89,7 @@ class CfgFunctions {
     		file = "fncs";
     		class spawnMilLoot {};
             class spawnLootCache {};
+            class populateShop{};
     	};
     };
     class jjx {
