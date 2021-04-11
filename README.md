@@ -16,3 +16,7 @@ A DayZ style Arma 3 mission designed for Bear PMC
 	- Trading GUI
 - Duel arms (2 Primarys)
 - vehicle pushing
+- Change spawn loadouts
+- Markers for downed heli
+- Side objectives
+- Automatically save vehicle & building data
