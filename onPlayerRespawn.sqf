@@ -17,7 +17,7 @@ if (isNil "initDone") then {
 	initDone = false;
 };
 
-waituntil {!(IsNull (findDisplay 46))};
+waituntil {!IsNull (findDisplay 46)};
 waituntil {initDone == true};
 
 

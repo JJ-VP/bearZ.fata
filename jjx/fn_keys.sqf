@@ -1,3 +1,16 @@
+/*
+ * fn_keys.sqf
+ * Author: JJ
+ *
+ * Args:
+ * nil (No arguments)
+ *
+ * Return Value:
+ * nil (No return)
+ *
+ * This function adds keybind event handlers
+ */
+
 waituntil {!IsNull (findDisplay 46)};
 (FindDisplay 46) displayAddEventHandler ["KeyDown","_this call keyPress"];
 
@@ -10,8 +23,17 @@ doAnimation = {
 keyPress = {
 	private['_handled'];
 	_handled = false;
+	_zeusKey = (actionKeys "curatorInterface") select 0;
 
 	switch (_this select 1) do {
+		case 59: //Open admin menu
+		{
+			_isAdmin = player call jjx_fnc_isAdmin;
+
+			if (_isAdmin) then {
+				call jjx_fnc_openMenu;
+			};
+		};
 		case 11: //Holster weapon when player presses 0
 		{
 			player action ["SwitchWeapon",player,player,100];
@@ -58,6 +80,13 @@ keyPress = {
     		};
 			_handled = true;
 		};
+		case _zeusKey: //Disable zeus pings
+		{
+			if (getPlayerUID player in jjx_zeus) then {
+				openCuratorInterface;
+			};
+			_handled = true;
+		}
 	};
 
 	_handled;
