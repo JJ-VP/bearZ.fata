@@ -25,43 +25,19 @@ if((lbCurSel 1500 > -1) && (lbCurSel 1501 > -1)) then {
     	player addItemToVest _className;
     };
     //remove all money then give them (_total - _price)
-    if(_price > 0) then {
-    	//count uniform inventory
-    	_sum = {_x == "rvg_money"} count (uniformItems player);
-    	_price = _price - _sum;
+    while{(0 < _price) && ("rvg_money" in uniformItems player)} do {
     	player removeItemFromUniform "rvg_money";
-    	//if we took too much money balance it out
-    	if(_price < 0) then {
-    		for "_i" from _price to -1 do {
-    			player addItemToUniform "rvg_money";
-    		};
-    	};
+    	_price = _price - 1;
     };
-    if(_price > 0) then {
-    	//count vest inventory
-    	_sum = {_x == "rvg_money"} count (vestItems player);
-    	_price = _price - _sum;
+    while{(0 < _price) && ("rvg_money" in vestItems player)} do {
     	player removeItemFromVest "rvg_money";
-    	if(_price < 0) then {
-    		for "_i" from _price to -1 do {
-    			player addItemToVest "rvg_money";
-    		};
-    	};    
+    	_price = _price - 1;
     };
-    if(_price > 0) then {
-    	//count backpack inventory
-    	_sum = {_x == "rvg_money"} count (backpackItems player);
-    	_price = _price - _sum;
+    while{(0 < _price) && ("rvg_money" in backpackItems player)} do {
     	player removeItemFromBackpack "rvg_money";
-    	if(_price < 0) then {
-    		for "_i" from _price to -1 do {
-    			player addItemToBackpack "rvg_money";
-    		};
-    	};    
+    	_price = _price - 1;
     };
-	//remove this
-	hint format["you now have %1", _total - _price];
 } else {
 	systemChat format["index: %1, index: %2", lbCurSel 1500, lbCurSel 1501];
-	hint "you need to make a choice"
+	hint "you need to make a choice";
 }
