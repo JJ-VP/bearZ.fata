@@ -75,6 +75,40 @@ jjx_menu_update = {
 						lbSetTooltip [1501, _forEachIndex, _x select 3];
 					};
 				};
+				case "freeze": {
+					if ((lbCurSel 1500) != -1) then {
+						if (isNil {((playerList select (lbCurSel 1500)) getVariable "jjx_frozen")} || {!((playerList select (lbCurSel 1500)) getVariable "jjx_frozen")}) then {
+							lbAdd [1501, format ["%1 - OFF", _x select 0]];
+							lbSetColor [1501,  _forEachIndex, jjx_menu_red];
+							lbSetTooltip [1501, _forEachIndex, _x select 3];
+						} else {
+							lbAdd [1501, format ["%1 - ON", _x select 0]];
+							lbSetColor [1501, _forEachIndex, jjx_menu_green];
+							lbSetTooltip [1501, _forEachIndex, _x select 3];
+						};
+					} else {
+						lbAdd [1501, format ["%1 - OFF", _x select 0]];
+						lbSetColor [1501,  _forEachIndex, jjx_menu_red];
+						lbSetTooltip [1501, _forEachIndex, _x select 3];
+					};
+				};
+				case "markers": {
+					if ((lbCurSel 1500) != -1) then {
+						if (isNil {((playerList select (lbCurSel 1500)) getVariable "mapMarkers")} || {!((playerList select (lbCurSel 1500)) getVariable "mapMarkers")}) then {
+							lbAdd [1501, format ["%1 - OFF", _x select 0]];
+							lbSetColor [1501,  _forEachIndex, jjx_menu_red];
+							lbSetTooltip [1501, _forEachIndex, _x select 3];
+						} else {
+							lbAdd [1501, format ["%1 - ON", _x select 0]];
+							lbSetColor [1501, _forEachIndex, jjx_menu_green];
+							lbSetTooltip [1501, _forEachIndex, _x select 3];
+						};
+					} else {
+						lbAdd [1501, format ["%1 - OFF", _x select 0]];
+						lbSetColor [1501,  _forEachIndex, jjx_menu_red];
+						lbSetTooltip [1501, _forEachIndex, _x select 3];
+					};
+				};
 				//next case...
 				default {
 					lbAdd [1501, _x select 0];
@@ -89,6 +123,7 @@ jjx_menu_update = {
 	};
 };
 
+//Want to modify exec so it executes agaist the local player if no payer is selected from the playerlist.
 jjx_menu_exec = {
 	hint "called";
 	params ["_player","_feature"];
@@ -113,12 +148,28 @@ jjx_menu_init = {
 
 	features = [];
 	featuresOff = [
+		//Need to test if I can add a header / spacer (actions)
 		["Kill", "kill", true, "Select a player to kill"],
 		["Heal", "heal", true, "Select a player to heal"],
 		["TP to player", "tpToPlayer", true, "Select a player to teleport to"],
 		["TP player here", "tpPlayerHere", true, "Select a player to teleport them here"],
+		["Repair", "repair", false, "Select a player to repair their vehicle or don't select a player to repair whatever you are looking at"],
+		["Delete", "delete", false, "Select a player to delete their vehicle or don't select a player to delete whatever you are looking at"],
+		["Explode vehicle", "explode", true, "Select a player to destroy their vehicle"],
+		["Destroy vehicle", "destroy", true, "Select a player to destroy their vehicle (No explosion)"],
+		["Spectate", "spectator", true, "Select a player to spectate"],
+		["Freecam", "freecam", true, "Select a player to put them into freecam"],
+		["Arsenal", "arsenal", true, "Select a player to open the arsenal for them"],
+		["Garage", "garage", true, "Select a player to open the garage for them"],
+		["Piss", "pee", true, "Make the player you select have the sudden urge to piss"],
+		//Header / spacer (Toggleable)
 		["God", "god", true, "Select a player to toggle their imortality"],
-		["Map TP", "mapTP", true, "Select a player to toggle their map teleportation"]
+		["Map TP", "mapTP", true, "Select a player to toggle their map teleportation"],
+		["Freeze", "freeze", true, "Select a player to toggle freeze them"],
+		["Map Markers", "markers", true, "Select a player to toggle map markers for them"],
+		//Header /spacer (Utility)
+		["Go to lobby", "lobby", true, "Select a player to send them to the lobby"],
+		["Player info", "info", true, "Get info on the selected player"]
 	];
 	publicVariable "featuresOff";
 
@@ -216,9 +267,238 @@ jjx_menu_mapTPExec = {
 	} else {
 		player setVariable ["jjx_mapTP", false, true];
 		hint parseText format ["%1 An admin has disabled map teleportation for you!", hintHeader];uiSleep 5;hintSilent "";
-		player onMapSingleClick "if (_alt) then {hint parseText format ['%1Map teleportation is disabled!', hintHeader];};";
+		player onMapSingleClick "if (_alt) then {};";
 	};
 };
+
+jjx_menu_freeze = {
+	params["_selectedIndex"];
+	_player = playerList select _selectedIndex;
+	hintSilent parseText format ["%1You toggled freeze for<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];uiSleep 3;hintSilent "";
+	remoteExec ["jjx_menu_freezeExec", _player];
+};
+jjx_menu_freezeExec = {
+	if (userInputDisabled) then {
+		disableUserInput false;
+		player setVariable ["jjx_frozen", false, true];
+	} else {
+		disableUserInput true;
+		player setVariable ["jjx_frozen", true, true];
+	};
+};
+
+jjx_menu_repair = {
+	params["_selectedIndex"];
+	if (!inNil _selectedIndex) then {
+		_player = playerList select _selectedIndex;
+		hintSilent parseText format ["%1You repaired<br/><t color='#42ebf4'>%2's</t><br />vehicle", hintHeader, name _player];uiSleep 3;hintSilent "";
+		remoteExec ["jjx_menu_repairExec", _player];
+	} else {
+		if (!isPlayer cursorObject) then {
+			cursorObject setDamage 0;
+		};
+	};
+};
+jjx_menu_repairExec = {
+	_vehicle = vehicle player;
+	_vehicle setDamage 0;
+};
+
+jjx_menu_delete = {
+	params["_selectedIndex"];
+	if (!inNil _selectedIndex) then {
+		_player = playerList select _selectedIndex;
+		hintSilent parseText format ["%1You deleted<br/><t color='#42ebf4'>%2's</t><br />vehicle", hintHeader, name _player];uiSleep 3;hintSilent "";
+		remoteExec ["jjx_menu_deleteExec", _player];
+	} else {
+		if (!isPlayer cursorObject) then {
+			deleteVehicle cursorObject;
+		};
+	};
+};
+jjx_menu_deleteExec = {
+	_vehicle = vehicle player;
+	deleteVehicle _vehicle;
+};
+
+jjx_menu_explode = {
+	params["_selectedIndex"];
+	_player = playerList select _selectedIndex;
+	hintSilent parseText format ["%1You exploded<br/><t color='#42ebf4'>%2's</t><br />vehicle", hintHeader, name _player];uiSleep 3;hintSilent "";
+	[true] remoteExec ["jjx_menu_destroyExec", _player];
+};
+jjx_menu_destroy = {
+	params["_selectedIndex"];
+	_player = playerList select _selectedIndex;
+	hintSilent parseText format ["%1You destroyed<br/><t color='#42ebf4'>%2's</t><br />vehicle", hintHeader, name _player];uiSleep 3;hintSilent "";
+	[false] remoteExec ["jjx_menu_destroyExec", _player];
+};
+jjx_menu_destroyExec = {
+	params["_explode"];
+	_vehicle = vehicle player;
+	if (_explode) then {
+		_vehicle setDamage [1, true];
+	} else {
+		_vehicle setDamage [1, false];
+	};
+};
+
+jjx_menu_spectator = {
+	params["_selectedIndex"];
+	_player = playerList select _selectedIndex;
+	hintSilent parseText format ["%1You are now spectating<br/><t color='#42ebf4'>%2</t><br />to stop spectating press F10", hintHeader, name _player];uiSleep 3;hintSilent "";
+	_player switchCamera "INTERNAL";
+	stopSpectating = (findDisplay 46) displayAddEventHandler ["KeyDown",
+		"if ((_this select 1) == 68) then {
+			(findDisplay 46) displayRemoveEventHandler ['KeyDown', stopSpectating];
+			player switchCamera 'INTERNAL';
+		};false"
+		];
+};
+
+jjx_menu_markers = {
+	params["_selectedIndex"];
+	_player = playerList select _selectedIndex;
+	hintSilent parseText format ["%1You toggled map markers for<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];uiSleep 3;hintSilent "";
+	remoteExec ["jjx_menu_markersExec", _player];
+};
+jjx_menu_markersExec = {
+	if (((isNil {player getVariable "mapMarkers"}) || (isNil {player getVariable "markerList"})) || {!(player getVariable "mapMarkers")}) then {
+		player setVariable ["mapMarkers", true, true];
+		player setVariable ["markerList", [], true];
+		{
+			name = "";
+			{name = name + _x; name} forEach ((_name _x) splitString " ");
+			_markerTest = format ["marker_%1", name];
+			if (!_markerTest in allMapMarker) then {
+				_code = format ['createMarkerLocal ["marker_%1", [%2, %3]];
+				"marker_%1" setMarkerShapeLocal "ICON";
+				"marker_%1" setMarkerTypeLocal "mil_dot";
+				"marker_%1" setMarkerColorLocal "ColorPink";
+				"marker_%1" setMarkerTextLocal "%1";
+				', name, (position _x select 0), (position _x select 1)];
+				call compile _code;
+				(player getVariable "markerList") pushback _x;
+			};
+		} forEach allPlayers;
+
+		[] spawn {
+			while {(player getVariable "mapMarkers")} do {
+				{
+					sName = "";
+					{sName = sName + _x sName} forEach ((name _x) splitString " ");
+					_code format ['"marker_%1" setMarkerPosLocal [%2, %3]'], sName, (position _x select 0), (position _x select 1);
+					call compile _code;
+				} forEach (player getVariable "markerList");
+				uiSleep 0.1;
+			};
+		};
+		exit;
+	} else {
+		player setVariable ["mapMarkers", false, true];
+		{
+			xName = "";
+			{xName = xName + _x xName} forEach ((name _x) splitString " ");
+			deleteMarkerLocal format ["marker_%1", xName];
+		} forEach (player getVariable "markerList");
+
+		player setVariable ["markerList", [], true];
+	};
+};
+
+jjx_menu_freecam = {
+	params["_selectedIndex"];
+	_player = playerList select _selectedIndex;
+	hintSilent parseText format ["%1You enabled freecam for<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];uiSleep 3;hintSilent "";
+	remoteExec ["jjx_menu_freecamExec", _player];
+};
+jjx_menu_freecamExec = {
+	[] execVM "a3\functions_f\Debug\fn_camera.sqf";
+};
+
+jjx_menu_lobby = {
+	params["_selectedIndex"];
+	_player = playerList select _selectedIndex;
+	hintSilent parseText format ["%1You sent<br/><t color='#42ebf4'>%2</t><br />to the lobby", hintHeader, name _player];uiSleep 3;hintSilent "";
+	remoteExec ["jjx_menu_lobbyExec", _player];
+};
+jjx_menu_lobbyExec = {
+	(findDisplay 46) closeDisplay 0;
+};
+
+jjx_menu_arsenal = {
+	params["_selectedIndex"];
+	_player = playerList select _selectedIndex;
+	hintSilent parseText format ["%1You put<br/><t color='#42ebf4'>%2</t><br />in to the arsenal", hintHeader, name _player];uiSleep 3;hintSilent "";
+	if (_player == player) then {
+		closeDialog 0;
+		["Open", true] call BIS_fnc_arsenal;
+	} else {
+		["Open", true] remoteExec ["BIS_fnc_arsenal", _player];
+	};
+};
+
+jjx_menu_garage = {
+	params["_selectedIndex"];
+	_player = playerList select _selectedIndex;
+	hintSilent parseText format ["%1You put<br/><t color='#42ebf4'>%2</t><br />in to the garage", hintHeader, name _player];uiSleep 3;hintSilent "";
+	if (_player == player) then {
+		closeDialog 0;
+		["Open", true] call BIS_fnc_garage;
+	} else {
+		["Open", true] remoteExec ["BIS_fnc_garage", _player];
+	};
+};
+
+jjx_menu_takeLoadout = {
+	params["_selectedIndex"];
+	_player = playerList select _selectedIndex;
+	hintSilent parseText format ["%1You took<br/><t color='#42ebf4'>%2's</t><br />loadout", hintHeader, name _player];uiSleep 3;hintSilent "";
+	player setUnitLoadout (getUnitLoadout _player);
+};
+
+jjx_menu_giveLoadout = {
+	params["_selectedIndex"];
+	_player = playerList select _selectedIndex;
+	hintSilent parseText format ["%1You gave<br/><t color='#42ebf4'>%2</t><br />your loadout", hintHeader, name _player];uiSleep 3;hintSilent "";
+	_player setUnitLoadout (getUnitLoadout player);
+};
+
+jjx_menu_info = {
+	params["_selectedIndex"];
+	_player = playerList select _selectedIndex;
+	hintSilent parseText format ["%1<t size='1.2' color='#f4e242'>Name: </t><br />%2<br /><br /><t size='1.2' color='#f4e242'>UID: </t><br />%3<br /><br /><t size='1.2' color='#f4e242'>Position: </t><br />%4<br /><br /><t size='1.2' color='#f4e242'>Equip: </t><br />%5<br /><br /><t size='1.6' color='#f45f42'>Player equipment copied to clipboard.</t>", hintHeader, name _player, getPlayerUID _player, position _player, getUnitLoadout _player];uiSleep 3;hintSilent "";
+	copyToClipboard str(getUnitLoadout _player);
+};
+
+jjx_menu_pee = {
+	params["_selectedIndex"];
+	_player = playerList select _selectedIndex;
+	hintSilent parseText format ["%1You made<br/><t color='#42ebf4'>%2</t><br />pee", hintHeader, name _player];uiSleep 3;hintSilent "";
+	remoteExec ["jjx_menu_peeExec", _player];
+};
+jjx_menu_peeExec = {
+	player playMove "Acts_AidlPercMstpSlowWrflDnon_pissing"; sleep 4;
+	player allowDamage true; 
+	player enableSimulation true;
+	player enableSimulationGlobal true;
+	player triggerDynamicSimulation true;
+	_dir = getDir player;
+	_stream = "#particlesource" createVehicleLocal [0,0,0];
+	_stream setParticleRandom [0,[0.004,0.004,0.004],[0.01,0.01,0.01],30,0.01,[0,0,0,0],1,0.02,360];
+	_stream setDropInterval 0.001;
+	_stream attachTo [player,[0.1,0.15,-0.10],"Pelvis"] ;
+	for "_i" from 0 to 1 step 0.01 do { _stream setParticleParams [["\a3\data_f\ParticleEffects\Universal\Universal.p3d",16,12,8],"","BillBoard",1,3,[0,0,0],[sin (_dir) * _i,cos (_dir) * _i,0],0,1.5,1,0.1,[0.02,0.02,0.1],[[0.8,0.7,0.2,0.1],[0.8,0.7,0.2,0.1],[0.8,0.7,0.2,0]],[1],1,0,"","",_stream,0,true,0.1,[[0.8,0.7,0.2,0]]]; sleep 0.02; }; sleep 4;
+	for "_i" from 1 to 0.4 step -0.01 do { _stream setParticleParams [["\a3\data_f\ParticleEffects\Universal\Universal.p3d",16,12,8],"","BillBoard",1,3,[0,0,0],[sin (_dir) * _i,cos (_dir) * _i,0],0,1.5,1,0.1,[0.02,0.02,0.1],[[0.8,0.7,0.2,0.1],[0.8,0.7,0.2,0.1],[0.8,0.7,0.2,0]],[1],1,0,"","",_stream,0,true,0.1,[[0.8,0.7,0.2,0]]]; sleep 0.02;};
+	for "_i" from 0.4 to 0.8 step 0.02 do { _stream setParticleParams [["\a3\data_f\ParticleEffects\Universal\Universal.p3d",16,12,8],"","BillBoard",1,3,[0,0,0],[sin (_dir) * _i,cos (_dir) * _i,0],0,1.5,1,0.1,[0.02,0.02,0.1],[[0.8,0.7,0.2,0.1],[0.8,0.7,0.2,0.1],[0.8,0.7,0.2,0]],[1],1,0,"","",_stream,0,true,0.1,[[0.8,0.7,0.2,0]]]; sleep 0.0};
+	for "_i" from 0.8 to 0.2 step -0.01 do { _stream setParticleParams [["\a3\data_f\ParticleEffects\Universal\Universal.p3d",16,12,8],"","BillBoard",1,3,[0,0,0],[sin (_dir) * _i,cos (_dir) * _i,0],0,1.5,1,0.1,[0.02,0.02,0.1],[[0.8,0.7,0.2,0.1],[0.8,0.7,0.2,0.1],[0.8,0.7,0.2,0]],[1],1,0,"","",_stream,0,true,0.1,[[0.8,0.7,0.2,0]]]; sleep 0.02;};
+	for "_i" from 0.2 to 0.3 step 0.02 do { _stream setParticleParams [["\a3\data_f\ParticleEffects\Universal\Universal.p3d",16,12,8],"","BillBoard",1,3,[0,0,0],[sin (_dir) * _i,cos (_dir) * _i,0],0,1.5,1,0.1,[0.02,0.02,0.1],[[0.8,0.7,0.2,0.1],[0.8,0.7,0.2,0.1],[0.8,0.7,0.2,0]],[1],1,0,"","",_stream,0,true,0.1,[[0.8,0.7,0.2,0]]]; sleep 0.02;};
+	for "_i" from 0.3 to 0.1 step -0.01 do { _stream setParticleParams [["\a3\data_f\ParticleEffects\Universal\Universal.p3d",16,12,8],"","BillBoard",1,3,[0,0,0],[sin (_dir) * _i,cos (_dir) * _i,0],0,1.5,1,0.1,[0.02,0.02,0.1],[[0.8,0.7,0.2,0.1],[0.8,0.7,0.2,0.1],[0.8,0.7,0.2,0]],[1],1,0,"","",_stream,0,true,0.1,[[0.8,0.7,0.2,0]]]; sleep 0.02;};
+	for "_i" from 0.1 to 0 step -0.01 do { _stream setParticleParams [["\a3\data_f\ParticleEffects\Universal\Universal.p3d",16,12,8],"","BillBoard",1,3,[0,0,0],[sin (_dir) * _i,cos (_dir) * _i,0],0,1.5,1,0.1,[0.02,0.02,0.1],[[0.8,0.7,0.2,_i],[0.8,0.7,0.2,_i],[0.8,0.7,0.2,0]],[1],1,0,"","",_stream,0,true,0.1,[[0.8,0.7,0.2,0]]]; sleep 0.02;};
+	deleteVehicle _stream;
+};
+
+
 
 //
 
