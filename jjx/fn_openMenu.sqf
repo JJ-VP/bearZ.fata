@@ -125,7 +125,6 @@ jjx_menu_update = {
 
 //Want to modify exec so it executes agaist the local player if no payer is selected from the playerlist.
 jjx_menu_exec = {
-	hint "called";
 	params ["_player","_feature"];
 	if (_feature != -1) then {
 		if ((features select _feature) select 2) then {
@@ -153,8 +152,8 @@ jjx_menu_init = {
 		["Heal", "heal", true, "Select a player to heal"],
 		["TP to player", "tpToPlayer", true, "Select a player to teleport to"],
 		["TP player here", "tpPlayerHere", true, "Select a player to teleport them here"],
-		["Repair", "repair", false, "Select a player to repair their vehicle or don't select a player to repair whatever you are looking at"],
-		["Delete", "delete", false, "Select a player to delete their vehicle or don't select a player to delete whatever you are looking at"],
+		["Repair", "repair", true, "Select a player to repair their vehicle or don't select a player to repair whatever you are looking at"],
+		["Delete", "delete", true, "Select a player to delete their vehicle or don't select a player to delete whatever you are looking at"],
 		["Explode vehicle", "explode", true, "Select a player to destroy their vehicle"],
 		["Destroy vehicle", "destroy", true, "Select a player to destroy their vehicle (No explosion)"],
 		["Spectate", "spectator", true, "Select a player to spectate"],
@@ -215,15 +214,17 @@ jjx_menu_playerInfo = {
 jjx_menu_kill = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
-	hintSilent parseText format ["%1You killed<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];uiSleep 3;hintSilent "";
+	hintSilent parseText format ["%1You killed<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];
 	_player setDamage 1;
+	uiSleep 3;hintSilent "";
 };
 
 jjx_menu_heal = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
-	hintSilent parseText format ["%1You healed<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];uiSleep 3;hintSilent "";
+	hintSilent parseText format ["%1You healed<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];
 	_player setDamage 0;
+	uiSleep 3;hintSilent "";
 };
 
 jjx_menu_god = {
@@ -242,40 +243,46 @@ jjx_menu_god = {
 jjx_menu_tpToPlayer = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
-	hintSilent parseText format ["%1You teleported to<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];uiSleep 3;hintSilent "";
+	hintSilent parseText format ["%1You teleported to<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];
 	player setPosASL (getPosASL _player);
+	uiSleep 3;hintSilent "";
 };
 
 jjx_menu_tpPlayerHere = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
-	hintSilent parseText format ["%1You teleported<br/><t color='#42ebf4'>%2</t><br />to you", hintHeader, name _player];uiSleep 3;hintSilent "";
+	hintSilent parseText format ["%1You teleported<br/><t color='#42ebf4'>%2</t><br />to you", hintHeader, name _player];
 	_player setPosASL (getPosASL player);
+	uiSleep 3;hintSilent "";
 };
 
 jjx_menu_mapTP = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
-	hintSilent parseText format ["%1You toggled map TP for<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];uiSleep 3;hintSilent "";
+	hintSilent parseText format ["%1You toggled map TP for<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];
 	remoteExec ["jjx_menu_mapTPExec", _player];
+	uiSleep 3;hintSilent "";
 };
 jjx_menu_mapTPExec = {
 	if ((isNil {player getVariable "jjx_mapTP"}) || {!(player getVariable "jjx_mapTP")}) then {
 		player setVariable ["jjx_mapTP", true, true];
-		hint parseText format ["%1 An admin has enabled map teleportation for you!<br /><t color='#f45f42'>ALT + click</t><br />on the map to teleport", hintHeader];uiSleep 5;hintSilent "";
+		hint parseText format ["%1 An admin has enabled map teleportation for you!<br /><t color='#f45f42'>ALT + click</t><br />on the map to teleport", hintHeader];
 		player onMapSingleClick "if (_alt) then { player setPosATL _pos }";
+		uiSleep 5;hintSilent "";
 	} else {
 		player setVariable ["jjx_mapTP", false, true];
-		hint parseText format ["%1 An admin has disabled map teleportation for you!", hintHeader];uiSleep 5;hintSilent "";
+		hint parseText format ["%1 An admin has disabled map teleportation for you!", hintHeader];
 		player onMapSingleClick "if (_alt) then {};";
+		uiSleep 5;hintSilent "";
 	};
 };
 
 jjx_menu_freeze = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
-	hintSilent parseText format ["%1You toggled freeze for<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];uiSleep 3;hintSilent "";
+	hintSilent parseText format ["%1You toggled freeze for<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];
 	remoteExec ["jjx_menu_freezeExec", _player];
+	uiSleep 3;hintSilent "";
 };
 jjx_menu_freezeExec = {
 	if (userInputDisabled) then {
@@ -289,14 +296,15 @@ jjx_menu_freezeExec = {
 
 jjx_menu_repair = {
 	params["_selectedIndex"];
-	if (!inNil _selectedIndex) then {
-		_player = playerList select _selectedIndex;
-		hintSilent parseText format ["%1You repaired<br/><t color='#42ebf4'>%2's</t><br />vehicle", hintHeader, name _player];uiSleep 3;hintSilent "";
-		remoteExec ["jjx_menu_repairExec", _player];
+	_player = playerList select _selectedIndex;
+	if (_player == player) then {
+		hintSilent parseText format ["%1You repaired<br/><t color='#42ebf4'>%2</t>", hintHeader, cursorObject];
+		cursorObject setDamage 0;
+		uiSleep 3;hintSilent "";
 	} else {
-		if (!isPlayer cursorObject) then {
-			cursorObject setDamage 0;
-		};
+		hintSilent parseText format ["%1You repaired<br/><t color='#42ebf4'>%2's</t><br />vehicle", hintHeader, name _player];
+		remoteExec ["jjx_menu_repairExec", _player];
+		uiSleep 3;hintSilent "";
 	};
 };
 jjx_menu_repairExec = {
@@ -306,15 +314,10 @@ jjx_menu_repairExec = {
 
 jjx_menu_delete = {
 	params["_selectedIndex"];
-	if (!inNil _selectedIndex) then {
-		_player = playerList select _selectedIndex;
-		hintSilent parseText format ["%1You deleted<br/><t color='#42ebf4'>%2's</t><br />vehicle", hintHeader, name _player];uiSleep 3;hintSilent "";
-		remoteExec ["jjx_menu_deleteExec", _player];
-	} else {
-		if (!isPlayer cursorObject) then {
-			deleteVehicle cursorObject;
-		};
-	};
+	_player = playerList select _selectedIndex;
+	hintSilent parseText format ["%1You deleted<br/><t color='#42ebf4'>%2's</t><br />vehicle", hintHeader, name _player];
+	remoteExec ["jjx_menu_deleteExec", _player];
+	uiSleep 3;hintSilent "";
 };
 jjx_menu_deleteExec = {
 	_vehicle = vehicle player;
@@ -324,14 +327,30 @@ jjx_menu_deleteExec = {
 jjx_menu_explode = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
-	hintSilent parseText format ["%1You exploded<br/><t color='#42ebf4'>%2's</t><br />vehicle", hintHeader, name _player];uiSleep 3;hintSilent "";
-	[true] remoteExec ["jjx_menu_destroyExec", _player];
+	if (_player == player) then {
+		_vehicle = vehicle player;
+		hintSilent parseText format ["%1You exploded<br/><t color='#42ebf4'>%2</t>", hintHeader, _vehicle];
+		_vehicle setDamage [1, true];
+		uiSleep 3;hintSilent "";
+	} else {
+		hintSilent parseText format ["%1You exploded<br/><t color='#42ebf4'>%2's</t><br />vehicle", hintHeader, name _player];
+		[true] remoteExec ["jjx_menu_destroyExec", _player];
+		uiSleep 3;hintSilent "";
+	};
 };
 jjx_menu_destroy = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
-	hintSilent parseText format ["%1You destroyed<br/><t color='#42ebf4'>%2's</t><br />vehicle", hintHeader, name _player];uiSleep 3;hintSilent "";
-	[false] remoteExec ["jjx_menu_destroyExec", _player];
+	if (_player == player) then {
+		_vehicle = vehicle player;
+		hintSilent parseText format ["%1You destroyed<br/><t color='#42ebf4'>%2</t>", hintHeader, _vehicle];
+		_vehicle setDamage [1, false];
+		uiSleep 3;hintSilent "";
+	} else {
+		hintSilent parseText format ["%1You destroyed<br/><t color='#42ebf4'>%2's</t><br />vehicle", hintHeader, name _player];
+		[false] remoteExec ["jjx_menu_destroyExec", _player];
+		uiSleep 3;hintSilent "";
+	};
 };
 jjx_menu_destroyExec = {
 	params["_explode"];
@@ -346,37 +365,39 @@ jjx_menu_destroyExec = {
 jjx_menu_spectator = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
-	hintSilent parseText format ["%1You are now spectating<br/><t color='#42ebf4'>%2</t><br />to stop spectating press F10", hintHeader, name _player];uiSleep 3;hintSilent "";
+	hintSilent parseText format ["%1You are now spectating<br/><t color='#42ebf4'>%2</t><br />to stop spectating press F10", hintHeader, name _player];
 	_player switchCamera "INTERNAL";
 	stopSpectating = (findDisplay 46) displayAddEventHandler ["KeyDown",
 		"if ((_this select 1) == 68) then {
 			(findDisplay 46) displayRemoveEventHandler ['KeyDown', stopSpectating];
 			player switchCamera 'INTERNAL';
 		};false"
-		];
+	];
+	uiSleep 3;hintSilent "";
 };
 
 jjx_menu_markers = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
-	hintSilent parseText format ["%1You toggled map markers for<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];uiSleep 3;hintSilent "";
+	hintSilent parseText format ["%1You toggled map markers for<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];
 	remoteExec ["jjx_menu_markersExec", _player];
+	uiSleep 3;hintSilent "";
 };
 jjx_menu_markersExec = {
 	if (((isNil {player getVariable "mapMarkers"}) || (isNil {player getVariable "markerList"})) || {!(player getVariable "mapMarkers")}) then {
 		player setVariable ["mapMarkers", true, true];
 		player setVariable ["markerList", [], true];
 		{
-			name = "";
-			{name = name + _x; name} forEach ((_name _x) splitString " ");
-			_markerTest = format ["marker_%1", name];
-			if (!_markerTest in allMapMarker) then {
+			pName = "";
+			{pName = pName + _x; pName} forEach ((name _x) splitString " ");
+			_markerTest = format ["marker_%1", pName];
+			if (!(_markerTest in allMapMarkers)) then {
 				_code = format ['createMarkerLocal ["marker_%1", [%2, %3]];
 				"marker_%1" setMarkerShapeLocal "ICON";
 				"marker_%1" setMarkerTypeLocal "mil_dot";
 				"marker_%1" setMarkerColorLocal "ColorPink";
 				"marker_%1" setMarkerTextLocal "%1";
-				', name, (position _x select 0), (position _x select 1)];
+				', pName, (position _x select 0), (position _x select 1)];
 				call compile _code;
 				(player getVariable "markerList") pushback _x;
 			};
@@ -386,11 +407,12 @@ jjx_menu_markersExec = {
 			while {(player getVariable "mapMarkers")} do {
 				{
 					sName = "";
-					{sName = sName + _x sName} forEach ((name _x) splitString " ");
-					_code format ['"marker_%1" setMarkerPosLocal [%2, %3]'], sName, (position _x select 0), (position _x select 1);
+					{sName = sName + _x; sName} forEach ((name _x) splitString " ");
+					_code = format ['"marker_%1" setMarkerPosLocal [%2, %3]',
+					sName, (position _x select 0), (position _x select 1)];
 					call compile _code;
 				} forEach (player getVariable "markerList");
-				uiSleep 0.1;
+				uiSleep 0.01;
 			};
 		};
 		exit;
@@ -398,7 +420,7 @@ jjx_menu_markersExec = {
 		player setVariable ["mapMarkers", false, true];
 		{
 			xName = "";
-			{xName = xName + _x xName} forEach ((name _x) splitString " ");
+			{xName = xName + _x; xName} forEach ((name _x) splitString " ");
 			deleteMarkerLocal format ["marker_%1", xName];
 		} forEach (player getVariable "markerList");
 
@@ -409,8 +431,9 @@ jjx_menu_markersExec = {
 jjx_menu_freecam = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
-	hintSilent parseText format ["%1You enabled freecam for<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];uiSleep 3;hintSilent "";
+	hintSilent parseText format ["%1You enabled freecam for<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];
 	remoteExec ["jjx_menu_freecamExec", _player];
+	uiSleep 3;hintSilent "";
 };
 jjx_menu_freecamExec = {
 	[] execVM "a3\functions_f\Debug\fn_camera.sqf";
@@ -419,8 +442,9 @@ jjx_menu_freecamExec = {
 jjx_menu_lobby = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
-	hintSilent parseText format ["%1You sent<br/><t color='#42ebf4'>%2</t><br />to the lobby", hintHeader, name _player];uiSleep 3;hintSilent "";
+	hintSilent parseText format ["%1You sent<br/><t color='#42ebf4'>%2</t><br />to the lobby", hintHeader, name _player];
 	remoteExec ["jjx_menu_lobbyExec", _player];
+	uiSleep 3;hintSilent "";
 };
 jjx_menu_lobbyExec = {
 	(findDisplay 46) closeDisplay 0;
@@ -429,53 +453,59 @@ jjx_menu_lobbyExec = {
 jjx_menu_arsenal = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
-	hintSilent parseText format ["%1You put<br/><t color='#42ebf4'>%2</t><br />in to the arsenal", hintHeader, name _player];uiSleep 3;hintSilent "";
+	hintSilent parseText format ["%1You put<br/><t color='#42ebf4'>%2</t><br />in to the arsenal", hintHeader, name _player];
 	if (_player == player) then {
 		closeDialog 0;
 		["Open", true] call BIS_fnc_arsenal;
 	} else {
 		["Open", true] remoteExec ["BIS_fnc_arsenal", _player];
 	};
+	uiSleep 3;hintSilent "";
 };
 
 jjx_menu_garage = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
-	hintSilent parseText format ["%1You put<br/><t color='#42ebf4'>%2</t><br />in to the garage", hintHeader, name _player];uiSleep 3;hintSilent "";
+	hintSilent parseText format ["%1You put<br/><t color='#42ebf4'>%2</t><br />in to the garage", hintHeader, name _player];
 	if (_player == player) then {
 		closeDialog 0;
 		["Open", true] call BIS_fnc_garage;
 	} else {
 		["Open", true] remoteExec ["BIS_fnc_garage", _player];
 	};
+	uiSleep 3;hintSilent "";
 };
 
 jjx_menu_takeLoadout = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
-	hintSilent parseText format ["%1You took<br/><t color='#42ebf4'>%2's</t><br />loadout", hintHeader, name _player];uiSleep 3;hintSilent "";
+	hintSilent parseText format ["%1You took<br/><t color='#42ebf4'>%2's</t><br />loadout", hintHeader, name _player];
 	player setUnitLoadout (getUnitLoadout _player);
+	uiSleep 3;hintSilent "";
 };
 
 jjx_menu_giveLoadout = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
-	hintSilent parseText format ["%1You gave<br/><t color='#42ebf4'>%2</t><br />your loadout", hintHeader, name _player];uiSleep 3;hintSilent "";
+	hintSilent parseText format ["%1You gave<br/><t color='#42ebf4'>%2</t><br />your loadout", hintHeader, name _player];
 	_player setUnitLoadout (getUnitLoadout player);
+	uiSleep 3;hintSilent "";
 };
 
 jjx_menu_info = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
-	hintSilent parseText format ["%1<t size='1.2' color='#f4e242'>Name: </t><br />%2<br /><br /><t size='1.2' color='#f4e242'>UID: </t><br />%3<br /><br /><t size='1.2' color='#f4e242'>Position: </t><br />%4<br /><br /><t size='1.2' color='#f4e242'>Equip: </t><br />%5<br /><br /><t size='1.6' color='#f45f42'>Player equipment copied to clipboard.</t>", hintHeader, name _player, getPlayerUID _player, position _player, getUnitLoadout _player];uiSleep 3;hintSilent "";
+	hintSilent parseText format ["%1<t size='1.2' color='#f4e242'>Name: </t><br />%2<br /><br /><t size='1.2' color='#f4e242'>UID: </t><br />%3<br /><br /><t size='1.2' color='#f4e242'>Position: </t><br />%4<br /><br /><t size='1.2' color='#f4e242'>Equip: </t><br />%5<br /><br /><t size='1.6' color='#f45f42'>Player equipment copied to clipboard.</t>", hintHeader, name _player, getPlayerUID _player, position _player, getUnitLoadout _player];
 	copyToClipboard str(getUnitLoadout _player);
+	uiSleep 6;hintSilent "";
 };
 
 jjx_menu_pee = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
-	hintSilent parseText format ["%1You made<br/><t color='#42ebf4'>%2</t><br />pee", hintHeader, name _player];uiSleep 3;hintSilent "";
+	hintSilent parseText format ["%1You made<br/><t color='#42ebf4'>%2</t><br />pee", hintHeader, name _player];
 	remoteExec ["jjx_menu_peeExec", _player];
+	uiSleep 3;hintSilent "";
 };
 jjx_menu_peeExec = {
 	player playMove "Acts_AidlPercMstpSlowWrflDnon_pissing"; sleep 4;
