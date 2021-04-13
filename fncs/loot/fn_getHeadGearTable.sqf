@@ -5,4 +5,4 @@ _table = [
 	"CUP_H_USMC_Headset_GoggleW_HelmetWDL"
 	];
 
-_table;
+_table

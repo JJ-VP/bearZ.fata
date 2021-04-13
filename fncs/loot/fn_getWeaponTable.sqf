@@ -8,4 +8,4 @@ _table = [
 	"CUP_arifle_AK103_railed"
 	];
 
-_table;
+_table

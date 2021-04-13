@@ -3,4 +3,4 @@ _table = [
 	"CUP_U_O_CHDKZ_Kam_07"
 	];
 
-_table;
+_table

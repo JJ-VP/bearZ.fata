@@ -8,7 +8,7 @@ class EditorData
 	toggles=514;
 	class ItemIDProvider
 	{
-		nextID=774;
+		nextID=778;
 	};
 	class MarkerIDProvider
 	{
@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1028.9316,63.787933,5850.7104};
-		dir[]={-0.46792731,-0.7432723,-0.47812742};
-		up[]={-0.51987773,0.66897953,-0.53121126};
-		aside[]={-0.71469367,-8.5798092e-008,0.69944543};
+		pos[]={1018.3812,72.426674,5850.3369};
+		dir[]={-0.34383559,-0.57826477,-0.73990101};
+		up[]={-0.24370201,0.81584036,-0.52442467};
+		aside[]={-0.90689605,1.2293458e-007,0.42143896};
 	};
 };
 binarizationWanted=0;
@@ -4909,7 +4909,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=305;
+		items=307;
 		class Item0
 		{
 			dataType="Marker";
@@ -17265,6 +17265,182 @@ class Mission
 				};
 				nAttributes=1;
 			};
+		};
+		class Item305
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1015.273,65.377838,5845.603};
+						angles[]={0,4.0919418,0};
+					};
+					side="West";
+					flags=3;
+					class Attributes
+					{
+						init="call{this disableAI ""PATH"";}";
+					};
+					id=775;
+					type="B_Sharpshooter_F";
+					atlOffset=2.979641;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="allowDamage";
+							expression="_this allowdamage _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1.02;
+								};
+							};
+						};
+						class Attribute3
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=0;
+								};
+							};
+						};
+						nAttributes=4;
+					};
+				};
+			};
+			class Attributes
+			{
+				init="call{this disableAI ""PATH"";}";
+			};
+			id=774;
+			atlOffset=2.979641;
+		};
+		class Item306
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1042.1298,62.107838,5843.1929};
+						angles[]={0,3.1674225,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						init="call{this disableAI ""PATH"";}";
+					};
+					id=777;
+					type="B_Sharpshooter_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="allowDamage";
+							expression="_this allowdamage _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1.02;
+								};
+							};
+						};
+						class Attribute3
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=0;
+								};
+							};
+						};
+						nAttributes=4;
+					};
+				};
+			};
+			class Attributes
+			{
+				init="call{this disableAI ""PATH"";}";
+			};
+			id=776;
 		};
 	};
 };

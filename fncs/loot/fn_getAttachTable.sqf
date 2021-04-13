@@ -8,4 +8,4 @@ _table = [
 	"ACE_NVG_Wide"
 	];
 
-_table;
+_table

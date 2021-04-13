@@ -8,4 +8,4 @@ _table = [
 	"CUP_30Rnd_762x39_AK103_bakelite_M"
 	];
 
-_table;
+_table
