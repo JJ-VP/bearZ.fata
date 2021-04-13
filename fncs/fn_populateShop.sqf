@@ -39,11 +39,38 @@ while{!isNull (findDisplay 420)} do {
 	};
 	if(_selection == "Compat. Mags") then {
 		//get primary gun and add to lb
-
+		_weapon = primaryWeapon player;
+		if (_weapon != "") then {
+			_mags = [_weapon] call BIS_fnc_compatibleMagazines;
+			_price = 20;
+			_length = (count _mags) - 1;
+			for "_i" from 0 to _length do {
+				lbAdd [1501, _mags select _i];
+				lbAdd [1502, format["$%1", _price]];
+			};
+		};
 		//get launcher and add to lb
-
-		//get secondary gun and add to lb
-
+		_weapon = secondaryWeapon player;
+		if (_weapon != "") then {
+			_mags = [_weapon] call BIS_fnc_compatibleMagazines;
+			_price = 50;
+			_length = (count _mags) - 1;
+			for "_i" from 0 to _length do {
+				lbAdd [1501, _mags select _i];
+				lbAdd [1502, format["$%1", _price]];
+			};
+		};
+		//get handun and add to lb
+		_weapon = handgunWeapon player;
+		if (_weapon != "") then {
+			_mags = [_weapon] call BIS_fnc_compatibleMagazines;
+			_price = 10;
+			_length = (count _mags) - 1;
+			for "_i" from 0 to _length do {
+				lbAdd [1501, _mags select _i];
+				lbAdd [1502, format["$%1", _price]];
+			};
+		};
 	}else{
 		done = false;
 		//construct file path name
@@ -51,9 +78,7 @@ while{!isNull (findDisplay 420)} do {
 		//populate available items on right
 		_waiter = call compile "execVM _function;";
 		waitUntil{done};
-	};
-	//sleep for x
-	uiSleep 0.05;
-	}; 
+		};
+}; 
 
 };
