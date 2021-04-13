@@ -31,7 +31,7 @@ keyPress = {
 			_isAdmin = player call jjx_fnc_isAdmin;
 
 			if (_isAdmin) then {
-				call jjx_fnc_openMenu;
+				call jjx_fnc_adminMenu;
 			};
 		};
 		case 11: //Holster weapon when player presses 0

@@ -1,5 +1,5 @@
 /*
- * fn_openMenu.sqf
+ * fn_adminMenu.sqf
  * Author: JJ
  *
  * Args:
@@ -11,28 +11,40 @@
  * This function opens the admin menu and adds data to the menu
  */
 
-#define jjx_menu_red [ 1, 0.22, 0.22, 1]
-#define jjx_menu_green [ 0.22, 0.7, 0.2, 1]
+//
+//
+// TODO
+// Add a loadout system
+// Add a variable editor
+// Add a remote debug maybe?
+// Add a item spawner (_cfg = configFile >> 'CfgWeapons'; BIS_fnc_compatibleMagazines)
+// Add a vehicle spawner
+//
+//
+
+#define jjx_admin_red [ 1, 0.22, 0.22, 1]
+#define jjx_admin_green [ 0.22, 0.7, 0.2, 1]
 
 _isAdmin = player call jjx_fnc_isAdmin;
 
 
-jjx_menu_open = {
-	if (!isNull (findDisplay -1)) exitWith {closeDialog 2;};
-	createDialog "adminMenu";
-	waitUntil {!isNull (findDisplay -1)};
-	[] spawn jjx_menu_update;
+jjx_admin_open = {
+	if (!isNull (findDisplay -1)) exitWith {closeDialog 2;}; //If menu is already open, close it
+	createDialog "adminMenu"; //Open the menu
+	waitUntil {!isNull (findDisplay -1)}; //Wait for the menu to be open
+	[] spawn jjx_admin_update; //Spawn the update function
+	[] spawn jjx_loadout_update;
 };
 
-jjx_menu_update = {
+jjx_admin_update = {
 	while {!isNull (findDisplay -1)} do {
-		call jjx_menu_players;
+		call jjx_admin_players;
 		{
-			remoteExec ["jjx_menu_steamName", _x];
+			remoteExec ["jjx_admin_steamName", _x];
 			lbAdd [1500, name _x];
-			((findDisplay -1) displayCtrl 1500) ctrlSetEventHandler ["LBDblClick", "_this call jjx_menu_playerInfo"];
+			((findDisplay -1) displayCtrl 1500) ctrlSetEventHandler ["LBDblClick", "_this call jjx_admin_playerInfo"];
 			lbSetTooltip [1500, _forEachIndex, format ["Name: %1 ~ Steam: %2 ~ UID: %3", name _x, _x getVariable "steamName", getPlayerUID _x]];
-		} forEach playerList;
+		} forEach playerList; //For all online players, add them to the player list in the GUI
 
 		features = [];
 		{
@@ -45,16 +57,16 @@ jjx_menu_update = {
 					if ((lbCurSel 1500) != -1) then {
 						if (isDamageAllowed (playerList select (lbCurSel 1500))) then {
 							lbAdd [1501, format ["%1 - OFF", _x select 0]];
-							lbSetColor [1501,  _forEachIndex, jjx_menu_red];
+							lbSetColor [1501,  _forEachIndex, jjx_admin_red];
 							lbSetTooltip [1501, _forEachIndex, _x select 3];
 						} else {
 							lbAdd [1501, format ["%1 - ON", _x select 0]];
-							lbSetColor [1501, _forEachIndex, jjx_menu_green];
+							lbSetColor [1501, _forEachIndex, jjx_admin_green];
 							lbSetTooltip [1501, _forEachIndex, _x select 3];
 						};
 					} else {
 						lbAdd [1501, format ["%1 - OFF", _x select 0]];
-						lbSetColor [1501,  _forEachIndex, jjx_menu_red];
+						lbSetColor [1501,  _forEachIndex, jjx_admin_red];
 						lbSetTooltip [1501, _forEachIndex, _x select 3];
 					};
 				};
@@ -62,16 +74,16 @@ jjx_menu_update = {
 					if ((lbCurSel 1500) != -1) then {
 						if (isNil {((playerList select (lbCurSel 1500)) getVariable "jjx_mapTP")} || {!((playerList select (lbCurSel 1500)) getVariable "jjx_mapTP")}) then {
 							lbAdd [1501, format ["%1 - OFF", _x select 0]];
-							lbSetColor [1501,  _forEachIndex, jjx_menu_red];
+							lbSetColor [1501,  _forEachIndex, jjx_admin_red];
 							lbSetTooltip [1501, _forEachIndex, _x select 3];
 						} else {
 							lbAdd [1501, format ["%1 - ON", _x select 0]];
-							lbSetColor [1501, _forEachIndex, jjx_menu_green];
+							lbSetColor [1501, _forEachIndex, jjx_admin_green];
 							lbSetTooltip [1501, _forEachIndex, _x select 3];
 						};
 					} else {
 						lbAdd [1501, format ["%1 - OFF", _x select 0]];
-						lbSetColor [1501,  _forEachIndex, jjx_menu_red];
+						lbSetColor [1501,  _forEachIndex, jjx_admin_red];
 						lbSetTooltip [1501, _forEachIndex, _x select 3];
 					};
 				};
@@ -79,16 +91,16 @@ jjx_menu_update = {
 					if ((lbCurSel 1500) != -1) then {
 						if (isNil {((playerList select (lbCurSel 1500)) getVariable "jjx_frozen")} || {!((playerList select (lbCurSel 1500)) getVariable "jjx_frozen")}) then {
 							lbAdd [1501, format ["%1 - OFF", _x select 0]];
-							lbSetColor [1501,  _forEachIndex, jjx_menu_red];
+							lbSetColor [1501,  _forEachIndex, jjx_admin_red];
 							lbSetTooltip [1501, _forEachIndex, _x select 3];
 						} else {
 							lbAdd [1501, format ["%1 - ON", _x select 0]];
-							lbSetColor [1501, _forEachIndex, jjx_menu_green];
+							lbSetColor [1501, _forEachIndex, jjx_admin_green];
 							lbSetTooltip [1501, _forEachIndex, _x select 3];
 						};
 					} else {
 						lbAdd [1501, format ["%1 - OFF", _x select 0]];
-						lbSetColor [1501,  _forEachIndex, jjx_menu_red];
+						lbSetColor [1501,  _forEachIndex, jjx_admin_red];
 						lbSetTooltip [1501, _forEachIndex, _x select 3];
 					};
 				};
@@ -96,16 +108,16 @@ jjx_menu_update = {
 					if ((lbCurSel 1500) != -1) then {
 						if (isNil {((playerList select (lbCurSel 1500)) getVariable "mapMarkers")} || {!((playerList select (lbCurSel 1500)) getVariable "mapMarkers")}) then {
 							lbAdd [1501, format ["%1 - OFF", _x select 0]];
-							lbSetColor [1501,  _forEachIndex, jjx_menu_red];
+							lbSetColor [1501,  _forEachIndex, jjx_admin_red];
 							lbSetTooltip [1501, _forEachIndex, _x select 3];
 						} else {
 							lbAdd [1501, format ["%1 - ON", _x select 0]];
-							lbSetColor [1501, _forEachIndex, jjx_menu_green];
+							lbSetColor [1501, _forEachIndex, jjx_admin_green];
 							lbSetTooltip [1501, _forEachIndex, _x select 3];
 						};
 					} else {
 						lbAdd [1501, format ["%1 - OFF", _x select 0]];
-						lbSetColor [1501,  _forEachIndex, jjx_menu_red];
+						lbSetColor [1501,  _forEachIndex, jjx_admin_red];
 						lbSetTooltip [1501, _forEachIndex, _x select 3];
 					};
 				};
@@ -115,38 +127,52 @@ jjx_menu_update = {
 					lbSetTooltip [1501, _forEachIndex, _x select 3];
 				};
 			};
-		} forEach features;
+		} forEach features; //If a feature is specified here it will have custom formatting applied to it.
 
-		uiSleep 0.05;
-		lbClear 1500;
-		lbClear 1501;
+		uiSleep 0.05; //Menu refresh rate (currently 20Hz)
+		lbClear 1500; //Clear the players list
+		lbClear 1501; //Clear the features list
 	};
 };
 
-//Want to modify exec so it executes agaist the local player if no payer is selected from the playerlist.
-jjx_menu_exec = {
+
+
+
+
+//ADMIN MENU 
+
+
+
+
+
+jjx_admin_exec = {
 	params ["_player","_feature"];
-	if (_feature != -1) then {
-		if ((features select _feature) select 2) then {
+	if (_feature != -1) then { //If a feature isn't selected
+		if ((features select _feature) select 2) then { //If a feature has its "Player required" field set to true
 			if (_player != -1) then {
-				_code = format ["[%1] spawn jjx_menu_%2", _player, (features select _feature) select 1];
-				call compile _code;
+				_code = format ["[%1] spawn jjx_admin_%2", _player, (features select _feature) select 1];
+				call compile _code; //Spawn the selected feature and pass the selected player as an argument
 			} else {
-				hintSilent parseText format ["%1 To execute %2 you need to select a player", hintHeader, format["<t color='#f45f42'>%1</t>", (features select _feature) select 0]];
+				//hintSilent parseText format ["%1 To execute %2 you need to select a player", hintHeader, format["<t color='#f45f42'>%1</t>", (features select _feature) select 0]];
+				_code = format ["[%1] spawn jjx_admin_%2", player, (features select _feature) select 1];
+				call compile _code; //Spawn the selected feature and pass the current player as an argument
 			};
-		} else {_code = format ["[] spawn jjx_menu_%1", (features select _feature) select 1]; call compile _code; };
+		} else {
+			_code = format ["[] spawn jjx_admin_%1", (features select _feature) select 1];
+			call compile _code; //Spawn the selected feature with no arguments
+			};
 	} else {
-		hintSilent parseText format ["%1 Select a feature", hintHeader];
+		hintSilent parseText format ["%1 Select a feature", hintHeader]; //Tell the user to select a feature
 	};
 };
-publicVariable "jjx_menu_exec";
+publicVariable "jjx_admin_exec";
 
-jjx_menu_init = {
+jjx_admin_init = {
 	hintHeader = "<t color='#41f48c' size='2'>BearZ Admin Menu</t><br /><t size='0.68'>by JJ</t><br />-------- -_- --------<br /><br />";
 	publicVariable hintHeader;
 
 	features = [];
-	featuresOff = [
+	featuresOff = [ //List of all features to display in the format ["Display Name", "funmctionName","Requires Player selected", "ToolTip"],
 		//Need to test if I can add a header / spacer (actions)
 		["Save mission", "saveMission", false, "Save the current state of the mission with GRAD Persistence"],
 		["Kill", "kill", true, "Select a player to kill"],
@@ -174,30 +200,30 @@ jjx_menu_init = {
 	publicVariable "featuresOff";
 
 	if (isMultiplayer) then {
-		jjx_menu_players = {playerList = allPlayers;};
+		jjx_admin_players = {playerList = allPlayers;}; //If multiplayer playerList = all players
 		publicVariable "playerList";
 	} else {
-		jjx_menu_players = {playerList = switchableUnits;};
+		jjx_admin_players = {playerList = switchableUnits;}; //If not multiplayer playerList = switchable units
 		publicVariable "playerList";
 	};
 
-	call jjx_menu_players;
+	call jjx_admin_players;
 };
 
-jjx_menu_start = {
+jjx_admin_start = {
 	waitUntil {time > 0};
-	if (_isAdmin) then {
-		call jjx_menu_init;
-		waitUntil{!isNull (findDisplay 46)};
-		call jjx_menu_open;
+	if (_isAdmin) then { //If UID is in jjx_admin
+		call jjx_admin_init; //Initalise menu
+		waitUntil{!isNull (findDisplay 46)}; //Wait untill the game screen is avalible
+		call jjx_admin_open; //Open the menu
 	};
 };
 
-jjx_menu_steamName = {
-	player setVariable ["steamName", profileNameSteam, true];
+jjx_admin_steamName = {
+	player setVariable ["steamName", profileNameSteam, true]; //Set the players steamname into a variable that can be read by the server
 };
 
-jjx_menu_playerInfo = {
+jjx_admin_playerInfo = { //Returns the In-game name, Steam name, UID and current loadout of the selected player
 	params["_idc", "_selectedIndex"];
 	_infoName = format ["Name: %1", name (playerList select _selectedIndex)];
 	_infoSteam = format ["Steam: %1", (playerList select _selectedIndex) getVariable "steamName"];
@@ -205,19 +231,18 @@ jjx_menu_playerInfo = {
 	_infoLoadout = getUnitLoadout (playerList select _selectedIndex);
 	copyToClipboard format ["%1 -> %2 ~ %3 ~ %4 ~~ -_- ~~ %5", "BearZ admin menu", _infoName, _infoSteam, _infoUID, _infoLoadout];
 	hintSilent parseText format ["%1 %2 <br /> %3 <br /> %4 <br /><br /> <t size='1.6' color='#f45f42'>The players equipment was copied to clipboard, press CTRL+V in a note program to paste it.</t>", hintHeader, _infoName, _infoSteam, _infoUID];uiSleep 4;hintSilent "";
-};
-
-
+}; 
 
 
 // FEATURES BELOW
 
-jjx_menu_saveMission = {
-	hintSilent parseText format ["%1Mission save command sent", hintHeader, name _player];
-	[true, 60] remoteExec ["grad_persistence_fnc_saveMission", 2];
+
+jjx_admin_saveMission = {
+	hintSilent parseText format ["%1Mission save command sent", hintHeader];
+	[true, 60] remoteExec ["grad_persistence_fnc_saveMission", 2]; //args = [Show Warning, Warning time]
 };
 
-jjx_menu_kill = {
+jjx_admin_kill = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	hintSilent parseText format ["%1You killed<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];
@@ -225,7 +250,7 @@ jjx_menu_kill = {
 	uiSleep 3;hintSilent "";
 };
 
-jjx_menu_heal = {
+jjx_admin_heal = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	hintSilent parseText format ["%1You healed<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];
@@ -233,7 +258,7 @@ jjx_menu_heal = {
 	uiSleep 3;hintSilent "";
 };
 
-jjx_menu_god = {
+jjx_admin_god = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 
@@ -246,7 +271,7 @@ jjx_menu_god = {
 	};
 };
 
-jjx_menu_tpToPlayer = {
+jjx_admin_tpToPlayer = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	hintSilent parseText format ["%1You teleported to<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];
@@ -254,7 +279,7 @@ jjx_menu_tpToPlayer = {
 	uiSleep 3;hintSilent "";
 };
 
-jjx_menu_tpPlayerHere = {
+jjx_admin_tpPlayerHere = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	hintSilent parseText format ["%1You teleported<br/><t color='#42ebf4'>%2</t><br />to you", hintHeader, name _player];
@@ -262,14 +287,14 @@ jjx_menu_tpPlayerHere = {
 	uiSleep 3;hintSilent "";
 };
 
-jjx_menu_mapTP = {
+jjx_admin_mapTP = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	hintSilent parseText format ["%1You toggled map TP for<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];
-	remoteExec ["jjx_menu_mapTPExec", _player];
+	remoteExec ["jjx_admin_mapTPExec", _player];
 	uiSleep 3;hintSilent "";
 };
-jjx_menu_mapTPExec = {
+jjx_admin_mapTPExec = {
 	if ((isNil {player getVariable "jjx_mapTP"}) || {!(player getVariable "jjx_mapTP")}) then {
 		player setVariable ["jjx_mapTP", true, true];
 		hint parseText format ["%1 An admin has enabled map teleportation for you!<br /><t color='#f45f42'>ALT + click</t><br />on the map to teleport", hintHeader];
@@ -283,14 +308,14 @@ jjx_menu_mapTPExec = {
 	};
 };
 
-jjx_menu_freeze = {
+jjx_admin_freeze = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	hintSilent parseText format ["%1You toggled freeze for<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];
-	remoteExec ["jjx_menu_freezeExec", _player];
+	remoteExec ["jjx_admin_freezeExec", _player];
 	uiSleep 3;hintSilent "";
 };
-jjx_menu_freezeExec = {
+jjx_admin_freezeExec = {
 	if (userInputDisabled) then {
 		disableUserInput false;
 		player setVariable ["jjx_frozen", false, true];
@@ -300,7 +325,7 @@ jjx_menu_freezeExec = {
 	};
 };
 
-jjx_menu_repair = {
+jjx_admin_repair = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	if (_player == player) then {
@@ -309,28 +334,28 @@ jjx_menu_repair = {
 		uiSleep 3;hintSilent "";
 	} else {
 		hintSilent parseText format ["%1You repaired<br/><t color='#42ebf4'>%2's</t><br />vehicle", hintHeader, name _player];
-		remoteExec ["jjx_menu_repairExec", _player];
+		remoteExec ["jjx_admin_repairExec", _player];
 		uiSleep 3;hintSilent "";
 	};
 };
-jjx_menu_repairExec = {
+jjx_admin_repairExec = {
 	_vehicle = vehicle player;
 	_vehicle setDamage 0;
 };
 
-jjx_menu_delete = {
+jjx_admin_delete = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	hintSilent parseText format ["%1You deleted<br/><t color='#42ebf4'>%2's</t><br />vehicle", hintHeader, name _player];
-	remoteExec ["jjx_menu_deleteExec", _player];
+	remoteExec ["jjx_admin_deleteExec", _player];
 	uiSleep 3;hintSilent "";
 };
-jjx_menu_deleteExec = {
+jjx_admin_deleteExec = {
 	_vehicle = vehicle player;
 	deleteVehicle _vehicle;
 };
 
-jjx_menu_explode = {
+jjx_admin_explode = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	if (_player == player) then {
@@ -340,11 +365,11 @@ jjx_menu_explode = {
 		uiSleep 3;hintSilent "";
 	} else {
 		hintSilent parseText format ["%1You exploded<br/><t color='#42ebf4'>%2's</t><br />vehicle", hintHeader, name _player];
-		[true] remoteExec ["jjx_menu_destroyExec", _player];
+		[true] remoteExec ["jjx_admin_destroyExec", _player];
 		uiSleep 3;hintSilent "";
 	};
 };
-jjx_menu_destroy = {
+jjx_admin_destroy = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	if (_player == player) then {
@@ -354,11 +379,11 @@ jjx_menu_destroy = {
 		uiSleep 3;hintSilent "";
 	} else {
 		hintSilent parseText format ["%1You destroyed<br/><t color='#42ebf4'>%2's</t><br />vehicle", hintHeader, name _player];
-		[false] remoteExec ["jjx_menu_destroyExec", _player];
+		[false] remoteExec ["jjx_admin_destroyExec", _player];
 		uiSleep 3;hintSilent "";
 	};
 };
-jjx_menu_destroyExec = {
+jjx_admin_destroyExec = {
 	params["_explode"];
 	_vehicle = vehicle player;
 	if (_explode) then {
@@ -368,7 +393,7 @@ jjx_menu_destroyExec = {
 	};
 };
 
-jjx_menu_spectator = {
+jjx_admin_spectator = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	hintSilent parseText format ["%1You are now spectating<br/><t color='#42ebf4'>%2</t><br />to stop spectating press F10", hintHeader, name _player];
@@ -382,14 +407,14 @@ jjx_menu_spectator = {
 	uiSleep 3;hintSilent "";
 };
 
-jjx_menu_markers = {
+jjx_admin_markers = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	hintSilent parseText format ["%1You toggled map markers for<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];
-	remoteExec ["jjx_menu_markersExec", _player];
+	remoteExec ["jjx_admin_markersExec", _player];
 	uiSleep 3;hintSilent "";
 };
-jjx_menu_markersExec = {
+jjx_admin_markersExec = {
 	if (((isNil {player getVariable "mapMarkers"}) || (isNil {player getVariable "markerList"})) || {!(player getVariable "mapMarkers")}) then {
 		player setVariable ["mapMarkers", true, true];
 		player setVariable ["markerList", [], true];
@@ -434,29 +459,29 @@ jjx_menu_markersExec = {
 	};
 };
 
-jjx_menu_freecam = {
+jjx_admin_freecam = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	hintSilent parseText format ["%1You enabled freecam for<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];
-	remoteExec ["jjx_menu_freecamExec", _player];
+	remoteExec ["jjx_admin_freecamExec", _player];
 	uiSleep 3;hintSilent "";
 };
-jjx_menu_freecamExec = {
+jjx_admin_freecamExec = {
 	[] execVM "a3\functions_f\Debug\fn_camera.sqf";
 };
 
-jjx_menu_lobby = {
+jjx_admin_lobby = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	hintSilent parseText format ["%1You sent<br/><t color='#42ebf4'>%2</t><br />to the lobby", hintHeader, name _player];
-	remoteExec ["jjx_menu_lobbyExec", _player];
+	remoteExec ["jjx_admin_lobbyExec", _player];
 	uiSleep 3;hintSilent "";
 };
-jjx_menu_lobbyExec = {
+jjx_admin_lobbyExec = {
 	(findDisplay 46) closeDisplay 0;
 };
 
-jjx_menu_arsenal = {
+jjx_admin_arsenal = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	hintSilent parseText format ["%1You put<br/><t color='#42ebf4'>%2</t><br />in to the arsenal", hintHeader, name _player];
@@ -469,7 +494,7 @@ jjx_menu_arsenal = {
 	uiSleep 3;hintSilent "";
 };
 
-jjx_menu_garage = {
+jjx_admin_garage = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	hintSilent parseText format ["%1You put<br/><t color='#42ebf4'>%2</t><br />in to the garage", hintHeader, name _player];
@@ -482,7 +507,7 @@ jjx_menu_garage = {
 	uiSleep 3;hintSilent "";
 };
 
-jjx_menu_takeLoadout = {
+jjx_admin_takeLoadout = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	hintSilent parseText format ["%1You took<br/><t color='#42ebf4'>%2's</t><br />loadout", hintHeader, name _player];
@@ -490,7 +515,7 @@ jjx_menu_takeLoadout = {
 	uiSleep 3;hintSilent "";
 };
 
-jjx_menu_giveLoadout = {
+jjx_admin_giveLoadout = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	hintSilent parseText format ["%1You gave<br/><t color='#42ebf4'>%2</t><br />your loadout", hintHeader, name _player];
@@ -498,7 +523,7 @@ jjx_menu_giveLoadout = {
 	uiSleep 3;hintSilent "";
 };
 
-jjx_menu_info = {
+jjx_admin_info = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	hintSilent parseText format ["%1<t size='1.2' color='#f4e242'>Name: </t><br />%2<br /><br /><t size='1.2' color='#f4e242'>UID: </t><br />%3<br /><br /><t size='1.2' color='#f4e242'>Position: </t><br />%4<br /><br /><t size='1.2' color='#f4e242'>Equip: </t><br />%5<br /><br /><t size='1.6' color='#f45f42'>Player equipment copied to clipboard.</t>", hintHeader, name _player, getPlayerUID _player, position _player, getUnitLoadout _player];
@@ -506,20 +531,26 @@ jjx_menu_info = {
 	uiSleep 6;hintSilent "";
 };
 
-jjx_menu_pee = {
+jjx_admin_pee = {
 	params["_selectedIndex"];
 	_player = playerList select _selectedIndex;
 	hintSilent parseText format ["%1You made<br/><t color='#42ebf4'>%2</t><br />pee", hintHeader, name _player];
-	remoteExec ["jjx_menu_peeExec", _player];
+	remoteExec ["jjx_admin_peeExec", _player];
 	uiSleep 3;hintSilent "";
 };
-jjx_menu_peeExec = {
+jjx_admin_peeExec = {
 	player playMove "Acts_AidlPercMstpSlowWrflDnon_pissing"; sleep 4;
 	player allowDamage true; 
 	player enableSimulation true;
 	player enableSimulationGlobal true;
 	player triggerDynamicSimulation true;
-	_dir = getDir player;
+	_updateDir = true;
+	[] spawn {
+		while {_updateDir} do {
+			_dir = getDir player;
+			uiSleep 0.05; //20Hz
+		};
+	};
 	_stream = "#particlesource" createVehicleLocal [0,0,0];
 	_stream setParticleRandom [0,[0.004,0.004,0.004],[0.01,0.01,0.01],30,0.01,[0,0,0,0],1,0.02,360];
 	_stream setDropInterval 0.001;
@@ -532,19 +563,49 @@ jjx_menu_peeExec = {
 	for "_i" from 0.3 to 0.1 step -0.01 do { _stream setParticleParams [["\a3\data_f\ParticleEffects\Universal\Universal.p3d",16,12,8],"","BillBoard",1,3,[0,0,0],[sin (_dir) * _i,cos (_dir) * _i,0],0,1.5,1,0.1,[0.02,0.02,0.1],[[0.8,0.7,0.2,0.1],[0.8,0.7,0.2,0.1],[0.8,0.7,0.2,0]],[1],1,0,"","",_stream,0,true,0.1,[[0.8,0.7,0.2,0]]]; sleep 0.02;};
 	for "_i" from 0.1 to 0 step -0.01 do { _stream setParticleParams [["\a3\data_f\ParticleEffects\Universal\Universal.p3d",16,12,8],"","BillBoard",1,3,[0,0,0],[sin (_dir) * _i,cos (_dir) * _i,0],0,1.5,1,0.1,[0.02,0.02,0.1],[[0.8,0.7,0.2,_i],[0.8,0.7,0.2,_i],[0.8,0.7,0.2,0]],[1],1,0,"","",_stream,0,true,0.1,[[0.8,0.7,0.2,0]]]; sleep 0.02;};
 	deleteVehicle _stream;
+	_updateDir = false;
 };
 
 
+// LOADOUT MENU
 
-//
+jjx_loadout_save = {
+	_loadoutName = ctrlText 1400;
+	if (_loadoutName != "") then {
+		_currentLoadout = getUnitLoadout player;
+		_allLoadouts = profileNamespace getVariable ["jjx_loadouts", []];
+		_allLoadouts append [[[_loadoutName], _currentLoadout]];
+		profileNamespace setVariable ["jjx_loadouts", _allLoadouts];
+		[_loadoutName] spawn {hintSilent parseText format ["%1Loadout<br/><t color='#42ebf4'>%2</t><br />saved", hintHeader, _this select 0];uiSleep 3;hintSilent "";};
+	
+		//saveProfileNamespace;
+	} else {
+		[] spawn {hintSilent parseText format ["%1You need a specify a loadout name", hintHeader];uiSleep 3;hintSilent "";};
+	};
+};
 
+jjx_loadout_update = {
+	while {!isNull (findDisplay -1)} do {
+		_allLoadouts = profileNamespace getVariable ["jjx_loadouts", []];
+		_index = 0;
+		{
+			_name = _allLoadouts select _index select 0;
+			_data = _allLoadouts select _index select 1;
+			lbAdd [1502, _name];
+			lbSetData [1502, _index, _data];
+			_index = _index + 1;
+		} forEach _allLoadouts;
+		uiSleep 0.05;
+		lbClear 1502;
+	};
+};
 
 // AFTER
 
-jjx_menu_publishVar = {
+jjx_admin_publishVar = {
 	{
-	publicVariable format ["jjx_menu_", _x select 1];
+	publicVariable format ["jjx_admin_", _x select 1]; //Turn all functions into public variables
 	} forEach featuresOff;
 };
 
-call jjx_menu_start;
+call jjx_admin_start; //Start the menu
