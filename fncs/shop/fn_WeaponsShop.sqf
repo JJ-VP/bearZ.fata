@@ -1,7 +1,7 @@
 //trader table
-_mags = call dvl_fnc_getMagTable;
+_mags = call dvl_fnc_getWeaponTable;
 
-_price = 20;
+_price = 75;
 
 //output
 _length = (count _mags) - 1;

@@ -95,6 +95,16 @@ class CfgFunctions {
             class populateShop{};
             class buyItem{};
     	};
+        class table {
+            file = "fncs\loot";
+            class getAttachTable{};
+            class getHeadGearTable{};
+            class getItemsTable{};
+            class getMagTable{};
+            class getUniformsTable{};
+            class getVestsTable{};
+            class getWeaponTable{};
+        }
     };
     class jjx {
     	class functions {

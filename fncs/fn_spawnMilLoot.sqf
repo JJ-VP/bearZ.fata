@@ -12,21 +12,8 @@
  */
 
 //variable init
-_milGear = [
-	"CFP_HV2_Ciras_Olive",
-	"ACE_NVG_Wide",
-	"CUP_H_BAF_DDPM_Mk6_GOGGLES_PRR",
-	"CUP_H_BAF_Crew_Helmet_DDPM",
-	"CUP_H_USArmy_HelmetMICH",
-	"CUP_H_USMC_Headset_GoggleW_HelmetWDL",
-	"CUP_U_B_CDF_MNT_2",
-	"CUP_U_O_CHDKZ_Kam_07",
-	"CUP_V_B_GER_Carrier_Vest",
-	"CUP_V_IDF_Vest",
-	"CUP_V_I_RACS_Carrier_Vest_wdl_2",
-	"CUP_V_B_PASGT_desert",
-	"CUP_V_B_MTV_Pouches"
-];
+_milGear = call dvl_fnc_getUniformsTable + call dvl_fnc_getVestsTable + call dvl_fnc_getHeadgearTable;
+
 //weapon and mag
 _milWeapons = [
 	["CUP_arifle_M4A1_MOE_short_black", "CUP_30Rnd_556x45_Stanag"],
@@ -50,6 +37,9 @@ _wepItems = 1;
 		//clear all old loot
 		_crate = missionNamespace getVariable _x;
 		clearItemCargoGlobal _crate;
+		clearMagazineCargoGlobal _crate;
+		clearWeaponCargoGlobal _crate;
+	    clearBackpackCargoGlobal _crate;
 		//gen gear loot
 		for "_temp" from 1 to _gearItems do {
 			//gen a random value

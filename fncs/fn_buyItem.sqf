@@ -38,6 +38,5 @@ if((lbCurSel 1500 > -1) && (lbCurSel 1501 > -1)) then {
     	_price = _price - 1;
     };
 } else {
-	systemChat format["index: %1, index: %2", lbCurSel 1500, lbCurSel 1501];
 	hint "you need to make a choice";
 }
