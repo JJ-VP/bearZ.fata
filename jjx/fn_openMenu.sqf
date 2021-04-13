@@ -148,6 +148,7 @@ jjx_menu_init = {
 	features = [];
 	featuresOff = [
 		//Need to test if I can add a header / spacer (actions)
+		["Save mission", "saveMission", false, "Save the current state of the mission with GRAD Persistence"],
 		["Kill", "kill", true, "Select a player to kill"],
 		["Heal", "heal", true, "Select a player to heal"],
 		["TP to player", "tpToPlayer", true, "Select a player to teleport to"],
@@ -210,6 +211,11 @@ jjx_menu_playerInfo = {
 
 
 // FEATURES BELOW
+
+jjx_menu_saveMission = {
+	hintSilent parseText format ["%1Mission save command sent", hintHeader, name _player];
+	[true, 60] remoteExec ["grad_persistence_fnc_saveMission", 2];
+};
 
 jjx_menu_kill = {
 	params["_selectedIndex"];
