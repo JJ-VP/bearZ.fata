@@ -11,8 +11,8 @@
  * This file is executed by the server during startup (before init.sqf)
  */
 
-jjx_admin = ["76561198119540788","76561198156022880"];
-jjx_zeus = ["76561198119540788","76561198156022880"];
+jjx_admin = ["76561198119540788","76561198156022880","_SP_PLAYER_"];
+jjx_zeus = ["76561198119540788","76561198156022880", "_SP_PLAYER_"];
 zeusTotal = 0;
 publicVariable "jjx_admin";
 publicVariable "jjx_zeus";
