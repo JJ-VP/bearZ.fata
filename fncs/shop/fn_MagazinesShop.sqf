@@ -10,7 +10,11 @@ _pricebar = 1502;
 
 for "_i" from 0 to _length do {
 	_string = (_mags select _i);
-	lbAdd [_sidebar, _string];
+	_displayText = getText (configFile >> "CfgMagazines" >> _string >> "displayName");
+	_lvl = getText (configFile >> "CfgMagazines" >> _string >> "descriptionShort");
+
+	lbAdd [_sidebar, _displayText];
+	lbSetData [_sidebar, _i, _string];
 	_string = "$" + str _price;
 	lbAdd [_pricebar, _string];
 };

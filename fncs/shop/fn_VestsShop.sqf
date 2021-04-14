@@ -10,13 +10,14 @@ _pricebar = 1502;
 
 for "_i" from 0 to _length do {
 	_string = (_mags select _i);
-	lbAdd [_sidebar, _string];
-
-	//returns armour level
+	_displayText = getText (configFile >> "CfgWeapons" >> _string >> "displayName");
 	_lvl = getText (configFile >> "CfgWeapons" >> _string >> "descriptionShort");
+
+	lbAdd [_sidebar, _displayText];
+	lbSetData [_sidebar, _i, _string];
+
 	//strip useless stuff
 	_lvl = (_lvl splitString "Armor Level ") select 0;
-	systemChat _lvl;
 	//calculate new price
 	_price = "NA";
 	if(_lvl == "Explosive Resistant") then {

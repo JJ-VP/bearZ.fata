@@ -45,7 +45,8 @@ while{!isNull (findDisplay 420)} do {
 			_price = 20;
 			_length = (count _mags) - 1;
 			for "_i" from 0 to _length do {
-				lbAdd [1501, _mags select _i];
+				lbAdd [1501, getText (configFile >> "CfgMagazines" >> _mags select _i >> "displayName")];
+				lbSetData [1501, _i, _mags select _i];
 				lbAdd [1502, format["$%1", _price]];
 			};
 		};
@@ -56,7 +57,8 @@ while{!isNull (findDisplay 420)} do {
 			_price = 50;
 			_length = (count _mags) - 1;
 			for "_i" from 0 to _length do {
-				lbAdd [1501, _mags select _i];
+				lbAdd [1501, getText (configFile >> "CfgMagazines" >> _mags select _i >> "displayName")];
+				lbSetData [1501, _i, _mags select _i];
 				lbAdd [1502, format["$%1", _price]];
 			};
 		};
@@ -67,7 +69,8 @@ while{!isNull (findDisplay 420)} do {
 			_price = 10;
 			_length = (count _mags) - 1;
 			for "_i" from 0 to _length do {
-				lbAdd [1501, _mags select _i];
+				lbAdd [1501, getText (configFile >> "CfgMagazines" >> _mags select _i >> "displayName")];
+				lbSetData [1501, _i, _mags select _i];
 				lbAdd [1502, format["$%1", _price]];
 			};
 		};

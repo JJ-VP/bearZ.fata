@@ -1,0 +1,49 @@
+Primary: CUP_arifle_AK74_Early 
+Primary Mag: ["CUP_30Rnd_545x39_AK_M"] 
+Secondary:  
+Secondary Mag: [] 
+Pistol: CUP_hgun_Deagle 
+PistolMag: ["CUP_7Rnd_50AE_Deagle"] 
+Uniform: U_I_G_Soldier_para_F 
+Vest: CUP_V_CPC_weapons_rngr 
+Backpack: B_Kitbag_tan
+
+Primary: CUP_arifle_AKMS_Early 
+Primary Mag: ["CUP_30Rnd_762x39_AK47_bakelite_M"] 
+Secondary:  
+Secondary Mag: [] 
+Pistol: CUP_hgun_TEC9 
+PistolMag: ["CUP_32Rnd_9x19_TEC9"] 
+Uniform: U_BG_Guerilla3_1 
+Vest:  
+Backpack: rvg_messengerbag_1
+
+Primary: CUP_arifle_FNFAL_railed_sand 
+Primary Mag: ["CUP_20Rnd_762x51_FNFAL_Desert_M"] 
+Secondary:  
+Secondary Mag: [] 
+Pistol: hgun_Pistol_heavy_01_F 
+PistolMag: ["11Rnd_45ACP_Mag"] 
+Uniform: CUP_U_B_BDUv2_DCU 
+Vest: CUP_Vest_RUS_6B45_Sh117_VOG_BeigeDigital 
+Backpack: B_Carryall_ocamo
+
+Primary: CUP_arifle_AKS_Gold 
+Primary Mag: ["CUP_30Rnd_762x39_AK47_M"] 
+Secondary:  
+Secondary Mag: [] 
+Pistol:  
+PistolMag: [] 
+Uniform: CUP_U_B_BDUv2_roll2_gloves_Tpattern 
+Vest: CUP_V_CZ_NPP2006_nk_black 
+Backpack: CUP_B_SLA_Medicbag
+
+Primary: CUP_arifle_G36C 
+Primary Mag: ["CUP_30Rnd_556x45_G36"] 
+Secondary:  
+Secondary Mag: [] 
+Pistol:  
+PistolMag: [] 
+Uniform: CUP_U_B_CDF_FST_2 
+Vest: V_Chestrig_khk 
+Backpack: CUP_B_Motherlode_MTP
