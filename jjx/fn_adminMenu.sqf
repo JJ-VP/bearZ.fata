@@ -14,12 +14,10 @@
 //
 //
 // TODO
-// Add a loadout system
 // Add a variable editor
-// Add a remote debug maybe?
 // Add a item spawner (_cfg = configFile >> 'CfgWeapons'; BIS_fnc_compatibleMagazines)
 // Add a vehicle spawner
-//
+// Fix zeus breaking on death
 //
 
 #define jjx_admin_red [ 1, 0.22, 0.22, 1]
@@ -45,6 +43,14 @@ jjx_admin_update = {
 			((findDisplay -1) displayCtrl 1500) ctrlSetEventHandler ["LBDblClick", "_this call jjx_admin_playerInfo"];
 			lbSetTooltip [1500, _forEachIndex, format ["Name: %1 ~ Steam: %2 ~ UID: %3", name _x, _x getVariable "steamName", getPlayerUID _x]];
 		} forEach playerList; //For all online players, add them to the player list in the GUI
+
+		_allLoadouts = profileNamespace getVariable ["jjx_loadouts", []];
+		_loadoutIndex = 0;
+		{
+			_name = _allLoadouts select _loadoutIndex select 0 select 0;
+			lbAdd [1502, _name];
+			_loadoutIndex = _loadoutIndex + 1;
+		} forEach _allLoadouts;
 
 		features = [];
 		{
@@ -132,6 +138,7 @@ jjx_admin_update = {
 		uiSleep 0.05; //Menu refresh rate (currently 20Hz)
 		lbClear 1500; //Clear the players list
 		lbClear 1501; //Clear the features list
+		lbClear 1502; //Clear the loadout list
 	};
 };
 
@@ -572,31 +579,39 @@ jjx_admin_peeExec = {
 jjx_loadout_save = {
 	_loadoutName = ctrlText 1400;
 	if (_loadoutName != "") then {
-		_currentLoadout = getUnitLoadout player;
-		_allLoadouts = profileNamespace getVariable ["jjx_loadouts", []];
-		_allLoadouts append [[[_loadoutName], _currentLoadout]];
+		_currentLoadout = getUnitLoadout player; 
+		_allLoadouts = profileNamespace getVariable ["jjx_loadouts", []]; 
+		_allLoadouts append [[[_loadoutName], _currentLoadout]]; 
 		profileNamespace setVariable ["jjx_loadouts", _allLoadouts];
-		[_loadoutName] spawn {hintSilent parseText format ["%1Loadout<br/><t color='#42ebf4'>%2</t><br />saved", hintHeader, _this select 0];uiSleep 3;hintSilent "";};
-	
-		//saveProfileNamespace;
-	} else {
-		[] spawn {hintSilent parseText format ["%1You need a specify a loadout name", hintHeader];uiSleep 3;hintSilent "";};
+		[_loadoutName] spawn {hintSilent parseText format ["%1You created loadout<br/><t color='#42ebf4'>%2</t>", hintHeader, _this select 0];}
+	} else { 
+		[] spawn {hintSilent parseText format ["%1You need to specify a loadout name", hintHeader];uiSleep 3;hintSilent "";}
 	};
 };
 
-jjx_loadout_update = {
-	while {!isNull (findDisplay -1)} do {
+jjx_loadout_load = {
+	_index = lbCurSel 1502;
+	if (_index != -1) then {
 		_allLoadouts = profileNamespace getVariable ["jjx_loadouts", []];
-		_index = 0;
-		{
-			_name = _allLoadouts select _index select 0;
-			_data = _allLoadouts select _index select 1;
-			lbAdd [1502, _name];
-			lbSetData [1502, _index, _data];
-			_index = _index + 1;
-		} forEach _allLoadouts;
-		uiSleep 0.05;
-		lbClear 1502;
+		_name = lbText [1502, _index];
+		_loadout = _allLoadouts select _index select 1;
+		player setUnitLoadout _loadout;
+		[_name] spawn {hintSilent parseText format ["%1You equiped loadout<br/><t color='#42ebf4'>%2</t>", hintHeader, _this select 0];}
+	} else { 
+		[] spawn {hintSilent parseText format ["%1You need to select a loadout", hintHeader];uiSleep 3;hintSilent "";} 
+	};
+};
+
+jjx_loadout_delete = {
+	_index = lbCurSel 1502;
+	if (_index != -1) then {
+		_allLoadouts = profileNamespace getVariable ["jjx_loadouts", []];
+		_name = lbText [1502, _index];
+		_allLoadouts deleteAt _index;
+		profileNamespace setVariable ["jjx_loadouts", _allLoadouts];
+		[_name] spawn {hintSilent parseText format ["%1You deleted loadout<br/><t color='#42ebf4'>%2</t>", hintHeader, _this select 0];}
+	} else { 
+		[] spawn {hintSilent parseText format ["%1You need to select a loadout", hintHeader];uiSleep 3;hintSilent "";}
 	};
 };
 

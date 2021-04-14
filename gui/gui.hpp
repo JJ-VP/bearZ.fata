@@ -172,6 +172,7 @@ class adminMenu
 		class guiBackgroundRight: IGUIBack
 		{
 			idc = 2201;
+		
 			x = 0.613466 * safezoneW + safezoneX;
 			y = 0.313 * safezoneH + safezoneY;
 			w = 0.0722056 * safezoneW;
@@ -192,32 +193,51 @@ class adminMenu
 			x = 0.618623 * safezoneW + safezoneX;
 			y = 0.346 * safezoneH + safezoneY;
 			w = 0.0618905 * safezoneW;
-			h = 0.231 * safezoneH;
+			h = 0.198 * safezoneH;
 		};
 		class edtLoadoutName: RscEdit
 		{
 			idc = 1400;
 			x = 0.618623 * safezoneW + safezoneX;
-			y = 0.588 * safezoneH + safezoneY;
+			y = 0.555 * safezoneH + safezoneY;
 			w = 0.0618905 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
 		class btnLoad: RscButton
 		{
 			idc = 1602;
+			onMouseButtonClick = "call jjx_loadout_load;";
 			text = "Load";
 			x = 0.618623 * safezoneW + safezoneX;
-			y = 0.654 * safezoneH + safezoneY;
+			y = 0.621 * safezoneH + safezoneY;
 			w = 0.0618905 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
 		class btnSave: RscButton
 		{
 			idc = 1603;
-			onMouseButtonClick = "call jjx_admin_save;";
+			onMouseButtonClick = "call jjx_loadout_save;";
 			text = "Save";
 			x = 0.618623 * safezoneW + safezoneX;
-			y = 0.621 * safezoneH + safezoneY;
+			y = 0.588 * safezoneH + safezoneY;
+			w = 0.0618905 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class btnDelete: RscButton
+		{
+			idc = 1607;
+			onMouseButtonClick = "call jjx_loadout_delete;";
+			text = "Delete";
+			x = 0.618623 * safezoneW + safezoneX;
+			y = 0.654 * safezoneH + safezoneY;
+			w = 0.0618905 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class guiBackgroundEdit: IGUIBack
+		{
+			idc = 2201;
+			x = 0.618623 * safezoneW + safezoneX;
+			y = 0.555 * safezoneH + safezoneY;
 			w = 0.0618905 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
