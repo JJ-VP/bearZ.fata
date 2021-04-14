@@ -25,13 +25,3 @@ uiSleep 2;
 titleText ["", "BLACK IN", 2];
 uiSleep 2;
 player allowDamage true;
-
-_uid = getPlayerUID player;
-zeusPlayer = player;
-
-if (_uid in jjx_zeus) then {
-	publicVariableServer "zeusPlayer";
-	{zeusPlayer assignCurator (allCurators select zeusTotal);} remoteExec ["call", 0, true];
-	zeusTotal = zeusTotal + 1;
-	publicVariable "zeusTotal";
-};
