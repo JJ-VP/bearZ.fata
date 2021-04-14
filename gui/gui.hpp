@@ -153,6 +153,7 @@ class adminMenu
 		class btnSpawn: RscButton
 		{
 			idc = 1606;
+			onMouseButtonClick = "closeDialog 2;call jjx_fnc_spawnMenu;";
 			text = "Spawn Menu";
 			x = 0.463897 * safezoneW + safezoneX;
 			y = 0.621 * safezoneH + safezoneY;
@@ -364,6 +365,189 @@ class debugMenu
 			w = 0.0618905 * safezoneW;
 			h = 0.033 * safezoneH;
 			tooltip = "Execute this code on the selected player";
+		};
+	};
+};
+
+class spawnMenu 
+{
+	idd = -20;
+	enablemoving = false;
+
+	class controls
+	{
+		class guiBag: IGUIBack
+		{
+			idc = 2200;
+			x = 0.195705 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.113466 * safezoneW;
+			h = 0.55 * safezoneH;
+		};
+		class guiVeh: IGUIBack
+		{
+			idc = 2201;
+			x = 0.319486 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.113466 * safezoneW;
+			h = 0.55 * safezoneH;
+		};
+		class guiObj: IGUIBack
+		{
+			idc = 2202;
+		
+			x = 0.443267 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.113466 * safezoneW;
+			h = 0.55 * safezoneH;
+		};
+		class guiWep: IGUIBack
+		{
+			idc = 2203;
+		
+			x = 0.567048 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.113466 * safezoneW;
+			h = 0.55 * safezoneH;
+		};
+		class guiMag: IGUIBack
+		{
+			idc = 2204;
+		
+			x = 0.690829 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.113466 * safezoneW;
+			h = 0.55 * safezoneH;
+		};
+		class txtBag: RscText
+		{
+			idc = 1000;
+			text = "Backpacks";
+			x = 0.195705 * safezoneW + safezoneX;
+			y = 0.203 * safezoneH + safezoneY;
+			w = 0.113466 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class txtVeh: RscText
+		{
+			idc = 1001;
+			text = "Vehicles";
+			x = 0.319486 * safezoneW + safezoneX;
+			y = 0.203 * safezoneH + safezoneY;
+			w = 0.113466 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class txtObj: RscText
+		{
+			idc = 1002;
+			text = "Objects";
+			x = 0.443267 * safezoneW + safezoneX;
+			y = 0.203 * safezoneH + safezoneY;
+			w = 0.113466 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class txtWep: RscText
+		{
+			idc = 1003;
+			text = "Weapons";
+			x = 0.567048 * safezoneW + safezoneX;
+			y = 0.203 * safezoneH + safezoneY;
+			w = 0.113466 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class txtMag: RscText
+		{
+			idc = 1004;
+			text = "Magazines";
+			x = 0.690829 * safezoneW + safezoneX;
+			y = 0.203 * safezoneH + safezoneY;
+			w = 0.113466 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class lstBag: RscListbox
+		{
+			idc = 1510;
+			x = 0.195705 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.113466 * safezoneW;
+			h = 0.55 * safezoneH;
+		};
+		class lstVeh: RscListbox
+		{
+			idc = 1511;
+			x = 0.319486 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.113466 * safezoneW;
+			h = 0.55 * safezoneH;
+		};
+		class lstObj: RscListbox
+		{
+			idc = 1512;
+			x = 0.443267 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.113466 * safezoneW;
+			h = 0.55 * safezoneH;
+		};
+		class lstWep: RscListbox
+		{
+			idc = 1513;
+			x = 0.567048 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.113466 * safezoneW;
+			h = 0.55 * safezoneH;
+		};
+		class lstMag: RscListbox
+		{
+			idc = 1514;
+			x = 0.690829 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.113466 * safezoneW;
+			h = 0.55 * safezoneH;
+		};
+		class btnBag: RscButton
+		{
+			idc = 1600;
+			text = "Spawn";
+			x = 0.221493 * safezoneW + safezoneX;
+			y = 0.786 * safezoneH + safezoneY;
+			w = 0.0618905 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class btnVeh: RscButton
+		{
+			idc = 1601;
+			text = "Spawn";
+			x = 0.345274 * safezoneW + safezoneX;
+			y = 0.786 * safezoneH + safezoneY;
+			w = 0.0618905 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class btnObj: RscButton
+		{
+			idc = 1602;
+			text = "Spawn";
+			x = 0.469055 * safezoneW + safezoneX;
+			y = 0.786 * safezoneH + safezoneY;
+			w = 0.0618905 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class btnWep: RscButton
+		{
+			idc = 1603;
+			text = "Spawn";
+			x = 0.592836 * safezoneW + safezoneX;
+			y = 0.786 * safezoneH + safezoneY;
+			w = 0.0618905 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class btnMag: RscButton
+		{
+			idc = 1604;
+			text = "Spawn";
+			x = 0.716617 * safezoneW + safezoneX;
+			y = 0.786 * safezoneH + safezoneY;
+			w = 0.0618905 * safezoneW;
+			h = 0.022 * safezoneH;
 		};
 	};
 };

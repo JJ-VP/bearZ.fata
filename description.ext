@@ -113,6 +113,8 @@ class CfgFunctions {
     		class EH {};
             class adminMenu {};
             class debugMenu {};
+            class spawnMenu {};
+            class variableMenu {};
             class isAdmin {};
     	};
     };
