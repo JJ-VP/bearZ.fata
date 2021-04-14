@@ -46,5 +46,5 @@ if (_showWarning) then {
 
     [_allVariableClasses] call FUNC(saveVariables);
 
-    "grad-persistence: mission saved" remoteExec ["systemChat",0,false];
+    "BearZ ~ Mission saved" remoteExec ["systemChat",0,false];
 }, [_area], _waitTime] call CBA_fnc_waitAndExecute;

@@ -32,4 +32,4 @@ if (isClass (missionConfigFile >> "CfgGradPersistence" >> "customVariables")) th
 };
 
 INFO("mission loaded");
-"grad-persistence: mission loaded" remoteExec ["systemChat",0,false];
+"BearZ ~ Mission loaded" remoteExec ["systemChat",0,false];

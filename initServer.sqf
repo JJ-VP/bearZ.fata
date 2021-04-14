@@ -35,6 +35,13 @@ _this spawn {
 			setTimeMultiplier 40;
 		};
 		sleep 10;
-		"loop" remoteExec ["hint", 0, true];
 	};
 };
+
+_this spawn {
+	while {time > 0} do {
+		_duration = 60 * 240;
+		[false] call grad_persistence_fnc_saveMission;
+		sleep _duration;
+	};
+}; //Save the mission every 4 hours
