@@ -47,4 +47,5 @@ if (_showWarning) then {
     [_allVariableClasses] call FUNC(saveVariables);
 
     "BearZ ~ Mission saved" remoteExec ["systemChat",0,false];
+    diag_log format ["%1:%2:%3 BearZ ~ Mission saved",systemTime select 3, systemTime select 4, systemTime select 5];
 }, [_area], _waitTime] call CBA_fnc_waitAndExecute;
