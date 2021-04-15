@@ -468,6 +468,7 @@ jjx_admin_markersExec = {
 
 jjx_admin_freecam = {
 	params["_selectedIndex"];
+	closeDialog 2;
 	_player = playerList select _selectedIndex;
 	hintSilent parseText format ["%1You enabled freecam for<br/><t color='#42ebf4'>%2</t>", hintHeader, name _player];
 	remoteExec ["jjx_admin_freecamExec", _player];

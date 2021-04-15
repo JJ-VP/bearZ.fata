@@ -82,7 +82,7 @@ keyPress = {
 		};
 		case _zeusKey: //Disable zeus pings
 		{
-			if (getPlayerUID player in jjx_zeus) then {
+			if (getPlayerUID player in jjx_admin) then {
 				openCuratorInterface;
 			};
 			_handled = true;
