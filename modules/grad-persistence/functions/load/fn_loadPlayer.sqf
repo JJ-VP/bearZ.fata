@@ -68,6 +68,19 @@ private _fnc_waitUntil = {
         };
     };
 
+    private _unitHunger = [_unitDataHash,"hunger"] call CBA_fnc_hashGet;
+    if !(_unitHunger isEqualType false) then {
+        _unit setVariable ["hunger",_unitHunger, true];
+    };
+    private _unitThirst = [_unitDataHash,"thirst"] call CBA_fnc_hashGet;
+    if !(_unitThirst isEqualType false) then {
+        _unit setVariable ["thirst",_unitThirst, true];
+    };
+    private _unitRadiation = [_unitDataHash,"radiation"] call CBA_fnc_hashGet;
+    if !(_unitRadiation isEqualType false) then {
+        _unit setVariable ["radiation",_unitRadiation, true];
+    };
+
     private _vars = [_unitDataHash,"vars"] call CBA_fnc_hashGet;
     [_vars,_unit] call FUNC(loadObjectVars);
 

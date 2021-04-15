@@ -110,6 +110,10 @@ if (_savePlayerMoney) then {
     [_unitDataHash,"bankMoney",_unit getVariable ["grad_moneymenu_myBankBalance",0]] call CBA_fnc_hashSet;
 };
 
+[_unitDataHash, "hunger", _unit getVariable ["hunger",0]] call CBA_fnc_hashSet;
+[_unitDataHash, "thirst", _unit getVariable ["thirst", 0]] call CBA_fnc_hashSet;
+[_unitDataHash, "radiation", _unit getVariable ["radiation", 0]] call CBA_fnc_hashSet;
+
 private _thisUnitVars = [_allPlayerVariableClasses,_unit] call FUNC(saveObjectVars);
 [_unitDataHash,"vars",_thisUnitVars] call CBA_fnc_hashSet;
 
