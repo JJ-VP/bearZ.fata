@@ -12,19 +12,7 @@ if((lbCurSel 1500 > -1) && (lbCurSel 1501 > -1)) then {
     _total = ({_x == "rvg_money"} count (uniformItems player)) + ({_x == "rvg_money"} count (vestItems player)) + ({_x == "rvg_money"} count (backpackItems player));
     if (_total < _price) exitWith {hint format["You have %1, you need %2", _total, _price];};
     //give them the item
-    _notAdded = true;
-    if ((player canAddItemToBackpack [_className, 1]) && _notAdded) then {
-    	_notAdded = false;
-    	player addItemToBackpack _className;
-    };
-    if ((player canAddItemToUniform [_className, 1]) && _notAdded) then {
-    	_notAdded = false;
-    	player addItemToUniform _className;
-    };
-    if ((player canAddItemToVest [_className, 1]) && _notAdded) then {
-    	_notAdded = false;
-    	player addItemToVest _className;
-    };
+    player addItem _className;
     //remove all money then give them (_total - _price)
     while{(0 < _price) && ("rvg_money" in uniformItems player)} do {
     	player removeItemFromUniform "rvg_money";

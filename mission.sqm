@@ -8,11 +8,11 @@ class EditorData
 	toggles=514;
 	class ItemIDProvider
 	{
-		nextID=797;
+		nextID=801;
 	};
 	class MarkerIDProvider
 	{
-		nextID=12;
+		nextID=16;
 	};
 	class LayerIndexProvider
 	{
@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={5417.7959,112.40249,5799.6846};
-		dir[]={0.26295274,-0.69453686,0.66970813};
-		up[]={0.25383663,0.71944845,0.64649117};
-		aside[]={0.93083483,7.1944669e-008,-0.3654803};
+		pos[]={4170.625,491.37317,4779.5898};
+		dir[]={0.33450341,-0.75250715,-0.56734335};
+		up[]={0.38220388,0.658557,-0.64824396};
+		aside[]={-0.86143667,6.3548214e-008,-0.5079};
 	};
 };
 binarizationWanted=0;
@@ -4927,7 +4927,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=316;
+		items=319;
 		class Item0
 		{
 			dataType="Marker";
@@ -5374,7 +5374,7 @@ class Mission
 						class data
 						{
 							singleType="SCALAR";
-							value=0.40000001;
+							value=0.1;
 						};
 					};
 				};
@@ -17758,6 +17758,48 @@ class Mission
 			};
 			id=796;
 			type="Land_CamoNet_EAST_EP1";
+		};
+		class Item316
+		{
+			dataType="Marker";
+			position[]={5524.6729,148.51459,3790.0261};
+			name="marker_13";
+			markerType="ELLIPSE";
+			type="rectangle";
+			colorName="ColorBlue";
+			fillName="SolidFull";
+			a=12;
+			b=12;
+			id=798;
+		};
+		class Item317
+		{
+			dataType="Marker";
+			position[]={5591.3701,151.53101,3769.813};
+			name="marker_14";
+			markerType="ELLIPSE";
+			type="rectangle";
+			colorName="ColorBlue";
+			fillName="SolidFull";
+			a=14;
+			b=16;
+			angle=318.3045;
+			id=799;
+		};
+		class Item318
+		{
+			dataType="Marker";
+			position[]={6027.1499,141.28,4680.9482};
+			name="marker_15";
+			markerType="ELLIPSE";
+			type="ellipse";
+			colorName="ColorBlue";
+			fillName="SolidFull";
+			a=5;
+			b=60;
+			angle=227.23499;
+			id=800;
+			atlOffset=0.0071411133;
 		};
 	};
 };

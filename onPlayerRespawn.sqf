@@ -39,6 +39,7 @@ if ((backpack player == "") && (vest player == "") && (primaryWeapon player == "
 	player addMagazines [(_pistols select _index select 1), ceil ((random 2) + 1)];
 	player addMagazines ["rvg_money", ceil ((random 3) + 1)];
 	player addWeapon (_pistols select _index select 0);
+	player addItem "rvg_plasticBottleEmpty";
 	//get list respawn_west markers
 	_respawns = [];
 	{
