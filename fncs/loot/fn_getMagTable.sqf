@@ -1,11 +1,13 @@
-_table = [	
-	"CUP_30Rnd_556x45_Stanag",
-	"CUP_30Rnd_Sa58_M",
-	"150Rnd_762x54_Box",
-	"CUP_30Rnd_9x19AP_Vityaz",
-	"CUP_30Rnd_556x45_Stanag_Mk16_black",
-	"CUP_30Rnd_762x39_AK47_M",
-	"CUP_30Rnd_762x39_AK103_bakelite_M"
-	];
+_weapons = call dvl_fnc_getWeaponTable;
+_table = [];
+
+_length = (count _weapons) - 1;
+
+for "_i" from 0 to _length do {
+	_weapon = _weapons select _i;
+	_mags = [_weapon] call BIS_fnc_compatibleMagazines;
+	_mag = _mags select 0;
+	_table append [_mag];
+};
 
 _table

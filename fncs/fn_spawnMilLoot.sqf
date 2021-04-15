@@ -15,15 +15,7 @@
 _milGear = call dvl_fnc_getUniformsTable + call dvl_fnc_getVestsTable + call dvl_fnc_getHeadgearTable;
 
 //weapon and mag
-_milWeapons = [
-	["CUP_arifle_M4A1_MOE_short_black", "CUP_30Rnd_556x45_Stanag"],
-	["CUP_arifle_Sa58P_frontris_woodland", "CUP_30Rnd_Sa58_M"],
-	["LMG_Zafir_F", "150Rnd_762x54_Box"],
-	["CUP_smg_vityaz_vfg_top_rail", "CUP_30Rnd_9x19AP_Vityaz"],
-	["CUP_arifle_Mk16_CQC_FG_black", "CUP_30Rnd_556x45_Stanag_Mk16_black"],
-	["CUP_arifle_OTS14_GROZA_762_Grip", "CUP_30Rnd_762x39_AK47_M"],
-	["CUP_arifle_AK103_railed", "CUP_30Rnd_762x39_AK103_bakelite_M"]
-];
+_milWeapons = call dvl_fnc_getWeaponTable;
 
 _gearChance = 0.4;
 _gearItems = 2;
@@ -62,9 +54,14 @@ _wepItems = 1;
 				//pick random item
 				_length = count _milWeapons;
 				_index = ceil random _length - 1;
+				//weapon
+				_weapon = (_milWeapons select _index);
+				//get compat mag
+				_mags = [_weapon] call BIS_fnc_compatibleMagazines;
+				_mag = _mags select 0;
 				//add to crate
-    			_crate addItemCargoGlobal [(_milWeapons select _index select 0), 1];
-    			_crate addItemCargoGlobal [(_milWeapons select _index select 1), ceil ((random 2) + 1)];
+    			_crate addItemCargoGlobal [_weapon, 1];
+    			_crate addItemCargoGlobal [_mag, ceil ((random 2) + 1)];
 			};
 		};
 	};
