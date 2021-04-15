@@ -11,6 +11,8 @@
  * This file is the missionConfigFile and is used to define many internal variables used by the arma server
  */
 
+#include "modules\dual_arms\CfgSecondaryWeapons.hpp" //DualArms support
+
 author = "Devils & JJ";
 onLoadName = "BearZ";
 loadScreen = "";//Path to load screen image
@@ -147,20 +149,5 @@ class CfgGradPersistence {
     };
 
     class customVariables {
-        class thirst {
-            varName = "thirst";
-            varNamespace = "player";
-            public = 0;
-        };
-        class radiation {
-            varName = "radiation";
-            varNamespace = "player";
-            public = 0;
-        };
-        class hunger {
-            varName = "hunger";
-            varNamespace = "player";
-            public = 0;
-        };
     };
 };
