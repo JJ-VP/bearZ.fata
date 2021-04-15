@@ -11,6 +11,7 @@ A DayZ style Arma 3 mission designed for Bear PMC
 	- Building requires resource
 	- upkeep?
 	- Building privilige / area
+- Duel arms (2 Primarys)
 - vehicle pushing
 - Change spawn loadouts
 - Markers for downed heli
