@@ -8,11 +8,11 @@ class EditorData
 	toggles=514;
 	class ItemIDProvider
 	{
-		nextID=801;
+		nextID=839;
 	};
 	class MarkerIDProvider
 	{
-		nextID=16;
+		nextID=17;
 	};
 	class LayerIndexProvider
 	{
@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={4170.625,491.37317,4779.5898};
-		dir[]={0.33450341,-0.75250715,-0.56734335};
-		up[]={0.38220388,0.658557,-0.64824396};
-		aside[]={-0.86143667,6.3548214e-008,-0.5079};
+		pos[]={4890.9468,158.1535,5079.4434};
+		dir[]={-0.64928907,-0.75966543,-0.038681705};
+		up[]={-0.75838166,0.65022898,-0.045181021};
+		aside[]={-0.059469976,-5.7887519e-008,0.99829543};
 	};
 };
 binarizationWanted=0;
@@ -4927,7 +4927,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=319;
+		items=353;
 		class Item0
 		{
 			dataType="Marker";
@@ -17762,44 +17762,737 @@ class Mission
 		class Item316
 		{
 			dataType="Marker";
-			position[]={5524.6729,148.51459,3790.0261};
-			name="marker_13";
-			markerType="ELLIPSE";
-			type="rectangle";
-			colorName="ColorBlue";
-			fillName="SolidFull";
-			a=12;
-			b=12;
-			id=798;
+			position[]={4379.8555,162.46339,3620.8342};
+			name="water";
+			text="water";
+			type="mil_objective";
+			id=801;
 		};
 		class Item317
 		{
-			dataType="Marker";
-			position[]={5591.3701,151.53101,3769.813};
-			name="marker_14";
-			markerType="ELLIPSE";
-			type="rectangle";
-			colorName="ColorBlue";
-			fillName="SolidFull";
-			a=14;
-			b=16;
-			angle=318.3045;
-			id=799;
+			dataType="Trigger";
+			position[]={4374.5894,162.67159,3622.8032};
+			angle=0.90296346;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=802;
+			type="EmptyDetector";
 		};
 		class Item318
 		{
-			dataType="Marker";
-			position[]={6027.1499,141.28,4680.9482};
-			name="marker_15";
-			markerType="ELLIPSE";
-			type="ellipse";
-			colorName="ColorBlue";
-			fillName="SolidFull";
-			a=5;
-			b=60;
-			angle=227.23499;
-			id=800;
-			atlOffset=0.0071411133;
+			dataType="Trigger";
+			position[]={4224.9985,162.99625,3716.7351};
+			angle=0.9029634;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=803;
+			type="EmptyDetector";
+		};
+		class Item319
+		{
+			dataType="Trigger";
+			position[]={4486.8042,159.91989,3643.9766};
+			angle=0.9029634;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=804;
+			type="EmptyDetector";
+		};
+		class Item320
+		{
+			dataType="Trigger";
+			position[]={4453.375,161.71292,3654.1238};
+			angle=0.9029634;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=805;
+			type="EmptyDetector";
+		};
+		class Item321
+		{
+			dataType="Trigger";
+			position[]={4272.0024,162.99625,3746.2109};
+			angle=0.9029634;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=806;
+			type="EmptyDetector";
+		};
+		class Item322
+		{
+			dataType="Trigger";
+			position[]={4519.5918,159.91989,3689.6777};
+			angle=0.9029634;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=807;
+			type="EmptyDetector";
+		};
+		class Item323
+		{
+			dataType="Trigger";
+			position[]={2822.6179,193.17203,6322.8491};
+			angle=5.3146849;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=808;
+			type="EmptyDetector";
+			atlOffset=4.6176453;
+		};
+		class Item324
+		{
+			dataType="Trigger";
+			position[]={2748.449,206.33118,6411.8672};
+			angle=0.57772148;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=809;
+			type="EmptyDetector";
+			atlOffset=4.9280548;
+		};
+		class Item325
+		{
+			dataType="Trigger";
+			position[]={3039.594,218.17372,6360.207};
+			angle=3.7546918;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=810;
+			type="EmptyDetector";
+			atlOffset=4.7223053;
+		};
+		class Item326
+		{
+			dataType="Trigger";
+			position[]={6121.7388,86.878914,5719.709};
+			angle=3.7546918;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=812;
+			type="EmptyDetector";
+		};
+		class Item327
+		{
+			dataType="Trigger";
+			position[]={6024.1958,98.032494,5716.271};
+			angle=1.601292;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=813;
+			type="EmptyDetector";
+			atlOffset=4.7886734;
+		};
+		class Item328
+		{
+			dataType="Trigger";
+			position[]={6194.2305,86.878914,5768.9321};
+			angle=3.7546918;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=814;
+			type="EmptyDetector";
+		};
+		class Item329
+		{
+			dataType="Trigger";
+			position[]={6196.98,98.082092,5811.4727};
+			angle=3.196424;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=815;
+			type="EmptyDetector";
+			atlOffset=4.7366562;
+		};
+		class Item330
+		{
+			dataType="Trigger";
+			position[]={6963.8828,76.09668,5326.6655};
+			angle=4.8072381;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=816;
+			type="EmptyDetector";
+		};
+		class Item331
+		{
+			dataType="Trigger";
+			position[]={7006.5298,85.687164,5286.5151};
+			angle=4.7885671;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=817;
+			type="EmptyDetector";
+			atlOffset=4.5429001;
+		};
+		class Item332
+		{
+			dataType="Trigger";
+			position[]={6464.5728,94.926613,4893.4106};
+			angle=3.7546918;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=818;
+			type="EmptyDetector";
+		};
+		class Item333
+		{
+			dataType="Trigger";
+			position[]={6458.7734,96.870613,4864.7671};
+			angle=3.7546918;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=819;
+			type="EmptyDetector";
+		};
+		class Item334
+		{
+			dataType="Trigger";
+			position[]={6465.4077,105.56088,4840.0161};
+			angle=1.5659007;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=820;
+			type="EmptyDetector";
+			atlOffset=4.4792938;
+		};
+		class Item335
+		{
+			dataType="Trigger";
+			position[]={6427.208,99.604118,4996.1724};
+			angle=2.9563799;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=821;
+			type="EmptyDetector";
+		};
+		class Item336
+		{
+			dataType="Trigger";
+			position[]={6429.9326,99.604118,5039.125};
+			angle=-2.1827962;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=822;
+			type="EmptyDetector";
+		};
+		class Item337
+		{
+			dataType="Trigger";
+			position[]={5415.8457,137.46872,3814.6096};
+			angle=-2.8693979;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=823;
+			type="EmptyDetector";
+			atlOffset=-4.5776367e-005;
+		};
+		class Item338
+		{
+			dataType="Trigger";
+			position[]={5379.1631,136.46324,3799.1218};
+			angle=2.8940101;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=824;
+			type="EmptyDetector";
+		};
+		class Item339
+		{
+			dataType="Trigger";
+			position[]={5247.9111,135.88474,4071.656};
+			angle=-1.489687;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=825;
+			type="EmptyDetector";
+		};
+		class Item340
+		{
+			dataType="Trigger";
+			position[]={5267.8706,146.41533,4108.8643};
+			angle=3.4452479;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=826;
+			type="EmptyDetector";
+			atlOffset=4.3669891;
+		};
+		class Item341
+		{
+			dataType="Trigger";
+			position[]={4833.3813,142.26479,4108.3442};
+			angle=3.7546918;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=827;
+			type="EmptyDetector";
+			atlOffset=3.0517578e-005;
+		};
+		class Item342
+		{
+			dataType="Trigger";
+			position[]={6248.9561,97.061478,4815.9917};
+			angle=3.7546918;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=828;
+			type="EmptyDetector";
+		};
+		class Item343
+		{
+			dataType="Trigger";
+			position[]={6275.813,107.95048,4842.2026};
+			angle=2.6492412;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=829;
+			type="EmptyDetector";
+			atlOffset=4.5485611;
+		};
+		class Item344
+		{
+			dataType="Trigger";
+			position[]={6224.5356,97.043312,4877.3574};
+			angle=3.7546918;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=830;
+			type="EmptyDetector";
+		};
+		class Item345
+		{
+			dataType="Trigger";
+			position[]={5547.002,90.44101,5277.7837};
+			angle=3.7546918;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=831;
+			type="EmptyDetector";
+		};
+		class Item346
+		{
+			dataType="Trigger";
+			position[]={5497.4282,90.44101,5333.9189};
+			angle=3.7546918;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=832;
+			type="EmptyDetector";
+		};
+		class Item347
+		{
+			dataType="Trigger";
+			position[]={5690.8911,89.631447,5432.8022};
+			angle=3.7546918;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=833;
+			type="EmptyDetector";
+		};
+		class Item348
+		{
+			dataType="Trigger";
+			position[]={4829.874,120.88674,5379.9922};
+			angle=3.7546918;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=834;
+			type="EmptyDetector";
+		};
+		class Item349
+		{
+			dataType="Trigger";
+			position[]={4915.6348,131.79932,5277.1172};
+			angle=5.096478;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=835;
+			type="EmptyDetector";
+			atlOffset=3.778183;
+		};
+		class Item350
+		{
+			dataType="Trigger";
+			position[]={4896.7793,120.88674,5253.5801};
+			angle=-0.14906904;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=836;
+			type="EmptyDetector";
+		};
+		class Item351
+		{
+			dataType="Trigger";
+			position[]={5069.8906,120.87475,5248.8389};
+			angle=3.7546918;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=837;
+			type="EmptyDetector";
+		};
+		class Item352
+		{
+			dataType="Trigger";
+			position[]={4875.728,124.44284,5060.6392};
+			angle=3.7546918;
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{if(([player, ""rvg_canteenEmpty""] call BIS_fnc_hasItem)) then { " \n "  _canteenAction = player addAction[ " \n "   ""Fill up canteen"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_canteenEmpty""; " \n "    player addItem ""rvg_canteen""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""cAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""cID"", _canteenAction]; " \n "}; " \n "if(([player, ""VA_Waterbottle_empty""] call BIS_fnc_hasItem)) then { " \n "  _bottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""VA_Waterbottle_empty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""vAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""vID"", _bottleAction]; " \n "}; " \n "if(([player, ""rvg_plasticBottleEmpty""] call BIS_fnc_hasItem)) then { " \n "  _rvgBottleAction = player addAction[ " \n "   ""Fill up water bottle"", " \n "   { " \n "    params [""_target"", ""_caller"", ""_actionId"", ""_arguments""]; " \n "       player removeItem ""rvg_plasticBottleEmpty""; " \n "    player addItem ""rvg_plasticBottle""; " \n "    player removeAction (_this select 2); " \n "    player setVariable [""bAdded"", false]; " \n "   }, " \n "   nil,3,true,true,"""",""true"",-1,false,"""","""" " \n "  ]; " \n "  player setVariable [""bID"", _rvgBottleAction]; " \n "};}";
+				onDeactivation="call{player removeAction (player getVariable ""cID""); " \n "player removeAction (player getVariable ""bID""); " \n "player removeAction (player getVariable ""vID"");}";
+				sizeA=2;
+				sizeB=2;
+				sizeC=5;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=838;
+			type="EmptyDetector";
 		};
 	};
 };
