@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={4890.9468,158.1535,5079.4434};
-		dir[]={-0.64928907,-0.75966543,-0.038681705};
-		up[]={-0.75838166,0.65022898,-0.045181021};
-		aside[]={-0.059469976,-5.7887519e-008,0.99829543};
+		pos[]={4758.9053,186.18027,5382.3965};
+		dir[]={0.63562554,-0.63976431,0.43212083};
+		up[]={0.52909702,0.76855493,0.35969999};
+		aside[]={0.56223071,2.0037987e-007,-0.82700688};
 	};
 };
 binarizationWanted=0;
@@ -4927,7 +4927,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=353;
+		items=352;
 		class Item0
 		{
 			dataType="Marker";
@@ -17761,15 +17761,6 @@ class Mission
 		};
 		class Item316
 		{
-			dataType="Marker";
-			position[]={4379.8555,162.46339,3620.8342};
-			name="water";
-			text="water";
-			type="mil_objective";
-			id=801;
-		};
-		class Item317
-		{
 			dataType="Trigger";
 			position[]={4374.5894,162.67159,3622.8032};
 			angle=0.90296346;
@@ -17787,7 +17778,7 @@ class Mission
 			id=802;
 			type="EmptyDetector";
 		};
-		class Item318
+		class Item317
 		{
 			dataType="Trigger";
 			position[]={4224.9985,162.99625,3716.7351};
@@ -17806,7 +17797,7 @@ class Mission
 			id=803;
 			type="EmptyDetector";
 		};
-		class Item319
+		class Item318
 		{
 			dataType="Trigger";
 			position[]={4486.8042,159.91989,3643.9766};
@@ -17825,7 +17816,7 @@ class Mission
 			id=804;
 			type="EmptyDetector";
 		};
-		class Item320
+		class Item319
 		{
 			dataType="Trigger";
 			position[]={4453.375,161.71292,3654.1238};
@@ -17844,7 +17835,7 @@ class Mission
 			id=805;
 			type="EmptyDetector";
 		};
-		class Item321
+		class Item320
 		{
 			dataType="Trigger";
 			position[]={4272.0024,162.99625,3746.2109};
@@ -17863,7 +17854,7 @@ class Mission
 			id=806;
 			type="EmptyDetector";
 		};
-		class Item322
+		class Item321
 		{
 			dataType="Trigger";
 			position[]={4519.5918,159.91989,3689.6777};
@@ -17882,7 +17873,7 @@ class Mission
 			id=807;
 			type="EmptyDetector";
 		};
-		class Item323
+		class Item322
 		{
 			dataType="Trigger";
 			position[]={2822.6179,193.17203,6322.8491};
@@ -17903,7 +17894,7 @@ class Mission
 			type="EmptyDetector";
 			atlOffset=4.6176453;
 		};
-		class Item324
+		class Item323
 		{
 			dataType="Trigger";
 			position[]={2748.449,206.33118,6411.8672};
@@ -17924,7 +17915,7 @@ class Mission
 			type="EmptyDetector";
 			atlOffset=4.9280548;
 		};
-		class Item325
+		class Item324
 		{
 			dataType="Trigger";
 			position[]={3039.594,218.17372,6360.207};
@@ -17945,7 +17936,7 @@ class Mission
 			type="EmptyDetector";
 			atlOffset=4.7223053;
 		};
-		class Item326
+		class Item325
 		{
 			dataType="Trigger";
 			position[]={6121.7388,86.878914,5719.709};
@@ -17965,7 +17956,7 @@ class Mission
 			id=812;
 			type="EmptyDetector";
 		};
-		class Item327
+		class Item326
 		{
 			dataType="Trigger";
 			position[]={6024.1958,98.032494,5716.271};
@@ -17986,7 +17977,7 @@ class Mission
 			type="EmptyDetector";
 			atlOffset=4.7886734;
 		};
-		class Item328
+		class Item327
 		{
 			dataType="Trigger";
 			position[]={6194.2305,86.878914,5768.9321};
@@ -18006,7 +17997,7 @@ class Mission
 			id=814;
 			type="EmptyDetector";
 		};
-		class Item329
+		class Item328
 		{
 			dataType="Trigger";
 			position[]={6196.98,98.082092,5811.4727};
@@ -18027,7 +18018,7 @@ class Mission
 			type="EmptyDetector";
 			atlOffset=4.7366562;
 		};
-		class Item330
+		class Item329
 		{
 			dataType="Trigger";
 			position[]={6963.8828,76.09668,5326.6655};
@@ -18047,7 +18038,7 @@ class Mission
 			id=816;
 			type="EmptyDetector";
 		};
-		class Item331
+		class Item330
 		{
 			dataType="Trigger";
 			position[]={7006.5298,85.687164,5286.5151};
@@ -18068,7 +18059,7 @@ class Mission
 			type="EmptyDetector";
 			atlOffset=4.5429001;
 		};
-		class Item332
+		class Item331
 		{
 			dataType="Trigger";
 			position[]={6464.5728,94.926613,4893.4106};
@@ -18088,7 +18079,7 @@ class Mission
 			id=818;
 			type="EmptyDetector";
 		};
-		class Item333
+		class Item332
 		{
 			dataType="Trigger";
 			position[]={6458.7734,96.870613,4864.7671};
@@ -18108,7 +18099,7 @@ class Mission
 			id=819;
 			type="EmptyDetector";
 		};
-		class Item334
+		class Item333
 		{
 			dataType="Trigger";
 			position[]={6465.4077,105.56088,4840.0161};
@@ -18129,7 +18120,7 @@ class Mission
 			type="EmptyDetector";
 			atlOffset=4.4792938;
 		};
-		class Item335
+		class Item334
 		{
 			dataType="Trigger";
 			position[]={6427.208,99.604118,4996.1724};
@@ -18149,7 +18140,7 @@ class Mission
 			id=821;
 			type="EmptyDetector";
 		};
-		class Item336
+		class Item335
 		{
 			dataType="Trigger";
 			position[]={6429.9326,99.604118,5039.125};
@@ -18169,7 +18160,7 @@ class Mission
 			id=822;
 			type="EmptyDetector";
 		};
-		class Item337
+		class Item336
 		{
 			dataType="Trigger";
 			position[]={5415.8457,137.46872,3814.6096};
@@ -18190,7 +18181,7 @@ class Mission
 			type="EmptyDetector";
 			atlOffset=-4.5776367e-005;
 		};
-		class Item338
+		class Item337
 		{
 			dataType="Trigger";
 			position[]={5379.1631,136.46324,3799.1218};
@@ -18210,7 +18201,7 @@ class Mission
 			id=824;
 			type="EmptyDetector";
 		};
-		class Item339
+		class Item338
 		{
 			dataType="Trigger";
 			position[]={5247.9111,135.88474,4071.656};
@@ -18230,7 +18221,7 @@ class Mission
 			id=825;
 			type="EmptyDetector";
 		};
-		class Item340
+		class Item339
 		{
 			dataType="Trigger";
 			position[]={5267.8706,146.41533,4108.8643};
@@ -18251,7 +18242,7 @@ class Mission
 			type="EmptyDetector";
 			atlOffset=4.3669891;
 		};
-		class Item341
+		class Item340
 		{
 			dataType="Trigger";
 			position[]={4833.3813,142.26479,4108.3442};
@@ -18272,7 +18263,7 @@ class Mission
 			type="EmptyDetector";
 			atlOffset=3.0517578e-005;
 		};
-		class Item342
+		class Item341
 		{
 			dataType="Trigger";
 			position[]={6248.9561,97.061478,4815.9917};
@@ -18292,7 +18283,7 @@ class Mission
 			id=828;
 			type="EmptyDetector";
 		};
-		class Item343
+		class Item342
 		{
 			dataType="Trigger";
 			position[]={6275.813,107.95048,4842.2026};
@@ -18313,7 +18304,7 @@ class Mission
 			type="EmptyDetector";
 			atlOffset=4.5485611;
 		};
-		class Item344
+		class Item343
 		{
 			dataType="Trigger";
 			position[]={6224.5356,97.043312,4877.3574};
@@ -18333,7 +18324,7 @@ class Mission
 			id=830;
 			type="EmptyDetector";
 		};
-		class Item345
+		class Item344
 		{
 			dataType="Trigger";
 			position[]={5547.002,90.44101,5277.7837};
@@ -18353,7 +18344,7 @@ class Mission
 			id=831;
 			type="EmptyDetector";
 		};
-		class Item346
+		class Item345
 		{
 			dataType="Trigger";
 			position[]={5497.4282,90.44101,5333.9189};
@@ -18373,7 +18364,7 @@ class Mission
 			id=832;
 			type="EmptyDetector";
 		};
-		class Item347
+		class Item346
 		{
 			dataType="Trigger";
 			position[]={5690.8911,89.631447,5432.8022};
@@ -18393,7 +18384,7 @@ class Mission
 			id=833;
 			type="EmptyDetector";
 		};
-		class Item348
+		class Item347
 		{
 			dataType="Trigger";
 			position[]={4829.874,120.88674,5379.9922};
@@ -18413,7 +18404,7 @@ class Mission
 			id=834;
 			type="EmptyDetector";
 		};
-		class Item349
+		class Item348
 		{
 			dataType="Trigger";
 			position[]={4915.6348,131.79932,5277.1172};
@@ -18434,7 +18425,7 @@ class Mission
 			type="EmptyDetector";
 			atlOffset=3.778183;
 		};
-		class Item350
+		class Item349
 		{
 			dataType="Trigger";
 			position[]={4896.7793,120.88674,5253.5801};
@@ -18454,7 +18445,7 @@ class Mission
 			id=836;
 			type="EmptyDetector";
 		};
-		class Item351
+		class Item350
 		{
 			dataType="Trigger";
 			position[]={5069.8906,120.87475,5248.8389};
@@ -18474,7 +18465,7 @@ class Mission
 			id=837;
 			type="EmptyDetector";
 		};
-		class Item352
+		class Item351
 		{
 			dataType="Trigger";
 			position[]={4875.728,124.44284,5060.6392};
