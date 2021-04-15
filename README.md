@@ -3,8 +3,7 @@ A DayZ style Arma 3 mission designed for Bear PMC
 
 ## Items to add: 
 - Flesh out towns to make them look nicer
-- Improve loot tables
-- More water + food sources
+- food sources
 - Add food, water and health to persistance
 - Better base building
 	- Custom base building menu
