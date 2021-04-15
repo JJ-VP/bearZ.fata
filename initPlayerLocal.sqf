@@ -16,6 +16,7 @@ waituntil {!(IsNull (findDisplay 46))};
 
 call jjx_fnc_keys;
 call jjx_fnc_EH;
+call jjx_fnc_loops;
 
 player allowDamage false;
 titleText ["Loading player data!", "BLACK", 0.01];
