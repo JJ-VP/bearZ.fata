@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={4758.9053,186.18027,5382.3965};
-		dir[]={0.63562554,-0.63976431,0.43212083};
-		up[]={0.52909702,0.76855493,0.35969999};
-		aside[]={0.56223071,2.0037987e-007,-0.82700688};
+		pos[]={5989.5371,295.52402,4016.4282};
+		dir[]={-0.57435852,-0.65506566,-0.49112934};
+		up[]={-0.49793464,0.75548679,-0.42578167};
+		aside[]={-0.64995474,3.3713877e-007,0.76009661};
 	};
 };
 binarizationWanted=0;
@@ -376,7 +376,7 @@ class CustomAttributes
 								singleType="ARRAY";
 								class value
 								{
-									items=128;
+									items=131;
 									class Item0
 									{
 										class data
@@ -1401,6 +1401,30 @@ class CustomAttributes
 											value="va_exclrvggr";
 										};
 									};
+									class Item128
+									{
+										class data
+										{
+											singleType="STRING";
+											value="vale_spwnsavezone";
+										};
+									};
+									class Item129
+									{
+										class data
+										{
+											singleType="STRING";
+											value="vale_flashlight";
+										};
+									};
+									class Item130
+									{
+										class data
+										{
+											singleType="STRING";
+											value="vale_goggles";
+										};
+									};
 								};
 							};
 						};
@@ -1411,7 +1435,7 @@ class CustomAttributes
 								singleType="ARRAY";
 								class value
 								{
-									items=128;
+									items=131;
 									class Item0
 									{
 										class data
@@ -1533,7 +1557,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=354.37149;
+														value=354.371;
 													};
 												};
 												class Item1
@@ -1641,7 +1665,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=749.83569;
+														value=749.836;
 													};
 												};
 												class Item1
@@ -1695,7 +1719,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=4.5852551;
+														value=4.5852599;
 													};
 												};
 												class Item1
@@ -1749,7 +1773,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=3.0028539;
+														value=3.0028501;
 													};
 												};
 												class Item1
@@ -1857,7 +1881,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=10.009513;
+														value=20.077499;
 													};
 												};
 												class Item1
@@ -1884,7 +1908,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=60.349613;
+														value=60.349602;
 													};
 												};
 												class Item1
@@ -2100,7 +2124,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=15.04353;
+														value=15.0435;
 													};
 												};
 												class Item1
@@ -2127,7 +2151,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=10.009513;
+														value=10.0095;
 													};
 												};
 												class Item1
@@ -2181,7 +2205,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=4.1364932;
+														value=4.1364899;
 													};
 												};
 												class Item1
@@ -2208,7 +2232,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=1.7560606;
+														value=1.75606;
 													};
 												};
 												class Item1
@@ -2235,7 +2259,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=74.612732;
+														value=74.612701;
 													};
 												};
 												class Item1
@@ -2343,7 +2367,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=15.04353;
+														value=15.0435;
 													};
 												};
 												class Item1
@@ -2451,7 +2475,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=10.009513;
+														value=25.950565;
 													};
 												};
 												class Item1
@@ -2478,7 +2502,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=80.485748;
+														value=80.485703;
 													};
 												};
 												class Item1
@@ -2559,7 +2583,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=3.0950565;
+														value=3.0950601;
 													};
 												};
 												class Item1
@@ -2586,7 +2610,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=5.1086636;
+														value=3.2662599;
 													};
 												};
 												class Item1
@@ -4044,7 +4068,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=3.2628574;
+														value=4.2730598;
 													};
 												};
 												class Item1
@@ -4098,7 +4122,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=5.4408627;
+														value=2.44086;
 													};
 												};
 												class Item1
@@ -4125,7 +4149,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=0.83315074;
+														value=0.83315098;
 													};
 												};
 												class Item1
@@ -4206,7 +4230,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=3.3467507;
+														value=1.34675;
 													};
 												};
 												class Item1
@@ -4260,7 +4284,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=2.0077548;
+														value=2.00775;
 													};
 												};
 												class Item1
@@ -4287,7 +4311,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=2.7628574;
+														value=2.7628601;
 													};
 												};
 												class Item1
@@ -4341,7 +4365,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=2.2560606;
+														value=2.2560599;
 													};
 												};
 												class Item1
@@ -4368,7 +4392,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=3.3467507;
+														value=3.34675;
 													};
 												};
 												class Item1
@@ -4395,7 +4419,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=0.74925041;
+														value=0.74924999;
 													};
 												};
 												class Item1
@@ -4449,7 +4473,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=3.8535609;
+														value=3.85356;
 													};
 												};
 												class Item1
@@ -4476,7 +4500,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=1.8399541;
+														value=1.83995;
 													};
 												};
 												class Item1
@@ -4503,7 +4527,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=1.8399541;
+														value=1.83995;
 													};
 												};
 												class Item1
@@ -4530,7 +4554,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=0.91705096;
+														value=0.91705102;
 													};
 												};
 												class Item1
@@ -4557,7 +4581,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=1.504353;
+														value=1.5043499;
 													};
 												};
 												class Item1
@@ -4584,7 +4608,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=2.5950565;
+														value=2.5950601;
 													};
 												};
 												class Item1
@@ -4611,7 +4635,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=2.7628574;
+														value=2.7628601;
 													};
 												};
 												class Item1
@@ -4692,7 +4716,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=1.9238544;
+														value=1.9238501;
 													};
 												};
 												class Item1
@@ -4855,6 +4879,87 @@ class CustomAttributes
 													{
 														singleType="BOOL";
 														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item128
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=15.0435;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item129
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item130
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=0;
 													};
 												};
 												class Item1
@@ -17676,7 +17781,7 @@ class Mission
 			};
 			id=792;
 			type="Land_PaperBox_01_open_empty_F";
-			atlOffset=0.0020904541;
+			atlOffset=0.0020980835;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -17763,7 +17868,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={4374.5894,162.67159,3622.8032};
-			angle=0.90296346;
+			angle=0.9029634;
 			class Attributes
 			{
 				condition="call{this}";
@@ -17782,7 +17887,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={4224.9985,162.99625,3716.7351};
-			angle=0.9029634;
+			angle=0.90296334;
 			class Attributes
 			{
 				condition="call{this}";
@@ -17801,7 +17906,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={4486.8042,159.91989,3643.9766};
-			angle=0.9029634;
+			angle=0.90296334;
 			class Attributes
 			{
 				condition="call{this}";
@@ -17820,7 +17925,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={4453.375,161.71292,3654.1238};
-			angle=0.9029634;
+			angle=0.90296334;
 			class Attributes
 			{
 				condition="call{this}";
@@ -17839,7 +17944,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={4272.0024,162.99625,3746.2109};
-			angle=0.9029634;
+			angle=0.90296334;
 			class Attributes
 			{
 				condition="call{this}";
@@ -17858,7 +17963,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={4519.5918,159.91989,3689.6777};
-			angle=0.9029634;
+			angle=0.90296334;
 			class Attributes
 			{
 				condition="call{this}";
@@ -17960,7 +18065,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={6024.1958,98.032494,5716.271};
-			angle=1.601292;
+			angle=1.6012919;
 			class Attributes
 			{
 				condition="call{this}";
@@ -18042,7 +18147,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={7006.5298,85.687164,5286.5151};
-			angle=4.7885671;
+			angle=4.7885666;
 			class Attributes
 			{
 				condition="call{this}";
@@ -18124,7 +18229,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={6427.208,99.604118,4996.1724};
-			angle=2.9563799;
+			angle=2.9563797;
 			class Attributes
 			{
 				condition="call{this}";
@@ -18144,7 +18249,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={6429.9326,99.604118,5039.125};
-			angle=-2.1827962;
+			angle=-2.182796;
 			class Attributes
 			{
 				condition="call{this}";
@@ -18164,7 +18269,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={5415.8457,137.46872,3814.6096};
-			angle=-2.8693979;
+			angle=-2.8693976;
 			class Attributes
 			{
 				condition="call{this}";
@@ -18205,7 +18310,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={5247.9111,135.88474,4071.656};
-			angle=-1.489687;
+			angle=-1.4896868;
 			class Attributes
 			{
 				condition="call{this}";
@@ -18225,7 +18330,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={5267.8706,146.41533,4108.8643};
-			angle=3.4452479;
+			angle=3.4452477;
 			class Attributes
 			{
 				condition="call{this}";
@@ -18287,7 +18392,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={6275.813,107.95048,4842.2026};
-			angle=2.6492412;
+			angle=2.649241;
 			class Attributes
 			{
 				condition="call{this}";
@@ -18408,7 +18513,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={4915.6348,131.79932,5277.1172};
-			angle=5.096478;
+			angle=5.0964775;
 			class Attributes
 			{
 				condition="call{this}";
@@ -18429,7 +18534,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={4896.7793,120.88674,5253.5801};
-			angle=-0.14906904;
+			angle=-0.14906903;
 			class Attributes
 			{
 				condition="call{this}";
