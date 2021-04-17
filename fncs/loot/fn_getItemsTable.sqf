@@ -11,7 +11,16 @@ _table = [
 	"VA_CanFranta",
 	"Medikit",
 	"Toolkit",
-	"FirstAitKit"
+	"FirstAidKit",
+	"jjx_sandbag",
+	"jjx_Cinderblock",
+	"jjx_Wirecoil",
+	"jjx_camoNet",
+	"jjx_metalPipe",
+	"rvg_sleepingBag_Blue",
+	"rvg_foldedTent",
+	"rvg_foldedTent_blue",
+	"rvg_foldedTent_grey"
 	];
 
 _table
