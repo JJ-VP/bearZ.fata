@@ -27,6 +27,7 @@ titleText ["", "BLACK IN", 2];
 uiSleep 2;
 player allowDamage true;
 
+edn_fortification_keydown = (findDisplay 46) displayAddEventHandler ["KeyDown","_this call edn_fnc_keyCheck"];
 
 player setVariable ["cAdded", false];
 player setVariable ["bAdded", false];
