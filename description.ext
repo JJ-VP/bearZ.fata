@@ -145,6 +145,7 @@ class CfgFunctions {
             class turnObject {};
             class updateCollisions {};
             class updateConstructionMenu {};
+            class dropResource {};
         };
     };
 };
