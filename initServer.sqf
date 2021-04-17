@@ -42,7 +42,7 @@ _this spawn {
 	while {time > 0} do {
 		_duration = 60 * 240;
 		"Mission saving in 10 seconds!" remoteExec ["systemChat", 0, true];
-		"Expect desync untill save is complete!" remoteExec ["systemChat", 0, true];
+		"Expect desync until save is complete!" remoteExec ["systemChat", 0, true];
 		[false] call grad_persistence_fnc_saveMission;
 		sleep _duration;
 	};
