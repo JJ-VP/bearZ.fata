@@ -31,7 +31,7 @@ placeAction = [
 	{player enableSimulation false;},					// Code executed when action starts
 	{},													// Code executed on every progress tick
 	{detach EDN_Fortification_object;player enableSimulation true;},					// Code executed on completion
-	{detach EDN_Fortification_object; deleteVehicle EDN_Fortification_object; player removeAction placeAction;player enableSimulation true;},// Code executed on interrupted
+	{detach EDN_Fortification_object; player enableSimulation true;EDN_Fortification_object call edn_fnc_dropResource; player removeAction placeAction;},// Code executed on interrupted
 	[],													// Arguments passed to the scripts as _this select 3
 	3,													// Action duration [s]
 	0,													// Priority
