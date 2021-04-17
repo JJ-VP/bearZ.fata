@@ -97,9 +97,9 @@ class CfgFunctions {
             class spawnLootCache {};
             class populateShop{};
             class buyItem{};
-            class checkWater{};
-            class spawnLoot{};
-            class returnIfSamePos{};
+            //class checkWater{};
+            //class spawnLoot{};
+            //class returnIfSamePos{};
     	};
         class table {
             file = "fncs\loot";

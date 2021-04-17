@@ -35,8 +35,8 @@ player setVariable ["bAdded", false];
 player setVariable ["vAdded", false];
 player setVariable ["_ary", []];
 
-while{true} do {
+/*while{true} do {
 	call dvl_fnc_checkWater;
 	player setVariable ["_ary", [player getVariable "_ary"] call dvl_fnc_spawnLoot];
 	uiSleep 0.05;
-};
+};*/
