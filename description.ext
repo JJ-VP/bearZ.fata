@@ -41,6 +41,7 @@ showHUD[] = {
 
 showGroupIndicator = 0;
 allowProfileGlasses = 0;
+corpseManagerMode = 2;
 corpseLimit = 60;
 corpseRemovalMaxTime = 10800; // 3 Hours
 wreckLimit = 15;
@@ -125,6 +126,26 @@ class CfgFunctions {
             class loops {};
             class brightness {postInit=1;};
     	};
+    };
+    class edn {
+        class fortify {
+            file = "modules\fortify";
+            class addBlueprint {};
+            class addConstructionsToZeus {};
+            class alignObject {};
+            class buildObject {};
+            class clearBlueprints {};
+            class distanceObject {};
+            class keyCheck {};
+            class moveObject {};
+            class openConstructionMenu {};
+            class openFortificationMenu {};
+            class removeItemCargoGlobal {};
+            class removeObject {};
+            class turnObject {};
+            class updateCollisions {};
+            class updateConstructionMenu {};
+        };
     };
 };
 
