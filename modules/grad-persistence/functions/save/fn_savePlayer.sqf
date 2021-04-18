@@ -91,7 +91,9 @@ if (_savePlayerInventory) then {
 };
 
 if (_savePlayerDamage) then {
-    [_unitDataHash,"damage",getDammage _unit] call CBA_fnc_hashSet;
+    private _allHitPointsDamage = getAllHitPointsDamage _unit;
+    private _damage = [_allHitPointsDamage select 0,_allHitPointsDamage select 2];
+    [_unitDataHash,"damage",_damage] call CBA_fnc_hashSet;
 };
 
 if (_savePlayerPosition) then {
