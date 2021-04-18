@@ -18,15 +18,16 @@ call jjx_fnc_keys;
 
 player allowDamage false;
 titleText ["Loading player data!", "BLACK", 0.01];
-uiSleep 4;
+sleep 4;
 initDone = true;
-uiSleep 2;
+sleep 2;
 titleText ["", "BLACK IN", 2];
-uiSleep 2;
+sleep 2;
 player allowDamage true;
 
 call jjx_fnc_EH;
 call jjx_fnc_loops;
+call jjx_fnc_unflip;
 
 edn_fortification_keydown = (findDisplay 46) displayAddEventHandler ["KeyDown","_this call edn_fnc_keyCheck"];
 
