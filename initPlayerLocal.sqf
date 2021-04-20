@@ -27,7 +27,6 @@ player allowDamage true;
 
 call jjx_fnc_EH;
 call jjx_fnc_loops;
-call jjx_fnc_unflip;
 call SA_fnc_advancedSlingLoadingInit;
 call SA_fnc_advancedTowingInit;
 
@@ -51,6 +50,20 @@ player setVariable ["cAdded", false];
 player setVariable ["bAdded", false];
 player setVariable ["vAdded", false];
 player setVariable ["_ary", []];
+
+if(!isDedicated) then {
+	[] spawn {
+		while {true} do {
+			if(!isNull player && isPlayer player) then {
+				if!( player getVariable ["unflip_Loaded",false] ) then {
+					[] call jjx_unflip_Action;
+					player setVariable ["unflip_Loaded",true];
+				};
+			};
+			sleep 2;
+		};
+	};
+};
 
 while{true} do {
 	call dvl_fnc_checkWater;
