@@ -30,11 +30,11 @@ A DayZ style Arma 3 mission designed for Bear PMC
 - Base building stuff
 	- upkeep?
 	- Building privilige / area
-- vehicle pushing
 - Change spawn loadouts
 - Markers for downed heli
 - Side objectives
 - Custom vehicle spawns
+- Make vehicles work with GRAD (requires VA source modification)
 
 ### Addon todo:
 - Add Ravage (To allow for source modification)
