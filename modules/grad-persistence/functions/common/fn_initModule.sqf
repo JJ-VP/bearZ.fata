@@ -1,18 +1,18 @@
 #include "script_component.hpp"
 
-["gradpersistenceSave", {
+["saveMission", {
     [true, 10] remoteExec ["grad_persistence_fnc_saveMission",2,false];
 }, "adminLogged"] call CBA_fnc_registerChatCommand;
 
-["gradpersistenceLoad", {
+["loadMission", {
     [] remoteExec ["grad_persistence_fnc_loadMission",2,false];
 }, "adminLogged"] call CBA_fnc_registerChatCommand;
 
-["gradpersistenceLoadPlayers", {
+["loadAllPlayers", {
     [] remoteExec ["grad_persistence_fnc_loadAllPlayers",2,false];
 }, "adminLogged"] call CBA_fnc_registerChatCommand;
 
-["gradpersistenceLoadPlayer", {
+["loadPlayer", {
     params [["_player",""]];
     if (_player == "") exitWith {
         systemChat "Use '#gradPersistenceLoadPlayer <name>' or '#gradPersistenceLoadPlayer <UID>'";
