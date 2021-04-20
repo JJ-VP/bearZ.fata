@@ -36,14 +36,7 @@ private _fnc_waitUntil = {
         };
     };
 
-    if (_savePlayerDamage) then {
-        _unit = player; 
-        private _missionTag = [] call grad_persistence_fnc_getMissionTag; 
-        private _playersTag = _missionTag + "_players"; 
-        private _playersDataHash = [_playersTag,true,false] call grad_persistence_fnc_getSaveData; 
-        private _uid = getPlayerUID _unit; 
-        private _unitDataHash = [_playersDataHash,_uid] call CBA_fnc_hashGet; 
-         
+    if (_savePlayerDamage) then {       
         private _allHitPointsDamage = [_unitDataHash,"damage"] call CBA_fnc_hashGet; 
         if (!(_allHitPointsDamage isEqualType false)) then { 
             _allHitPointsDamage params ["_unitHitNames","_unitHitDamages"];
