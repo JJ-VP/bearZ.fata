@@ -28,6 +28,8 @@ player allowDamage true;
 call jjx_fnc_EH;
 call jjx_fnc_loops;
 call jjx_fnc_unflip;
+call SA_fnc_advancedSlingLoadingInit;
+call SA_fnc_advancedTowingInit;
 
 edn_fortification_keydown = (findDisplay 46) displayAddEventHandler ["KeyDown","_this call edn_fnc_keyCheck"];
 

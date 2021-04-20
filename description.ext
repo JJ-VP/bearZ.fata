@@ -89,7 +89,7 @@ joinUnassigned = 0;
 #include <gui\gui.hpp>
 
 class CfgFunctions {
-    #include "modules\grad-persistence\cfgFunctions.hpp"
+    #include "modules\cfgFunctions.hpp"
     class dvl {
     	class spawns {
     		file = "fncs";
@@ -125,29 +125,9 @@ class CfgFunctions {
             class isAdmin {};
             class loops {};
             class commands {};
+            class unflip {postInit=1;};
             class brightness {postInit=1;};
     	};
-    };
-    class edn {
-        class fortify {
-            file = "modules\fortify";
-            class addBlueprint {};
-            class addConstructionsToZeus {};
-            class alignObject {};
-            class buildObject {};
-            class clearBlueprints {};
-            class distanceObject {};
-            class keyCheck {};
-            class moveObject {};
-            class openConstructionMenu {};
-            class openFortificationMenu {};
-            class removeItemCargoGlobal {};
-            class removeObject {};
-            class turnObject {};
-            class updateCollisions {};
-            class updateConstructionMenu {};
-            class dropResource {};
-        };
     };
 };
 
@@ -177,6 +157,4 @@ class CfgGradPersistence {
         "MapBoard_seismic_F"
     };
 
-    class customVariables {
-    };
 };
