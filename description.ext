@@ -124,6 +124,7 @@ class CfgFunctions {
             class variableMenu {};
             class isAdmin {};
             class loops {};
+            class commands {};
             class brightness {postInit=1;};
     	};
     };

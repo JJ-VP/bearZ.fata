@@ -31,6 +31,20 @@ call jjx_fnc_unflip;
 
 edn_fortification_keydown = (findDisplay 46) displayAddEventHandler ["KeyDown","_this call edn_fnc_keyCheck"];
 
+//Chat Commands
+["command", {
+    ["help"] call jjx_fnc_commands;
+}, "adminLogged"] call CBA_fnc_registerChatCommand;
+
+["help", {
+    ["help"] call jjx_fnc_commands;
+}, "adminLogged"] call CBA_fnc_registerChatCommand;
+
+["menu", {
+    ["menu"] call jjx_fnc_commands;
+}, "adminLogged"] call CBA_fnc_registerChatCommand;
+
+
 player setVariable ["cAdded", false];
 player setVariable ["bAdded", false];
 player setVariable ["vAdded", false];
