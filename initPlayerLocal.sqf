@@ -14,6 +14,7 @@
 
 waituntil {!(IsNull (findDisplay 46))};
 
+["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
 call jjx_fnc_keys;
 
 player allowDamage false;

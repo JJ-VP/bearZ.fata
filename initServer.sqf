@@ -13,6 +13,7 @@
 
 jjx_admin = ["76561198119540788","76561198156022880","_SP_PLAYER_"];
 publicVariable "jjx_admin";
+["Initialize"] call BIS_fnc_dynamicGroups;
 
 _this spawn{
 	_duration = 60 * 20;// 60 * num minutes you want
@@ -47,3 +48,13 @@ _this spawn {
 		[false] call grad_persistence_fnc_saveMission;
 	};
 }; //Save the mission every 4 hours
+
+ [] spawn {
+  while {true} do {
+   {
+    _x addCuratorEditableObjects [allUnits, true];
+    _x addCuratorEditableObjects [vehicles, true];
+    sleep 60;
+   } forEach allCurators; 
+  };
+ }; //Add all objects to zeus
