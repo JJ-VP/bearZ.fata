@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=514;
+	toggles=522;
 	class ItemIDProvider
 	{
-		nextID=844;
+		nextID=852;
 	};
 	class MarkerIDProvider
 	{
@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={992.18378,112.28703,5874.4609};
-		dir[]={0.6504187,-0.75956494,-0.0040824688};
-		up[]={0.75954998,0.65043151,-0.004767451};
-		aside[]={-0.0062765554,-2.3283064e-010,-0.99998033};
+		pos[]={1027.2642,82.532524,5924.4116};
+		dir[]={-0.090889268,-0.6575954,-0.74786866};
+		up[]={-0.079334535,0.7533713,-0.65279227};
+		aside[]={-0.99269599,0,0.12064339};
 	};
 };
 binarizationWanted=0;
@@ -75,13 +75,14 @@ addons[]=
 	"A3_Characters_F_Mark",
 	"A3_Modules_F_Curator_Curator",
 	"CUP_Weapons_NVG",
-	"CUP_Weapons_Grenades"
+	"CUP_Weapons_Grenades",
+	"A3_Soft_F_MRAP_01"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=35;
+		items=36;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -300,6 +301,13 @@ class AddonsMetaData
 		{
 			className="CUP_Weapons_Grenades";
 			name="CUP_Weapons_Grenades";
+		};
+		class Item35
+		{
+			className="A3_Soft_F";
+			name="Arma 3 Alpha - Unarmored Land Vehicles";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
 		};
 	};
 };
@@ -8224,7 +8232,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=357;
+		items=360;
 		class Item0
 		{
 			dataType="Marker";
@@ -24487,6 +24495,57 @@ class Mission
 			{
 			};
 			id=843;
+		};
+		class Item357
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1041.7523,61.850174,5902.2222};
+				angles[]={6.2575345,0.025756577,4.8051805};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=849;
+			type="B_MRAP_01_F";
+			atlOffset=-0.69717026;
+		};
+		class Item358
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1029.5719,61.046318,5897.5991};
+				angles[]={0.087470442,3.1702902,1.4874096};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=850;
+			type="B_MRAP_01_F";
+			atlOffset=-0.47332382;
+		};
+		class Item359
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1020.7198,59.485615,5900.3008};
+				angles[]={3.143975,3.1419895,0.061086658};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=851;
+			type="B_MRAP_01_F";
+			atlOffset=-1.3033295;
 		};
 	};
 };
